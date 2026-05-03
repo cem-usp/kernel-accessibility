@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html#visão-geral",
+    "href": "index.html#visão-geral",
+    "title": "Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras",
+    "section": "Visão Geral",
+    "text": "Visão Geral\nO presente estudo visa prover mapas da densidade de Kernel sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio do angariamento, processamento, geocodificação e classificação dos dados dos CNPJs provenientes tanto da Receita Federal Brasileira (RFB) quanto da Relação Anual dos Informes Sociais (RAIS) do Ministério do Trabalho e do Emprego (MTE), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap (OSM), via Overpass API. A classificação sobre a saudabilidade alimentar segue o estudo Locais-Nova.\nPara instruções de como usar o pipeline, veja o repositório [README]."
+  },
+  {
+    "objectID": "index.html#problema",
+    "href": "index.html#problema",
+    "title": "Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras",
+    "section": "Problema",
+    "text": "Problema\nO projeto AcessoSAN almeja desenvolver novos métodos de medição e de análise da desilguadade existente no acesso aos alimentos saudáveis, particularmente nas favelas e comunidades urbanas brasileiras. Para alcançar tais objetivos, faz-se necessário o uso de bases de dados confiáveis e atualizadas sobre os estabelecimentos que vendem comida saudável.\nTanto a RFB quanto a RAIS listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece informações geocodificadas, necessário para análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de Caldeira et al.(2026), para a georreferenciar os dados dos CNPJs da RAIS, de Vartanian et al. (2026), para a georreferenciar os dados dos CNPJs da RFB, e de Freitas et al. (2026), para obter as métricas de acessibilidade."
+  }
+]

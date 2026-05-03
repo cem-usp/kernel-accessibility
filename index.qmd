@@ -1,0 +1,30 @@
+```{r}
+#| label: setup
+#| include: false
+
+library(here)
+
+here("R", ".setup.R") |> source()
+```
+
+<!-- badges: start -->
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![](https://img.shields.io/badge/OSF-10.17605/OSF.IO/P5UFJ-1284C5.svg)](https://doi.org/10.17605/OSF.IO/P5UFJ)
+[![License: GPLv3](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+<!-- badges: end -->
+
+## Visão Geral
+
+O presente estudo visa prover mapas da densidade de Kernel sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio do angariamento, processamento, geocodificação e classificação dos dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s provenientes tanto da Receita Federal Brasileira ([RFB](https://www.gov.br/receitafederal/)) quanto da Relação Anual dos Informes Sociais ([RAIS](https://www.rais.gov.br/)) do Ministério do Trabalho e do Emprego ([MTE](https://www.gov.br/trabalho-e-emprego)), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)), via [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API). A classificação sobre a saudabilidade alimentar segue o estudo [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en).
+
+Para instruções de como usar o pipeline, veja o repositório [README]. 
+
+## Problema
+
+O projeto [AcessoSAN](https://doi.org/10.17605/OSF.IO/ZE6WT) almeja desenvolver novos métodos de medição e de análise da desilguadade existente no acesso aos alimentos saudáveis, particularmente nas favelas e comunidades urbanas brasileiras. Para alcançar tais objetivos, faz-se necessário o uso de bases de dados confiáveis e atualizadas sobre os estabelecimentos que vendem comida saudável.
+
+Tanto a [RFB](https://www.gov.br/receitafederal/) quanto a [RAIS](https://www.rais.gov.br/) listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece [informações geocodificadas](https://en.wikipedia.org/wiki/Address_geocoding), necessário para análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de [Caldeira et al.(2026)](https://github.com/cem-usp/locais-nova-rais-geocoding/tree/main), para a georreferenciar os dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s da [RAIS](https://www.rais.gov.br/), de [Vartanian et al. (2026)](https://github.com/cem-usp/locais-nova-rfb-geocoding/tree/main), para a georreferenciar os dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s da [RFB](https://www.gov.br/receitafederal/), e de [Freitas et al. (2026)](https://github.com/cem-usp/locais-nova-access/tree/main), para obter as métricas de acessibilidade. 
+
+
+
