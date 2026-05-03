@@ -18,7 +18,7 @@ here("R", ".setup.R") |> source()
 
 O presente estudo visa prover mapas da densidade de Kernel sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio do angariamento, processamento, geocodificação e classificação dos dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s provenientes tanto da Receita Federal Brasileira ([RFB](https://www.gov.br/receitafederal/)) quanto da Relação Anual dos Informes Sociais ([RAIS](https://www.rais.gov.br/)) do Ministério do Trabalho e do Emprego ([MTE](https://www.gov.br/trabalho-e-emprego)), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)), via [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API). A classificação sobre a saudabilidade alimentar segue o estudo [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en).
 
-Para instruções de como usar o pipeline, veja o repositório [README]. 
+Para instruções de como usar o pipeline, veja o repositório [README](https://github.com/cem-usp/kernel-accessibility/blob/main/README.md). 
 
 ## Problema
 

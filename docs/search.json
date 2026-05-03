@@ -4,7 +4,7 @@
     "href": "index.html#visão-geral",
     "title": "Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras",
     "section": "Visão Geral",
-    "text": "Visão Geral\nO presente estudo visa prover mapas da densidade de Kernel sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio do angariamento, processamento, geocodificação e classificação dos dados dos CNPJs provenientes tanto da Receita Federal Brasileira (RFB) quanto da Relação Anual dos Informes Sociais (RAIS) do Ministério do Trabalho e do Emprego (MTE), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap (OSM), via Overpass API. A classificação sobre a saudabilidade alimentar segue o estudo Locais-Nova.\nPara instruções de como usar o pipeline, veja o repositório [README]."
+    "text": "Visão Geral\nO presente estudo visa prover mapas da densidade de Kernel sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio do angariamento, processamento, geocodificação e classificação dos dados dos CNPJs provenientes tanto da Receita Federal Brasileira (RFB) quanto da Relação Anual dos Informes Sociais (RAIS) do Ministério do Trabalho e do Emprego (MTE), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap (OSM), via Overpass API. A classificação sobre a saudabilidade alimentar segue o estudo Locais-Nova.\nPara instruções de como usar o pipeline, veja o repositório README."
   },
   {
     "objectID": "index.html#problema",
