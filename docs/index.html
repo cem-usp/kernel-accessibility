@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Marcio Antonio Pizzonia Junior">
-<meta name="dcterms.date" content="2026-05-02">
+<meta name="dcterms.date" content="2026-05-04">
 <title>Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras</title>
 <style>
 /* Default styles provided by pandoc.
@@ -65,10 +65,10 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:image:width" content="2400">
 <meta name="citation_title" content="Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras">
 <meta name="citation_author" content="Marcio Antonio Pizzonia Junior">
-<meta name="citation_publication_date" content="2026-05-02">
-<meta name="citation_cover_date" content="2026-05-02">
+<meta name="citation_publication_date" content="2026-05-04">
+<meta name="citation_cover_date" content="2026-05-04">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-05-02">
+<meta name="citation_online_date" content="2026-05-04">
 <meta name="citation_fulltext_html_url" content="https://cem-usp.github.io/kernel-accessibility/">
 <meta name="citation_language" content="en">
 </head>
@@ -121,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 2, 2026</p>
+      <p class="date">May 4, 2026</p>
     </div>
   </div>
   
@@ -132,11 +132,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header><!-- badges: start --><p><a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" class="img-fluid" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a> <a href="https://doi.org/10.17605/OSF.IO/P5UFJ"><img src="https://img.shields.io/badge/OSF-10.17605/OSF.IO/P5UFJ-1284C5.svg" class="img-fluid"></a> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/license-GPLv3-bd0000.svg" class="img-fluid" alt="License: GPLv3"></a> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY-NC-SA 4.0"></a> <!-- badges: end --></p>
 <section id="visão-geral" class="level2"><h2 class="anchored" data-anchor-id="visão-geral">Visão Geral</h2>
-<p>O presente estudo visa prover mapas da densidade de Kernel sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio do angariamento, processamento, geocodificação e classificação dos dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s provenientes tanto da Receita Federal Brasileira (<a href="https://www.gov.br/receitafederal/">RFB</a>) quanto da Relação Anual dos Informes Sociais (<a href="https://www.rais.gov.br/">RAIS</a>) do Ministério do Trabalho e do Emprego (<a href="https://www.gov.br/trabalho-e-emprego">MTE</a>), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap (<a href="https://www.openstreetmap.org/#map=4/-15.13/-53.19">OSM</a>), via <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>. A classificação sobre a saudabilidade alimentar segue o estudo <a href="https://doi.org/10.1590/S2237-96222025v34.20240361.en">Locais-Nova</a>.</p>
+<p>O presente estudo visa prover mapas gerados pela <a href="https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm">Função de Densidade de Kernel</a> sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio do angariamento, processamento, geocodificação e classificação dos dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s provenientes tanto da Receita Federal Brasileira (<a href="https://www.gov.br/receitafederal/">RFB</a>) quanto da Relação Anual dos Informes Sociais (<a href="https://www.rais.gov.br/">RAIS</a>) do Ministério do Trabalho e do Emprego (<a href="https://www.gov.br/trabalho-e-emprego">MTE</a>), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap (<a href="https://www.openstreetmap.org/#map=4/-15.13/-53.19">OSM</a>), via <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>. A classificação sobre a saudabilidade alimentar segue o estudo <a href="https://doi.org/10.1590/S2237-96222025v34.20240361.en">Locais-Nova</a>, usando o Grupo 0 (G0), este não sendo parte da classificação original, entretanto é um subgrupo existente no grupo G1 + G2 do qual é composto por estabelecimentos que vendem alimentos exclusivamente saudáveis que deveriam fazer parte da dieta populacional.</p>
 <p>Para instruções de como usar o pipeline, veja o repositório <a href="https://github.com/cem-usp/kernel-accessibility/blob/main/README.md">README</a>.</p>
 </section><section id="problema" class="level2"><h2 class="anchored" data-anchor-id="problema">Problema</h2>
 <p>O projeto <a href="https://doi.org/10.17605/OSF.IO/ZE6WT">AcessoSAN</a> almeja desenvolver novos métodos de medição e de análise da desilguadade existente no acesso aos alimentos saudáveis, particularmente nas favelas e comunidades urbanas brasileiras. Para alcançar tais objetivos, faz-se necessário o uso de bases de dados confiáveis e atualizadas sobre os estabelecimentos que vendem comida saudável.</p>
-<p>Tanto a <a href="https://www.gov.br/receitafederal/">RFB</a> quanto a <a href="https://www.rais.gov.br/">RAIS</a> listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece <a href="https://en.wikipedia.org/wiki/Address_geocoding">informações geocodificadas</a>, necessário para análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de <a href="https://github.com/cem-usp/locais-nova-rais-geocoding/tree/main">Caldeira et al.(2026)</a>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.rais.gov.br/">RAIS</a>, de <a href="https://github.com/cem-usp/locais-nova-rfb-geocoding/tree/main">Vartanian et al.&nbsp;(2026)</a>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.gov.br/receitafederal/">RFB</a>, e de <a href="https://github.com/cem-usp/locais-nova-access/tree/main">Freitas et al.&nbsp;(2026)</a>, para obter as métricas de acessibilidade.</p>
+<p>Tanto a <a href="https://www.gov.br/receitafederal/">RFB</a> quanto a <a href="https://www.rais.gov.br/">RAIS</a> listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece <a href="https://en.wikipedia.org/wiki/Address_geocoding">informações geocodificadas</a>, necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de <a href="https://github.com/cem-usp/locais-nova-rais-geocoding/tree/main">Caldeira et al.(2026)</a>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.rais.gov.br/">RAIS</a>, de <a href="https://github.com/cem-usp/locais-nova-rfb-geocoding/tree/main">Vartanian et al.&nbsp;(2026)</a>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.gov.br/receitafederal/">RFB</a>, e de <a href="https://github.com/cem-usp/locais-nova-access/tree/main">Freitas et al.&nbsp;(2026)</a>, para obter as métricas de acessibilidade do grupo G0.</p>
+<p>Além disso, para entender melhor os gaps informacionais existentes sobre as informações relacionadas ao acesso aos alimentos saudáveis, será realizado, também, análises referentes aos dados disponíveis na <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a> como meio de comparação com os resultados obridos da <a href="https://www.gov.br/receitafederal/">RFB</a> e da <a href="https://www.rais.gov.br/">RAIS</a>.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
