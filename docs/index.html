@@ -41,7 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-91e1e80b107d16cc321a4d9063554c6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-512c56f9b927c2c669140b3f52ef1674.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-91e1e80b107d16cc321a4d9063554c6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-91e1e80b107d16cc321a4d9063554c6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -100,6 +103,24 @@ ul.task-list li input[type="checkbox"] {
   <ul>
 <li><a href="#vis%C3%A3o-geral" id="toc-visão-geral" class="nav-link active" data-scroll-target="#vis%C3%A3o-geral">Visão Geral</a></li>
   <li><a href="#problema" id="toc-problema" class="nav-link" data-scroll-target="#problema">Problema</a></li>
+  <li><a href="#disponibilidade-dos-dados" id="toc-disponibilidade-dos-dados" class="nav-link" data-scroll-target="#disponibilidade-dos-dados">Disponibilidade dos Dados</a></li>
+  <li>
+<a href="#m%C3%A9todos" id="toc-métodos" class="nav-link" data-scroll-target="#m%C3%A9todos">Métodos</a>
+  <ul>
+<li><a href="#fonte-dos-dados" id="toc-fonte-dos-dados" class="nav-link" data-scroll-target="#fonte-dos-dados">Fonte dos Dados</a></li>
+  <li><a href="#processamento-dos-dados" id="toc-processamento-dos-dados" class="nav-link" data-scroll-target="#processamento-dos-dados">Processamento dos Dados</a></li>
+  <li><a href="#estrutura-dos-dados" id="toc-estrutura-dos-dados" class="nav-link" data-scroll-target="#estrutura-dos-dados">Estrutura dos Dados</a></li>
+  <li><a href="#estilo-do-c%C3%B3digo" id="toc-estilo-do-código" class="nav-link" data-scroll-target="#estilo-do-c%C3%B3digo">Estilo do Código</a></li>
+  <li><a href="#reprodutibilidade" id="toc-reprodutibilidade" class="nav-link" data-scroll-target="#reprodutibilidade">Reprodutibilidade</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#preparar-o-ambiente" id="toc-preparar-o-ambiente" class="nav-link" data-scroll-target="#preparar-o-ambiente">Preparar o Ambiente</a>
+  <ul>
+<li><a href="#carregar-os-pacotes" id="toc-carregar-os-pacotes" class="nav-link" data-scroll-target="#carregar-os-pacotes">Carregar os Pacotes</a></li>
+  </ul>
+</li>
+  <li><a href="#reconhecimentos" id="toc-reconhecimentos" class="nav-link" data-scroll-target="#reconhecimentos">Reconhecimentos</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/cem-usp/kernel-accessibility/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cem-usp/kernel-accessibility/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/cem-usp/kernel-accessibility/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://centrodametropole.fflch.usp.br"><i class="bi bi-link-45deg"></i>Center for Metropolitan Studies</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -133,13 +154,57 @@ ul.task-list li input[type="checkbox"] {
 </header><!-- badges: start --><p><a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" class="img-fluid" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a> <a href="https://doi.org/10.17605/OSF.IO/P5UFJ"><img src="https://img.shields.io/badge/OSF-10.17605/OSF.IO/P5UFJ-1284C5.svg" class="img-fluid"></a> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/license-GPLv3-bd0000.svg" class="img-fluid" alt="License: GPLv3"></a> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY-NC-SA 4.0"></a> <!-- badges: end --></p>
 <section id="visão-geral" class="level2"><h2 class="anchored" data-anchor-id="visão-geral">Visão Geral</h2>
 <p>O presente estudo visa prover mapas gerados pela <a href="https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm">Função de Densidade de Kernel</a> sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio do angariamento, processamento, geocodificação e classificação dos dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s provenientes tanto da Receita Federal Brasileira (<a href="https://www.gov.br/receitafederal/">RFB</a>) quanto da Relação Anual dos Informes Sociais (<a href="https://www.rais.gov.br/">RAIS</a>) do Ministério do Trabalho e do Emprego (<a href="https://www.gov.br/trabalho-e-emprego">MTE</a>), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap (<a href="https://www.openstreetmap.org/#map=4/-15.13/-53.19">OSM</a>), via <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>. A classificação sobre a saudabilidade alimentar segue o estudo <a href="https://doi.org/10.1590/S2237-96222025v34.20240361.en">Locais-Nova</a>, usando o Grupo 0 (G0), este não sendo parte da classificação original, entretanto é um subgrupo existente no grupo G1 + G2 do qual é composto por estabelecimentos que vendem alimentos exclusivamente saudáveis que deveriam fazer parte da dieta populacional.</p>
-<p>Para instruções de como usar o pipeline, veja o repositório <a href="https://github.com/cem-usp/kernel-accessibility/blob/main/README.md">README</a>.</p>
+<p>Para instruções de como usar o pipeline, veja <a href="https://github.com/cem-usp/kernel-accessibility/blob/main/README.md">README</a> no repositório.</p>
 </section><section id="problema" class="level2"><h2 class="anchored" data-anchor-id="problema">Problema</h2>
 <p>O projeto <a href="https://doi.org/10.17605/OSF.IO/ZE6WT">AcessoSAN</a> almeja desenvolver novos métodos de medição e de análise da desilguadade existente no acesso aos alimentos saudáveis, particularmente nas favelas e comunidades urbanas brasileiras. Para alcançar tais objetivos, faz-se necessário o uso de bases de dados confiáveis e atualizadas sobre os estabelecimentos que vendem comida saudável.</p>
 <p>Tanto a <a href="https://www.gov.br/receitafederal/">RFB</a> quanto a <a href="https://www.rais.gov.br/">RAIS</a> listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece <a href="https://en.wikipedia.org/wiki/Address_geocoding">informações geocodificadas</a>, necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de <a href="https://github.com/cem-usp/locais-nova-rais-geocoding/tree/main">Caldeira et al.(2026)</a>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.rais.gov.br/">RAIS</a>, de <a href="https://github.com/cem-usp/locais-nova-rfb-geocoding/tree/main">Vartanian et al.&nbsp;(2026)</a>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.gov.br/receitafederal/">RFB</a>, e de <a href="https://github.com/cem-usp/locais-nova-access/tree/main">Freitas et al.&nbsp;(2026)</a>, para obter as métricas de acessibilidade do grupo G0.</p>
 <p>Além disso, para entender melhor os gaps informacionais existentes sobre as informações relacionadas ao acesso aos alimentos saudáveis, será realizado, também, análises referentes aos dados disponíveis na <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a> como meio de comparação com os resultados obridos da <a href="https://www.gov.br/receitafederal/">RFB</a> e da <a href="https://www.rais.gov.br/">RAIS</a>.</p>
+</section><section id="disponibilidade-dos-dados" class="level2"><h2 class="anchored" data-anchor-id="disponibilidade-dos-dados">Disponibilidade dos Dados</h2>
+</section><section id="métodos" class="level2"><h2 class="anchored" data-anchor-id="métodos">Métodos</h2>
+<section id="fonte-dos-dados" class="level3"><h3 class="anchored" data-anchor-id="fonte-dos-dados">Fonte dos Dados</h3>
+</section><section id="processamento-dos-dados" class="level3"><h3 class="anchored" data-anchor-id="processamento-dos-dados">Processamento dos Dados</h3>
+<p>O processamento dos dados segue o workflow de ciência de dados criado por <span class="citation" data-cites="wickham2023e">@wickham2023e</span> como ilustrado in <a href="#fig-wickham-at-al-2023-figure-1" class="quarto-xref">Figure&nbsp;1</a>. Todos os processos foram feitos usando o sistema de publicação <a href="https://quarto.org/">Quarto</a> em conjunto com as linguagens de programação <a href="https://en.wikipedia.org/wiki/AWK">AWK</a> <span class="citation" data-cites="aho2023">[@aho2023]</span> e <a href="https://www.r-project.org/">R</a> <span class="citation" data-cites="rcoreteam">[@rcoreteam]</span>, apoiadas por diverso pacotes do R.</p>
+<p>Para o workflow e o processamento dos dados foi dado priodridade aos pacotes do <a href="https://www.tidyverse.org/">tidyverse</a>, <a href="https://ropensci.org/">rOpenSci</a> e <a href="https://r-spatial.org/">r-spatial</a> frameworks, assim como outros pacotes que aderem ao manifesto tidy tools <span class="citation" data-cites="wickham2023c">[@wickham2023c]</span>.</p>
+<div id="fig-wickham-at-al-2023-figure-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-wickham-at-al-2023-figure-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and Grolemund.
+</figcaption><div aria-describedby="fig-wickham-at-al-2023-figure-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="images/wickham-at-al-2023-figure-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and Grolemund."><img src="images/wickham-at-al-2023-figure-1.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
+<p><span class="legend">Source: Reproduced from <span class="citation" data-cites="wickham2023e">@wickham2023e</span>.</span></p>
+</div>
+</figure>
+</div>
+</section><section id="estrutura-dos-dados" class="level3"><h3 class="anchored" data-anchor-id="estrutura-dos-dados">Estrutura dos Dados</h3>
+</section><section id="estilo-do-código" class="level3"><h3 class="anchored" data-anchor-id="estilo-do-código">Estilo do Código</h3>
+<p>O Tidyverse <a href="https://tidyverse.tidyverse.org/articles/manifesto.html">manifesto tidy tools</a> <span class="citation" data-cites="wickham2023c">[@wickham2023c]</span>, <a href="https://style.tidyverse.org/">guia do estilo de código</a> <span class="citation" data-cites="wickhama">[@wickhama]</span> e <a href="https://design.tidyverse.org/">design principles</a> <span class="citation" data-cites="wickhamc">[@wickhamc]</span> foram seguidos para garantir consistência e melhorar a legibilidade.</p>
+</section><section id="reprodutibilidade" class="level3"><h3 class="anchored" data-anchor-id="reprodutibilidade">Reprodutibilidade</h3>
+<p>O pipeline é integralmente reprodutível e pode ser reexecutado a qualquer momento. Para assegurar consistência nos resultados, utilizou-se o pacote <a href="https://rstudio.github.io/renv/">renv</a> package <span class="citation" data-cites="ushey2025">[@ushey2025]</span> para gerenciar e restaurar o ambiente R. Consulte o arquivo <a href="https://github.com/cem-usp/kernel-accessibility/blob/main/README.md">README</a> no repositório para instruções de execução.</p>
+</section></section><section id="preparar-o-ambiente" class="level2"><h2 class="anchored" data-anchor-id="preparar-o-ambiente">Preparar o Ambiente</h2>
+<section id="carregar-os-pacotes" class="level3"><h3 class="anchored" data-anchor-id="carregar-os-pacotes">Carregar os Pacotes</h3>
+</section></section><section id="reconhecimentos" class="level2"><h2 class="anchored" data-anchor-id="reconhecimentos">Reconhecimentos</h2>
+<div class="columns" style="display: flex; align-items: center; margin: 1em; padding-top: 1em;">
+<div class="column" style="width: 30%; text-align: center;">
+<p><a href="https://doi.org/10.17605/OSF.IO/ZE6WT"><img src="images/acessosan-logo.svg" class="img-fluid" width="140"></a></p>
+</div><div class="column" style="width: 70%; display: flex; align-items: center;">
+<p>This work is part of a research project by the Polytechnic School (<a href="https://www.poli.usp.br/">Poli</a>) of the University of São Paulo (<a href="https://usp.br/">USP</a>), in partnership with the National Secretariat for Food and Nutrition Security (<a href="https://www.gov.br/mds/pt-br/orgaos/SESAN">SESAN</a>) of the Brazilian Ministry of Social Development and Assistance, Family and Fight Against Hunger (<a href="https://www.gov.br/mds/">MDS</a>), titled: <em>AcessoSAN: Mapping Food Access to Support Public Policies on Food and Nutrition Security and Hunger Reduction in Brazilian Cities</em>.</p>
+</div>
+</div>
+<div class="columns" style="display: flex; align-items: center; margin: 1em; padding-top: 0em;">
+<div class="column" style="width: 30%; text-align: center;">
+<p><a href="https://centrodametropole.fflch.usp.br"><img src="images/cem-icon.svg" class="img-fluid" width="190"></a></p>
+</div><div class="column" style="width: 70%; display: flex; align-items: center;">
+<p>This work was developed with support from the Center for Metropolitan Studies (<a href="https://centrodametropole.fflch.usp.br">CEM</a>) based at the School of Philosophy, Letters and Human Sciences (<a href="https://www.fflch.usp.br/">FFLCH</a>) of the University of São Paulo (<a href="https://usp.br/">USP</a>) and at the Brazilian Center for Analysis and Planning (<a href="https://cebrap.org.br/">CEBRAP</a>).</p>
+</div>
+</div>
+<div class="columns" style="display: flex; align-items: center; margin: 1em; padding-top: 0em;">
+<div class="column" style="width: 30%; text-align: center;">
+<p><a href="https://fapesp.br/"><img src="images/fapesp-logo.svg" class="img-fluid" width="160"></a></p>
+</div><div class="column" style="width: 70%; display: flex; align-items: center;">
+<p>This study was financed, in part, by the São Paulo Research Foundation (<a href="https://fapesp.br/">FAPESP</a>), Brazil. Process Number <a href="https://bv.fapesp.br/en/bolsas/231507/geospatial-data-science-applied-to-food-policies/">2025/17879-2</a>.</p>
+</div>
 
 
+</div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -541,7 +606,38 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cem-usp/kernel-accessibility/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cem-usp/kernel-accessibility/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/cem-usp/kernel-accessibility/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
-
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cem-usp/kernel-accessibility/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cem-usp/kernel-accessibility/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/cem-usp/kernel-accessibility/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+</body></html>
