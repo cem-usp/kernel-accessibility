@@ -75,9 +75,40 @@ O pipeline é integralmente reprodutível e pode ser reexecutado a qualquer mome
 
 ### Carregar os Pacotes
 
-
 ```{r}
 
+```
+
+## Citação
+
+
+## License
+
+::: {style="text-align: left;"}
+[![License: GPLv3](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+:::
+
+::: {.callout-note}
+As fontes de dados originais podem estar sujeitas aos seus próprios termos e condições de licenciamento.
+:::
+
+O código deste repositório está licenciado sob a [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0), enquanto o relatório está disponível sob a licença [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+```
+Copyright (C) 2026 Center for Metropolitan Studies
+
+The code in this report is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/>.
 ```
 
 ## Reconhecimentos
@@ -106,4 +137,10 @@ This work was developed with support from the Center for Metropolitan Studies ([
 :::
 ::: {.column style="width: 70%; display: flex; align-items: center;"}
 This study was financed, in part, by the São Paulo Research Foundation ([FAPESP](https://fapesp.br/)), Brazil. Process Number [2025/17879-2](https://bv.fapesp.br/en/bolsas/231507/geospatial-data-science-applied-to-food-policies/).
+:::
+::::
+
+## Referencias {.unnumbered}
+
+::: {#refs}
 :::

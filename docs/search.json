@@ -25,7 +25,7 @@
     "href": "index.html#métodos",
     "title": "Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras",
     "section": "Métodos",
-    "text": "Métodos\nFonte dos Dados\nProcessamento dos Dados\nO processamento dos dados segue o workflow de ciência de dados criado por @wickham2023e como ilustrado in Figure 1. Todos os processos foram feitos usando o sistema de publicação Quarto em conjunto com as linguagens de programação AWK [@aho2023] e R [@rcoreteam], apoiadas por diverso pacotes do R.\nPara o workflow e o processamento dos dados foi dado priodridade aos pacotes do tidyverse, rOpenSci e r-spatial frameworks, assim como outros pacotes que aderem ao manifesto tidy tools [@wickham2023c].\n\n\nFigure 1: Data science workflow created by Wickham, Çetinkaya-Runde, and Grolemund.\n\n\nSource: Reproduced from @wickham2023e.\n\n\n\nEstrutura dos Dados\nEstilo do Código\nO Tidyverse manifesto tidy tools [@wickham2023c], guia do estilo de código [@wickhama] e design principles [@wickhamc] foram seguidos para garantir consistência e melhorar a legibilidade.\nReprodutibilidade\nO pipeline é integralmente reprodutível e pode ser reexecutado a qualquer momento. Para assegurar consistência nos resultados, utilizou-se o pacote renv package [@ushey2025] para gerenciar e restaurar o ambiente R. Consulte o arquivo README no repositório para instruções de execução."
+    "text": "Métodos\nFonte dos Dados\nProcessamento dos Dados\nO processamento dos dados segue o workflow de ciência de dados criado por Wickham et al. (2023) como ilustrado in Figure 1. Todos os processos foram feitos usando o sistema de publicação Quarto em conjunto com as linguagens de programação AWK (Aho et al., 2023) e R (R Core Team, n.d.), apoiadas por diverso pacotes do R.\nPara o workflow e o processamento dos dados foi dado priodridade aos pacotes do tidyverse, rOpenSci e r-spatial frameworks, assim como outros pacotes que aderem ao manifesto tidy tools (Wickham, 2023).\n\n\nFigure 1: Data science workflow created by Wickham, Çetinkaya-Runde, and Grolemund.\n\n\nSource: Reproduced from Wickham et al. (2023).\n\n\n\nEstrutura dos Dados\nEstilo do Código\nO Tidyverse manifesto tidy tools (Wickham, 2023), guia do estilo de código (Wickham, n.d.-a) e design principles (Wickham, n.d.-b) foram seguidos para garantir consistência e melhorar a legibilidade.\nReprodutibilidade\nO pipeline é integralmente reprodutível e pode ser reexecutado a qualquer momento. Para assegurar consistência nos resultados, utilizou-se o pacote renv package (Ushey & Wickham, 2025) para gerenciar e restaurar o ambiente R. Consulte o arquivo README no repositório para instruções de execução."
   },
   {
     "objectID": "index.html#preparar-o-ambiente",
@@ -35,10 +35,31 @@
     "text": "Preparar o Ambiente\nCarregar os Pacotes"
   },
   {
+    "objectID": "index.html#citação",
+    "href": "index.html#citação",
+    "title": "Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras",
+    "section": "Citação",
+    "text": "Citação"
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras",
+    "section": "License",
+    "text": "License\n\n \n\n\n\n\n\n\n\nAs fontes de dados originais podem estar sujeitas aos seus próprios termos e condições de licenciamento.\n\n\n\nO código deste repositório está licenciado sob a GNU General Public License Version 3, enquanto o relatório está disponível sob a licença Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.\nCopyright (C) 2026 Center for Metropolitan Studies\n\nThe code in this report is free software: you can redistribute it and/or\nmodify it under the terms of the GNU General Public License as published by the\nFree Software Foundation, either version 3 of the License, or (at your option)\nany later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY\nWARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A\nPARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with\nthis program. If not, see &lt;https://www.gnu.org/licenses/&gt;."
+  },
+  {
     "objectID": "index.html#reconhecimentos",
     "href": "index.html#reconhecimentos",
     "title": "Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras",
     "section": "Reconhecimentos",
     "text": "Reconhecimentos\n\n\n\n\nThis work is part of a research project by the Polytechnic School (Poli) of the University of São Paulo (USP), in partnership with the National Secretariat for Food and Nutrition Security (SESAN) of the Brazilian Ministry of Social Development and Assistance, Family and Fight Against Hunger (MDS), titled: AcessoSAN: Mapping Food Access to Support Public Policies on Food and Nutrition Security and Hunger Reduction in Brazilian Cities.\n\n\n\n\n\n\nThis work was developed with support from the Center for Metropolitan Studies (CEM) based at the School of Philosophy, Letters and Human Sciences (FFLCH) of the University of São Paulo (USP) and at the Brazilian Center for Analysis and Planning (CEBRAP).\n\n\n\n\n\n\nThis study was financed, in part, by the São Paulo Research Foundation (FAPESP), Brazil. Process Number 2025/17879-2."
+  },
+  {
+    "objectID": "index.html#referencias",
+    "href": "index.html#referencias",
+    "title": "Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras",
+    "section": "Referencias",
+    "text": "Referencias\n\n\nAho, A., Kernighan, B., & Weinberger, P. (2023). The AWK programming language. Addison-Wesley Professional. https://www.awk.dev\n\n\nR Core Team. (n.d.). R: A language and environment for statistical computing [Computer software]. R Foundation for Statistical Computing. https://www.r-project.org\n\n\nUshey, K., & Wickham, H. (2025). renv: Project environments [Computer software]. https://doi.org/10.32614/CRAN.package.renv\n\n\nWickham, H. (n.d.-a). The tidyverse style guide. https://style.tidyverse.org\n\n\nWickham, H. (n.d.-b). Tidy design principles. https://design.tidyverse.org\n\n\nWickham, H. (2023). The tidy tools manifesto. Tidyverse. https://tidyverse.tidyverse.org/articles/manifesto.html\n\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for data science: Import, tidy, transform, visualize, and model data (2nd ed.). O’Reilly Media. https://r4ds.hadley.nz"
   }
 ]

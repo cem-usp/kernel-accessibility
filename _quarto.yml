@@ -1,7 +1,5 @@
 editor: source
 
-https://github.com/cem-usp/kernel-accessibilityeditor: source
-
 execute:
   cache: false # "Danger, Will Robinson!"
   freeze: false # If you plan to use it, remember to disable it afterward!
@@ -66,4 +64,4 @@ format:
         href: https://centrodametropole.fflch.usp.br
 
 google-scholar: true
-
+bibliography: references.bib
