@@ -1,3 +1,16 @@
+---
+params:
+  year: 2022
+  h3_resolution: 9
+  municipality_codes: [
+    2507507, # João Pessoa (PB)
+    3106200, # Belo Horizonte (MG)
+    3550308, # São Paulo (SP)
+    4314902, # Porto Alegre (RS)
+    1501402 # Belém (PA)
+  ]
+---
+
 ```{r}
 #| label: setup
 #| include: false
@@ -26,7 +39,7 @@ Para instruções de como usar o pipeline, veja [README](https://github.com/cem-
 
 O projeto [AcessoSAN](https://doi.org/10.17605/OSF.IO/ZE6WT) almeja desenvolver novos métodos de medição e de análise da desilguadade existente no acesso aos alimentos saudáveis, particularmente nas favelas e comunidades urbanas brasileiras. Para alcançar tais objetivos, faz-se necessário o uso de bases de dados confiáveis e atualizadas sobre os estabelecimentos que vendem comida saudável.
 
-Tanto a [RFB](https://www.gov.br/receitafederal/) quanto a [RAIS](https://www.rais.gov.br/) listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece [informações geocodificadas](https://en.wikipedia.org/wiki/Address_geocoding), necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de @caldeira2026, para a georreferenciar os dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s da [RAIS](https://www.rais.gov.br/), de @vartanian2026, para a georreferenciar os dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s da [RFB](https://www.gov.br/receitafederal/), e de @freitas2026, para obter as métricas de acessibilidade do grupo G0. 
+Tanto a [RFB](https://www.gov.br/receitafederal/) quanto a [RAIS](https://www.rais.gov.br/) listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece [informações geocodificadas](https://en.wikipedia.org/wiki/Address_geocoding), necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de @caldeira2026, para a georreferenciar os dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s da [RAIS](https://www.rais.gov.br/), de @vartanian2026b, para a georreferenciar os dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s da [RFB](https://www.gov.br/receitafederal/), e de @freitas2026, para obter as métricas de acessibilidade do grupo G0. 
 
 Além disso, para entender melhor os gaps informacionais existentes sobre as informações relacionadas ao acesso aos alimentos saudáveis, será realizado, também, análises referentes aos dados disponíveis na [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) como meio de comparação com os resultados obridos da [RFB](https://www.gov.br/receitafederal/) e da [RAIS](https://www.rais.gov.br/).
 
@@ -56,7 +69,19 @@ Data science workflow created by Wickham, Çetinkaya-Runde, and Grolemund.
 
 ### Estrutura dos Dados
 
+#### RAIS
 
+
+#### RFB
+
+
+#### OSM
+
+
+
+### Matriz de Deslocamento
+
+A matriz de deslocamento é computada por meio do pacote [`r5r`](https://ipeagit.github.io/r5r/) do R [@pereira2021], que realiza interface com o mecanismo de roteamento [R5](https://github.com/conveyal/r5). Esta ferramenta possibilita a estimação detalhada de tempos de viagem a partir de redes de transporte multimodais, incorporando tipos de vias, condições de tráfego e variações altimétricas. Os tempos de deslocamento são obtidos do OpenStreetMap ([OSM](https://www.openstreetmap.org/)) a partir de dados de vias e caminhos de pedestres [@openstreetmap] e de dados altimétricos do conjunto Mapzen Terrain Tile [@mapzen].
 
 ### Estilo do Código
 
@@ -72,14 +97,59 @@ O pipeline é integralmente reprodutível e pode ser reexecutado a qualquer mome
 #| label: Set Environment
 #| include: false
 
+library(cli)
+library(httr2)
 
+if (!is_online()) {
+  cli_abort(
+    paste0(
+      "No {.strong {col_red('internet connection')}} detected. ",
+      "Please check your connection and try again."
+    )
+  )
+}
 ```
 
 ### Carregar os Pacotes
 
 ```{r}
-
+#| code-fold: false
+#| output: false
+library(askpass)
+library(brandr)
+library(checkmate)
+library(cli)
+library(dplyr)
+library(enderecobr)
+library(fs)
+library(geobr)
+library(geocodebr)
+library(ggplot2)
+library(googlesheets4)
+library(groomr) # github.com/danielvartan/groomr
+library(here)
+library(httr2)
+library(labelled)
+library(lobstr)
+library(lockr) # github.com/danielvartan/lockr
+library(lubridate)
+library(magrittr)
+library(nanoparquet)
+#library(numbersBR)
+library(orbis) # github.com/danielvartan/orbis
+library(osfr)
+library(parallel)
+library(purrr)
+#library(pmtiles)
+library(quarto)
+library(readr)
+library(scales)
+library(sf)
+library(stringr)
+library(tidyr)
 ```
+
+
 
 ## Citação
 

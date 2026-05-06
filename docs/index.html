@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -97,6 +132,9 @@ div.csl-indent {
 <meta name="citation_reference" content="citation_title=The AWK programming language;,citation_abstract=Awk was developed in 1977 at Bell Labs, and it’s still a remarkably useful tool for solving a wide variety of problems quickly and efficiently. In this update of the classic Awk book, the creators of the language show you what Awk can do and teach you how to use it effectively.Here’s what programmers today are saying: &amp;amp;amp;quot;I love Awk.&amp;quot; &quot;Awk is amazing.&quot; &quot;It is just so damn good.&quot; &quot;Awk is just right.&quot; &quot;Awk is awesome.&quot; &quot;Awk has always been a language that I loved.&quot;It’s easy: &quot;Simple, fast and lightweight.&quot; &quot;Absolutely efficient to learn because there isn’t much to learn.&quot; &quot;3-4 hours to learn the language from start to finish.&quot; &quot;I can teach it to new engineers in less than 2 hours.&quot;It’s productive: &quot;Whenever I need to do a complex analysis of a semi-structured text file in less than a minute, Awk is my tool.&quot; &quot;Learning Awk was the best bang for buck investment of time in my entire career.&quot; &quot;Designed to chew through lines of text files with ease, with great defaults that minimize the amount of code you actually have to write to do anything.&quot;It’s always available: &quot;AWK runs everywhere.&quot; &quot;A reliable Swiss Army knife that is always there when you need it.&quot; &quot;Many systems lack Perl or Python, but include Awk.&quot;Register your book for convenient access to downloads, updates, and/or corrections as they become available. See inside book for details.;,citation_author=Alfred Aho;,citation_author=Brian Kernighan;,citation_author=Peter Weinberger;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://www.awk.dev;,citation_isbn=978-0-13-826972-2;,citation_language=en-US;">
 <meta name="citation_reference" content="citation_title=Reproducible pipeline for processing, geocoding, and classifying CNPJs from the annual social information report (RAIS) of the brazilian ministry of labor and employment (MTE) using the locais-nova classification;,citation_author=Gabriel Pereira Caldeira;,citation_author=Daniel Vartanian;,citation_author=Clara de Lima e Silva Penz;,citation_author=Camila Nastari Fernandes;,citation_author=Mariana Abrantes Giannotti;,citation_publication_date=2026;,citation_cover_date=2026;,citation_year=2026;,citation_fulltext_html_url=https://cem-usp.github.io/locais-nova-rais-geocoding;,citation_language=en;,citation_publisher=Center for Metropolitan Studies, University of São Paulo;">
 <meta name="citation_reference" content="citation_title=Reproducible pipeline for calculating accessibility to food establishments in brazilian municipalities using the locais-nova classification;,citation_author=Flávio Soares de Freitas;,citation_author=Clara de Lima e Silva Penz;,citation_author=Daniel Vartanian;,citation_author=Camila Nastari Fernandes;,citation_author=Mariana Abrantes Giannotti;,citation_publication_date=2026;,citation_cover_date=2026;,citation_year=2026;,citation_fulltext_html_url=https://cem-usp.github.io/locais-nova-access;,citation_language=en;,citation_publisher=Center for Metropolitan Studies, University of São Paulo;">
+<meta name="citation_reference" content="citation_title=Terrain tiles;,citation_author=Mapzen;,citation_fulltext_html_url=https://registry.opendata.aws/terrain-tiles;,citation_language=en-US;">
+<meta name="citation_reference" content="citation_title=OpenStreetMap;,citation_author=OpenStreetMap Contributors;,citation_fulltext_html_url=https://www.openstreetmap.org;,citation_publisher=OpenStreetMap Foundation;">
+<meta name="citation_reference" content="citation_title=r5r: Rapid Realistic Routing on Multimodal Transport Networks with R&amp;amp;amp;lt;sup&amp;gt;5&amp;lt;/sup&amp;gt; in R;,citation_abstract=Routing is a key step in transport planning and research. Nonetheless, researchers and practitioners often face challenges when performing this task due to long computation times and the cost of licensed software. R5 is a multimodal transport network router that offers multiple routing features, such as calculating travel times over a time window and returning multiple itineraries for origin/destination pairs. This paper describes r5r, an open-source R package that leverages R5 to efficiently compute travel time matrices and generate detailed itineraries between sets of origins and destinations at no expense using seamless parallel computing.;,citation_author=Rafael H. M. Pereira;,citation_author=Marcus Saraiva;,citation_author=Daniel Herszenhut;,citation_author=Carlos Kaue Vieira Braga;,citation_author=Matthew Wigginton Conway;,citation_publication_date=2021-03-04;,citation_cover_date=2021-03-04;,citation_year=2021;,citation_doi=10.32866/001c.21262;,citation_issn=2652-8800;,citation_language=en-US;,citation_journal_title=Findings;">
 <meta name="citation_reference" content="citation_title=R: A language and environment for statistical computing;,citation_author=R Core Team;,citation_fulltext_html_url=https://www.r-project.org;,citation_publisher=R Foundation for Statistical Computing;">
 <meta name="citation_reference" content="citation_title=renv: Project environments;,citation_abstract=A dependency management toolkit for R. Using ’renv’, you can create and manage project-local R libraries, save the state of these libraries to a ’lockfile’, and later restore your library as required. Together, these tools can help make your projects more isolated, portable, and reproducible.;,citation_author=Kevin Ushey;,citation_author=Hadley Wickham;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_doi=10.32614/CRAN.package.renv;">
 <meta name="citation_reference" content="citation_title=Reproducible pipeline for mapping accessibility to food establishments in brazilian municipalities using the locais-nova classification;,citation_author=Daniel Vartanian;,citation_author=Gabriel Pereira Caldeira;,citation_author=Clara de Lima e Silva Penz;,citation_author=Camila Nastari Fernandes;,citation_author=Mariana Giannotti;,citation_publication_date=2026;,citation_cover_date=2026;,citation_year=2026;,citation_fulltext_html_url=https://cem-usp.github.io/locais-nova-mapping;,citation_language=en;,citation_publisher=Center for Metropolitan Studies, University of São Paulo;">
@@ -140,7 +178,15 @@ div.csl-indent {
   <ul>
 <li><a href="#fonte-dos-dados" id="toc-fonte-dos-dados" class="nav-link" data-scroll-target="#fonte-dos-dados">Fonte dos Dados</a></li>
   <li><a href="#processamento-dos-dados" id="toc-processamento-dos-dados" class="nav-link" data-scroll-target="#processamento-dos-dados">Processamento dos Dados</a></li>
-  <li><a href="#estrutura-dos-dados" id="toc-estrutura-dos-dados" class="nav-link" data-scroll-target="#estrutura-dos-dados">Estrutura dos Dados</a></li>
+  <li>
+<a href="#estrutura-dos-dados" id="toc-estrutura-dos-dados" class="nav-link" data-scroll-target="#estrutura-dos-dados">Estrutura dos Dados</a>
+  <ul>
+<li><a href="#rais" id="toc-rais" class="nav-link" data-scroll-target="#rais">RAIS</a></li>
+  <li><a href="#rfb" id="toc-rfb" class="nav-link" data-scroll-target="#rfb">RFB</a></li>
+  <li><a href="#osm" id="toc-osm" class="nav-link" data-scroll-target="#osm">OSM</a></li>
+  </ul>
+</li>
+  <li><a href="#matriz-de-deslocamento" id="toc-matriz-de-deslocamento" class="nav-link" data-scroll-target="#matriz-de-deslocamento">Matriz de Deslocamento</a></li>
   <li><a href="#estilo-do-c%C3%B3digo" id="toc-estilo-do-código" class="nav-link" data-scroll-target="#estilo-do-c%C3%B3digo">Estilo do Código</a></li>
   <li><a href="#reprodutibilidade" id="toc-reprodutibilidade" class="nav-link" data-scroll-target="#reprodutibilidade">Reprodutibilidade</a></li>
   </ul>
@@ -192,7 +238,7 @@ div.csl-indent {
 <p>Para instruções de como usar o pipeline, veja <a href="https://github.com/cem-usp/kernel-accessibility/blob/main/README.md">README</a> no repositório.</p>
 </section><section id="problema" class="level2"><h2 class="anchored" data-anchor-id="problema">Problema</h2>
 <p>O projeto <a href="https://doi.org/10.17605/OSF.IO/ZE6WT">AcessoSAN</a> almeja desenvolver novos métodos de medição e de análise da desilguadade existente no acesso aos alimentos saudáveis, particularmente nas favelas e comunidades urbanas brasileiras. Para alcançar tais objetivos, faz-se necessário o uso de bases de dados confiáveis e atualizadas sobre os estabelecimentos que vendem comida saudável.</p>
-<p>Tanto a <a href="https://www.gov.br/receitafederal/">RFB</a> quanto a <a href="https://www.rais.gov.br/">RAIS</a> listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece <a href="https://en.wikipedia.org/wiki/Address_geocoding">informações geocodificadas</a>, necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de <span class="citation" data-cites="caldeira2026">Gabriel Pereira Caldeira et al. (<a href="#ref-caldeira2026" role="doc-biblioref">2026</a>)</span>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.rais.gov.br/">RAIS</a>, de <span class="citation" data-cites="vartanian2026">Daniel Vartanian et al. (<a href="#ref-vartanian2026" role="doc-biblioref">2026</a>)</span>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.gov.br/receitafederal/">RFB</a>, e de <span class="citation" data-cites="freitas2026">Flávio Soares de Freitas et al. (<a href="#ref-freitas2026" role="doc-biblioref">2026</a>)</span>, para obter as métricas de acessibilidade do grupo G0.</p>
+<p>Tanto a <a href="https://www.gov.br/receitafederal/">RFB</a> quanto a <a href="https://www.rais.gov.br/">RAIS</a> listam companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece <a href="https://en.wikipedia.org/wiki/Address_geocoding">informações geocodificadas</a>, necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de <span class="citation" data-cites="caldeira2026">Gabriel Pereira Caldeira et al. (<a href="#ref-caldeira2026" role="doc-biblioref">2026</a>)</span>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.rais.gov.br/">RAIS</a>, de <span class="citation" data-cites="vartanian2026b">Daniel Vartanian et al. (<a href="#ref-vartanian2026b" role="doc-biblioref">2026</a>)</span>, para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.gov.br/receitafederal/">RFB</a>, e de <span class="citation" data-cites="freitas2026">Flávio Soares de Freitas et al. (<a href="#ref-freitas2026" role="doc-biblioref">2026</a>)</span>, para obter as métricas de acessibilidade do grupo G0.</p>
 <p>Além disso, para entender melhor os gaps informacionais existentes sobre as informações relacionadas ao acesso aos alimentos saudáveis, será realizado, também, análises referentes aos dados disponíveis na <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a> como meio de comparação com os resultados obridos da <a href="https://www.gov.br/receitafederal/">RFB</a> e da <a href="https://www.rais.gov.br/">RAIS</a>.</p>
 </section><section id="disponibilidade-dos-dados" class="level2"><h2 class="anchored" data-anchor-id="disponibilidade-dos-dados">Disponibilidade dos Dados</h2>
 </section><section id="métodos" class="level2"><h2 class="anchored" data-anchor-id="métodos">Métodos</h2>
@@ -210,12 +256,51 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 </figure>
 </div>
 </section><section id="estrutura-dos-dados" class="level3"><h3 class="anchored" data-anchor-id="estrutura-dos-dados">Estrutura dos Dados</h3>
+<section id="rais" class="level4"><h4 class="anchored" data-anchor-id="rais">RAIS</h4>
+</section><section id="rfb" class="level4"><h4 class="anchored" data-anchor-id="rfb">RFB</h4>
+</section><section id="osm" class="level4"><h4 class="anchored" data-anchor-id="osm">OSM</h4>
+</section></section><section id="matriz-de-deslocamento" class="level3"><h3 class="anchored" data-anchor-id="matriz-de-deslocamento">Matriz de Deslocamento</h3>
+<p>A matriz de deslocamento é computada por meio do pacote <a href="https://ipeagit.github.io/r5r/"><code>r5r</code></a> do R <span class="citation" data-cites="pereira2021">(<a href="#ref-pereira2021" role="doc-biblioref">Pereira et al., 2021</a>)</span>, que realiza interface com o mecanismo de roteamento <a href="https://github.com/conveyal/r5">R5</a>. Esta ferramenta possibilita a estimação detalhada de tempos de viagem a partir de redes de transporte multimodais, incorporando tipos de vias, condições de tráfego e variações altimétricas. Os tempos de deslocamento são obtidos do OpenStreetMap (<a href="https://www.openstreetmap.org/">OSM</a>) a partir de dados de vias e caminhos de pedestres <span class="citation" data-cites="openstreetmap">(<a href="#ref-openstreetmap" role="doc-biblioref">OpenStreetMap Contributors, n.d.</a>)</span> e de dados altimétricos do conjunto Mapzen Terrain Tile <span class="citation" data-cites="mapzen">(<a href="#ref-mapzen" role="doc-biblioref">Mapzen, n.d.</a>)</span>.</p>
 </section><section id="estilo-do-código" class="level3"><h3 class="anchored" data-anchor-id="estilo-do-código">Estilo do Código</h3>
 <p>O Tidyverse <a href="https://tidyverse.tidyverse.org/articles/manifesto.html">manifesto tidy tools</a> <span class="citation" data-cites="wickham2023c">(<a href="#ref-wickham2023c" role="doc-biblioref">Wickham, 2023</a>)</span>, <a href="https://style.tidyverse.org/">guia do estilo de código</a> <span class="citation" data-cites="wickhama">(<a href="#ref-wickhama" role="doc-biblioref">Wickham, n.d.-a</a>)</span> e <a href="https://design.tidyverse.org/">design principles</a> <span class="citation" data-cites="wickhamc">(<a href="#ref-wickhamc" role="doc-biblioref">Wickham, n.d.-b</a>)</span> foram seguidos para garantir consistência e melhorar a legibilidade.</p>
 </section><section id="reprodutibilidade" class="level3"><h3 class="anchored" data-anchor-id="reprodutibilidade">Reprodutibilidade</h3>
 <p>O pipeline é integralmente reprodutível e pode ser reexecutado a qualquer momento. Para assegurar consistência nos resultados, utilizou-se o pacote <a href="https://rstudio.github.io/renv/">renv</a> package <span class="citation" data-cites="ushey2025">(<a href="#ref-ushey2025" role="doc-biblioref">Ushey &amp; Wickham, 2025</a>)</span> para gerenciar e restaurar o ambiente R. Consulte o arquivo <a href="https://github.com/cem-usp/kernel-accessibility/blob/main/README.md">README</a> no repositório para instruções de execução.</p>
 </section></section><section id="preparar-o-ambiente" class="level2"><h2 class="anchored" data-anchor-id="preparar-o-ambiente">Preparar o Ambiente</h2>
 <section id="carregar-os-pacotes" class="level3"><h3 class="anchored" data-anchor-id="carregar-os-pacotes">Carregar os Pacotes</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-lib.r-universe.dev/askpass">askpass</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://danielvartan.github.io/brandr/">brandr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mllg.github.io/checkmate/">checkmate</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://cli.r-lib.org">cli</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ipeaGIT/enderecobr">enderecobr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://fs.r-lib.org">fs</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ipeagit.github.io/geobr/">geobr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ipeaGIT/geocodebr">geocodebr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org">googlesheets4</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://danielvartan.github.io/groomr/">groomr</a></span><span class="op">)</span> <span class="co"># github.com/danielvartan/groomr</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://httr2.r-lib.org">httr2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://larmarange.github.io/labelled/">labelled</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lobstr.r-lib.org/">lobstr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://danielvartan.github.io/lockr/">lockr</a></span><span class="op">)</span> <span class="co"># github.com/danielvartan/lockr</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/nanoparquet">nanoparquet</a></span><span class="op">)</span></span>
+<span><span class="co">#library(numbersBR)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://danielvartan.github.io/orbis/">orbis</a></span><span class="op">)</span> <span class="co"># github.com/danielvartan/orbis</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/osfr/">osfr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">parallel</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/">purrr</a></span><span class="op">)</span></span>
+<span><span class="co">#library(pmtiles)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quarto-dev/quarto-r">quarto</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section></section><section id="citação" class="level2"><h2 class="anchored" data-anchor-id="citação">Citação</h2>
 </section><section id="license" class="level2"><h2 class="anchored" data-anchor-id="license">License</h2>
 <div style="text-align: left;">
@@ -272,7 +357,7 @@ this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.</code></pre>
 <div id="ref-aho2023" class="csl-entry" role="listitem">
 Aho, A., Kernighan, B., &amp; Weinberger, P. (2023). <em>The <span>AWK</span> programming language</em>. Addison-Wesley Professional. <a href="https://www.awk.dev">https://www.awk.dev</a>
 </div>
-<div id="ref-vartanian2026" class="csl-entry" role="listitem">
+<div id="ref-vartanian2026b" class="csl-entry" role="listitem">
 Daniel Vartanian, Gabriel Pereira Caldeira, Clara de Lima e Silva Penz, Camila Nastari Fernandes, &amp; Mariana Giannotti. (2026). <em>Reproducible pipeline for processing, geocoding, and classifying CNPJs from the brazilian federal revenue service (RFB) using the locais-nova classification</em> [Computer software]. Center for Metropolitan Studies, University of São Paulo. <a href="https://cem-usp.github.io/locais-nova-rfb-geocoding">https://cem-usp.github.io/locais-nova-rfb-geocoding</a>
 </div>
 <div id="ref-freitas2026" class="csl-entry" role="listitem">
@@ -280,6 +365,15 @@ Flávio Soares de Freitas, Clara de Lima e Silva Penz, Daniel Vartanian, Camila 
 </div>
 <div id="ref-caldeira2026" class="csl-entry" role="listitem">
 Gabriel Pereira Caldeira, Daniel Vartanian, Clara de Lima e Silva Penz, Camila Nastari Fernandes, &amp; Mariana Abrantes Giannotti. (2026). <em>Reproducible pipeline for processing, geocoding, and classifying CNPJs from the annual social information report (RAIS) of the brazilian ministry of labor and employment (MTE) using the locais-nova classification</em> [Computer software]. Center for Metropolitan Studies, University of São Paulo. <a href="https://cem-usp.github.io/locais-nova-rais-geocoding">https://cem-usp.github.io/locais-nova-rais-geocoding</a>
+</div>
+<div id="ref-mapzen" class="csl-entry" role="listitem">
+Mapzen. (n.d.). <em>Terrain tiles</em> [Data set]. <a href="https://registry.opendata.aws/terrain-tiles">https://registry.opendata.aws/terrain-tiles</a>
+</div>
+<div id="ref-openstreetmap" class="csl-entry" role="listitem">
+OpenStreetMap Contributors. (n.d.). <em><span>OpenStreetMap</span></em> [Computer software]. OpenStreetMap Foundation. <a href="https://www.openstreetmap.org">https://www.openstreetmap.org</a>
+</div>
+<div id="ref-pereira2021" class="csl-entry" role="listitem">
+Pereira, R. H. M., Saraiva, M., Herszenhut, D., Braga, C. K. V., &amp; Conway, M. W. (2021). r5r: <span>Rapid Realistic Routing</span> on <span>Multimodal Transport Networks</span> with <span>R</span><span><sup>5</sup></span> in <span>R</span>. <em>Findings</em>. <a href="https://doi.org/10.32866/001c.21262">https://doi.org/10.32866/001c.21262</a>
 </div>
 <div id="ref-rcoreteam" class="csl-entry" role="listitem">
 R Core Team. (n.d.). <em>R: <span>A</span> language and environment for statistical computing</em> [Computer software]. R Foundation for Statistical Computing. <a href="https://www.r-project.org">https://www.r-project.org</a>
