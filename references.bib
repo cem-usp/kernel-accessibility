@@ -12,6 +12,25 @@
   keywords = {awk (programming language),computer science,exact sciences,programming languages}
 }
 
+@online{brasil,
+  title = {Banco de dados do Sistema Único de Saúde - DATASUS},
+  author = {{Brasil} and {Ministério da Saúde} and {Departamento de Informática do SUS}},
+  url = {https://datasus.saude.gov.br/},
+  urldate = {2024-07-17},
+  langid = {brazilian},
+  keywords = {brazil,citizen science,data science,epidemiology,exact sciences,governo,health sciences,open data,open science,probability and statistics}
+}
+
+@online{brasila,
+  title = {Módulo gerador de relatórios públicos: estado nutricional dos indivíduos acompanhados por período, fase do ciclo da vida e índice},
+  shorttitle = {Módulo gerador de relatórios públicos},
+  author = {{Brasil} and {Sistema de Vigilância Alimentar e Nutricional}},
+  url = {https://sisaps.saude.gov.br/sisvan/relatoriopublico},
+  urldate = {2024-09-23},
+  langid = {brazilian},
+  keywords = {brazil,health sciences,nutrition,open data,platforms}
+}
+
 @software{caldeira2026,
   title = {Reproducible pipeline for processing, geocoding, and classifying CNPJs from the Annual Social Information Report (RAIS) of the Brazilian Ministry of Labor and Employment (MTE) using the Locais-Nova classification},
   author = {{Gabriel Pereira Caldeira} and {Daniel Vartanian} and {Clara de Lima e Silva Penz} and {Camila Nastari Fernandes} and {Mariana Abrantes Giannotti}},
@@ -20,6 +39,16 @@
   institution = {Center for Metropolitan Studies, University of São Paulo},
   langid = {en},
   url = {https://cem-usp.github.io/locais-nova-rais-geocoding}
+}
+
+@software{cooley2024,
+  title = {{{h3r}}: {{Hexagonal}} hierarchical geospatial indexing system},
+  shorttitle = {{{h3r}}},
+  author = {Cooley, David and Shao, Ray},
+  date = {2024},
+  doi = {10.32614/CRAN.package.h3r},
+  abstract = {Provides access to Uber's 'H3' geospatial indexing system via 'h3lib' {$<$}https://CRAN.R-project.org/package=h3lib{$>$}. 'h3r' is designed to mimic the 'H3' Application Programming Interface (API) {$<$}https://h3geo.org/docs/api/indexing/{$>$}, so that any function in the API is also available in 'h3r'.},
+  keywords = {apis,computer science,exact sciences,h3,hexagonal grids,hexagonal hierarchical geospatial indexing system,nosource,open data,probability and statistics,r (programming language),r packages}
 }
 
 @software{freitas2026,
@@ -32,12 +61,59 @@
   url = {https://cem-usp.github.io/locais-nova-access}
 }
 
+@dataset{geofabrik,
+  title = {{{OpenStreetMap}} for {{Brazil}}},
+  author = {{Geofabrik GmbH}},
+  url = {https://download.geofabrik.de/south-america/brazil.html},
+  keywords = {computer science,exact sciences,open data,open science,probability and statistics}
+}
+
+@software{hollister2025,
+  title = {{{elevatr}}: {{Access}} elevation data from various {{APIs}}},
+  shorttitle = {{{elevatr}}},
+  author = {Hollister, Jeffrey and Shah, Tarak and Nowosad, Jakub and Robitaille, Alec L. and Beck, Marcus W. and Johnson, Mike},
+  date = {2025},
+  doi = {10.32614/CRAN.package.elevatr},
+  abstract = {Several web services are available that provide access to elevation data. This package provides access to many of those services and returns elevation data either as an 'sf' simple features object from point elevation services or as a 'raster' object from raster elevation services. In future versions, 'elevatr' will drop support for 'raster' and will instead return 'terra' objects. Currently, the package supports access to the Amazon Web Services Terrain Tiles {$<$}https://registry.opendata.aws/terrain-tiles/{$>$}, the Open Topography Global Datasets API {$<$}https://opentopography.org/developers/{$>$}, and the USGS Elevation Point Query Service {$<$}https://apps.nationalmap.gov/epqs/{$>$}.},
+  keywords = {apis,computer science,elevation,exact sciences,nosource,open data,probability and statistics,r (programming language),r packages}
+}
+
+@dataset{ibgej,
+  title = {CNAE 2.3 Subclasses},
+  author = {{Instituto Brasileiro de Geografia e Estatística} and {Comissão Nacional de Classificação}},
+  publisher = {SIDRA},
+  url = {https://concla.ibge.gov.br/classificacoes/download-concla.html},
+  urldate = {2023-11-16},
+  abstract = {Dados sobre as subclasses da Classificação Nacional de Atividades Econômicas (CNAE) 2.3.},
+  langid = {brazilian},
+  keywords = {brazil,citizen science,exact sciences,ibge,nosource,open data,open science,probability and statistics,standards}
+}
+
+@software{maplibre,
+  title = {{{MapLibre GL JS}}},
+  author = {{MapLibre Contributors}},
+  date = {2022},
+  url = {https://maplibre.org},
+  abstract = {MapLibre GL JS is an open-source library for publishing maps on your websites or webview based apps. Fast displaying of maps is possible thanks to GPU-accelerated vector tile rendering. It originated as an open-source fork of mapbox-gl-js, before their switch to a non-OSS license in December 2020. The library's initial versions (1.x) were intended to be a drop-in replacement for the Mapbox’s OSS version (1.x) with additional functionality, but have evolved a lot since then.},
+  keywords = {color scales,computer science,data visualization,exact sciences,geospatial data science,nosource,r (programming language),r packages,software engineering}
+}
+
 @dataset{mapzen,
   title = {Terrain tiles},
   author = {{Mapzen}},
   url = {https://registry.opendata.aws/terrain-tiles},
   langid = {english},
   keywords = {elevation,exact sciences,open data,open science,probability and statistics}
+}
+
+@software{obrien2023,
+  title = {{{h3jsr}}: {{Access Uber}}'s {{H3}} library},
+  shorttitle = {{{h3jsr}}},
+  author = {O'Brien, Lauren},
+  date = {2023},
+  doi = {10.32614/CRAN.package.h3jsr},
+  abstract = {h3jsr provides access to Uber’s H3 library via its javascript transpile, using the magical power of V8. H3 is a hexagonal hierarchical geospatial indexing system. Details about its structure and use cases can be found here.},
+  keywords = {computer science,data visualization,exact sciences,geospatial data science,h3,nosource,r (programming language),r packages,software engineering,vector data}
 }
 
 @software{openstreetmap,
@@ -47,6 +123,25 @@
   url = {https://www.openstreetmap.org},
   organization = {OpenStreetMap Foundation},
   keywords = {computer science,exact sciences,geocoding,probability and statistics}
+}
+
+@software{pereira,
+  title = {{{geocodebr}}: {{Geolocalização}} de endereços brasileiros},
+  shorttitle = {geocodebr},
+  author = {Pereira, Rafael H. M. and Herszenhut, Daniel},
+  doi = {10.32614/CRAN.package.geocodebr},
+  abstract = {O \{geocodebr\} é um pacote computacional para geolicalização de endereços Brasileiros. O pacote oferece uma maneira simples e eficiente de geolocalizar dados sem limite de número de consultas. O pacote é baseado em conjuntos de dados espaciais abertos de endereços brasileiros, utilizando como fonte principal o Cadastro Nacional de Endereços para Fins Estatísticos (CNEFE). O CNEFE é publicado pelo Instituto Brasileiro de Geografia e Estatística (IBGE). Atualmente, o pacote está disponível apenas em R.},
+  keywords = {brazil,census,citizen science,computer science,exact sciences,geocomputation,nosource,open data,open science,r (programming language),r packages,spatial statistics},
+  note = {geocodebr: Geolocation of Brazilian addresses}
+}
+
+@software{pereirab,
+  title = {{{geobr}}: {{Download}} official spatial data sets of {{Brazil}}},
+  shorttitle = {geobr},
+  author = {Pereira, Rafael H. M. and Goncalves, Caio Nogueira},
+  doi = {10.32614/CRAN.package.geobr},
+  abstract = {geobr is a computational package to download official spatial data sets of Brazil. The package includes a wide range of geospatial data in geopackage format (like shapefiles but better), available at various geographic scales and for various years with harmonized attributes, projection and topology.},
+  keywords = {brazil,computer science,exact sciences,geocomputation,nosource,r (programming language),r packages,spatial statistics}
 }
 
 @article{pereira2021,
@@ -71,6 +166,16 @@
   keywords = {computer science,exact sciences,nosource,probability and statistics,programming languages,r (programming language)}
 }
 
+@dataset{uber,
+  title = {H3: {{A}} hexagonal hierarchical geospatial indexing system},
+  shorttitle = {H3},
+  author = {{Uber Technologies}},
+  url = {https://h3geo.org},
+  abstract = {H3 is a discrete global grid system for indexing geographies into a hexagonal grid, developed at Uber. Coordinates can be indexed to cell IDs that each represent a unique cell. Indexed data can be quickly joined across disparate datasets and aggregated at different levels of precision. H3 enables a range of algorithms and optimizations based on the grid, including nearest neighbors, shortest path, gradient smoothing, and more.},
+  langid = {english},
+  keywords = {computer science,exact sciences,geospatial data science,geospatial systems,hexagonal grids,hexagonal hierarchical geospatial indexing system,open data,spatial analysis}
+}
+
 @software{ushey2025,
   title = {{{renv}}: {{Project}} environments},
   shorttitle = {{{renv}}},
@@ -91,6 +196,36 @@
   url = {https://cem-usp.github.io/locais-nova-mapping}
 }
 
+@software{vartanian2026b,
+  title = {Reproducible pipeline for processing, geocoding, and classifying CNPJs from the Brazilian Federal Revenue Service (RFB) using the Locais-Nova classification},
+  author = {{Daniel Vartanian} and {Gabriel Pereira Caldeira} and {Clara de Lima e Silva Penz} and {Camila Nastari Fernandes} and {Mariana Giannotti}},
+  year = {2026},
+  address = {São Paulo},
+  institution = {Center for Metropolitan Studies, University of São Paulo},
+  langid = {en},
+  url = {https://cem-usp.github.io/locais-nova-rfb-geocoding}
+}
+
+@software{vartanian2026c,
+  title = {{{PMTilesBR}}: {{Tiled}} geospatial data for {{Brazil}}},
+  author = {Vartanian, Daniel and Fernandes, Camila Nastari and Giannotti, Mariana},
+  date = {2026},
+  location = {São Paulo, Brazil},
+  doi = {10.5281/zenodo.19157888},
+  abstract = {PMTiles files for spatial visualization and analysis in Brazil.},
+  organization = {Center for Metropolitan Studies, University of São Paulo},
+  keywords = {computer science,data visualization,exact sciences,geospatial data science,nosource,pmtiles,r (programming language),raster data,software engineering,vector data}
+}
+
+@software{walker2026a,
+  title = {{{mapgl}}: {{Interactive Maps}} with '{{Mapbox GL JS}}' and '{{MapLibre GL JS}}'},
+  shorttitle = {{{mapgl}}},
+  author = {Walker, Kyle},
+  date = {2026},
+  url = {https://walker-data.com/mapgl},
+  abstract = {The mapgl R package makes the latest versions of Mapbox GL JS and MapLibre GL JS available to R users. The package interface is designed to make the powerful capabilities of both libraries available in R mapping projects, but also feel similar to users coming from other R mapping packages.},
+  keywords = {computer science,exact sciences,geospatial data science,mapgl,nosource,r (programming language),r packages,software engineering}
+}
 
 @online{wickham2023c,
   title = {The tidy tools manifesto},

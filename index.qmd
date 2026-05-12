@@ -51,6 +51,30 @@ Além disso, para entender melhor os gaps informacionais existentes sobre as inf
 
 ### Fonte dos Dados
 
+Os dados usados nesse repositório advém das seguintes fontes:
+
+
+- Receita Federal Brasileira ([RFB](https://www.gov.br/receitafederal/)):
+  - Dados de pessoas jurídicas do Cadastro Nacional da Pessoa Jurídica ([CNPJ](https://en.wikipedia.org/wiki/CNPJ)) [base de dados](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj) usados para identificar empresas [@brasil].
+  - Códigos de agências e municípios brasileiros (_Tabela de Órgãos e Municípios_, [TOM]((https://dados.gov.br/dados/conjuntos-dados/tabela-de-rgos-e-municpios))) [@brasila], usados para identificar os municípios na base de dados dos CNPJs.
+- Instituto Brasileiro de Geografia e Estatística ([IBGE](https://www.ibge.gov.br/)):
+  - Códigos e descrições da Classificação Nacional de Atividade Econômicas ([CNAE](https://concla.ibge.gov.br/concla.html)) [@ibgej], usado para correspondência com os grupos Locais-Nova.
+  - Dados dos municípios brasileiros via [`geobr`](https://ipeagit.github.io/geobr/), pacote R [@pereirab] usado para validação cruzada.
+  - Base de dados espaciais aberta dos muninípios brasileiros disponível no Cadastro Nacional de Endereços para Fins Estatísticos ([CNEFE](https://www.ibge.gov.br/estatisticas/sociais/populacao/38734-cadastro-nacional-de-enderecos-para-fins-estatisticos.html)) via [`geocodebr`](https://ipeagit.github.io/geocodebr/), pacote R [@pereira] usado para geocodificação dos endereços.
+  - Dados dos limites dos setores censitários provenientes do [Censo 2022](https://www.ibge.gov.br/en/statistics/social/labor/22836-2022-census-3.html) e daddos dos limites municipais por meio do [`geobr`](https://ipeagit.github.io/geobr/), pacote R [@pereirab] usado para análise espacial e cálculo da densidade populacional.
+  - Dados populacionais do [Censo 2022](https://www.ibge.gov.br/en/statistics/social/labor/22836-2022-census-3.html) via [`censobr`](https://ipeagit.github.io/censobr/), pacote R [@pereirab], usado para calcular a densidade populacional.
+- Centro de Estudos da Metrópole ([CEM](https://centrodametropole.fflch.usp.br/)):
+  - [Tabela de Correspondência](https://docs.google.com/spreadsheets/d/1ipCw2FM3aUOdRd4w55J5SUEgXDCogxWZF-NZi0A-o_4/edit?usp=sharing) contendo a classificação que relaciona os códigos [CNAEs](https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/cnpj/classificacao-nacional-de-atividades-economicas-2013-cnae) dos estabelecimentos aos grupos [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en) (Fernandes & Giannotti, 2026).
+  - [Tabela de Correspondência](https://docs.google.com/spreadsheets/d/1JdDbKr5DYnQrp8DpI8Nep7v9UOpkruFkrKmo8LId8tQ/edit?usp=sharing) fornecendo padronização de endereços para fins de geocodificação (Vartanian et al., 2026).
+- [Mapzen Terrain Tile](https://registry.opendata.aws/terrain-tiles/)
+  - Dados altiimétrocos [@mapzen] via [`elevatr`](https://doi.org/10.32614/CRAN.package.elevatr), pacote R [@hollister2025] usado para cálculo do tempo de viagem e métricas de acessibilidade.
+- OpenStreetMap ([OSM](https://www.openstreetmap.org/)):
+  - Dados espaciais de [vias e caminhos para pedestres]((https://wiki.openstreetmap.org/wiki/Map_features#Highway)) [@openstreetmap], obtidos por meio do projeto [Geofabrik](https://www.geofabrik.de/) [@geofabrik], utilizados para o cálculo dos tempos de deslocamento.
+- [PMTilesBR](https://pmtiles.com.br): Dados Geoespaciais em Mosaico para o Brasil
+  - Dados dos municípios brasileiros no formato [PMTiles](https://docs.protomaps.com/pmtiles/) [@vartanian2026c], utilizados para a representação de informações geográficas em mapas interativos com  [MapLibre](https://maplibre.org/) [@maplibre], via [`mapgl`](https://walker-data.com/mapgl/), pacote R [@walker2026a].
+- [Tecnologia da Uber](https://www.uber.com/):
+  - Dados de malhas hexagonais estruturados a partir do sistema hierárquico de indexação geoespacial hexagonal ([H3](https://h3geo.org/)) [@uber], processados com os pacotes [`h3r`](https://symbolixau.github.io/h3r) [@cooley2024] e [`h3jsr`](https://obrl-soil.github.io/h3jsr/) [@obrien2023], pacotes R empregados na criação de grades hexagonais para análise e visualização espacial.
+  
 
 
 ### Processamento dos Dados
