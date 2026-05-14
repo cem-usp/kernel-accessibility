@@ -1,6 +1,7 @@
 ---
 params:
   year: 2022
+  month: 1
   h3_resolution: 9
   municipality_codes: [
     2507507, # João Pessoa (PB)
@@ -112,25 +113,6 @@ O Tidyverse [manifesto tidy tools](https://tidyverse.tidyverse.org/articles/mani
 
 O pipeline é integralmente reprodutível e pode ser reexecutado a qualquer momento. Para assegurar consistência nos resultados, utilizou-se o pacote [renv](https://rstudio.github.io/renv/) package [@ushey2025] para gerenciar e restaurar o ambiente R. Consulte o arquivo [README](https://github.com/cem-usp/kernel-accessibility/blob/main/README.md) no repositório para instruções de execução.
 
-## Preparar o Ambiente
-
-```{r}
-#| label: Set Environment
-#| include: false
-
-library(cli)
-library(httr2)
-
-if (!is_online()) {
-  cli_abort(
-    paste0(
-      "No {.strong {col_red('internet connection')}} detected. ",
-      "Please check your connection and try again."
-    )
-  )
-}
-```
-
 ### Carregar os Pacotes
 
 ```{r}
@@ -156,7 +138,7 @@ library(lockr) # github.com/danielvartan/lockr
 library(lubridate)
 library(magrittr)
 library(nanoparquet)
-#library(numbersBR)
+library(numbersBR)
 library(orbis) # github.com/danielvartan/orbis
 library(osfr)
 library(parallel)
@@ -168,8 +150,165 @@ library(scales)
 library(sf)
 library(stringr)
 library(tidyr)
+library(vroom)
+library(xml2)
+library(zip)
 ```
 
+## Importar, Processar, Geocodificar e Classificar os CNPJ's da RFB
+
+::: {.callout-note}
+See the [Source of Data](#source-of-data) section for more information.
+:::
+
+::: {.callout-important}
+Although *restaurants* are part of the [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.pt) classification, they were excluded from this analysis due to conflicting evidence on how to reliably identify them using company registry data.
+:::
+
+### Preparar o Ambiente
+
+```{r}
+#| label: Set Environment
+#| include: false
+
+library(cli)
+library(httr2)
+
+if (!is_online()) {
+  cli_abort(
+    paste0(
+      "No {.strong {col_red('internet connection')}} detected. ",
+      "Please check your connection and try again."
+    )
+  )
+}
+```
+
+#### Set Keys
+
+::: {.callout-note}
+Veja a seção da [Disponibilidade dos Dados](#data-availability) para mais informações.
+:::
+
+```{r}
+#| output: false
+
+osf_auth(Sys.getenv("OSF_PAT")) # askpass())
+```
+
+```{r}
+#| output: false
+
+gs4_auth(
+  cache = here(".secrets"),
+  email = TRUE,
+  use_oob = FALSE
+)
+```
+
+```{r}
+public_key <- here(".ssh", "id_rsa.pub")
+```
+
+```{r}
+private_key <- here(".ssh", "id_rsa")
+```
+
+```{r}
+password <- Sys.getenv("ACESSOSAN_PASSWORD") # askpass()
+```
+
+#### Set Data Directories
+
+```{r}
+raw_data_dir <- here("data-raw")
+input_data_dir <- here("data-input")
+data_dir <- here("data")
+```
+
+```{r}
+for (i in c(raw_data_dir, input_data_dir, data_dir)) {
+  if (!dir_exists(i)) {
+    dir_create(i, recurse = TRUE)
+  }
+}
+```
+
+#### Check Parameters
+
+::: {.callout-note}
+The pipeline main parameters are defined in the [YAML](https://en.wikipedia.org/wiki/YAML) header of its [Quarto](https://quarto.org/) document.
+
+The `year` and `month` variables represent the year and month of the consolidated [RFB](https://www.gov.br/receitafederal/) CNPJ dataset.
+
+The `municipality_codes` variable identifies the [IBGE](https://www.ibge.gov.br/) codes of the municipalities included in the analysis. Click [here](https://sidra.ibge.gov.br/territorio) to see a list of all Brazilian municipalities and their codes.
+:::
+
+```{r}
+#| include: false
+
+if (!exists("params")) {
+  params <-
+    here("index.qmd") |>
+    quarto_inspect() |>
+    pluck("formats", "html", "metadata", "params")
+}
+```
+
+```{r}
+params |> lobstr::tree()
+```
+
+```{r}
+assert_int(params$year, lower = 1980, upper = 2050)
+assert_int(params$month, lower = 1, upper = 12)
+assert_integerish(params$municipality_codes, lower = 1100015, upper = 5300108)
+```
+
+### Baixar e Importar os CNAEs da Tabela de Correspondência da Locais-Nova
+
+#### Baixar os Dados
+
+```{r}
+#| label: Download and Import Locais-Nova CNAE Lookup Table
+
+locais_nova_lookup_file <-
+  input_data_dir |>
+  file.path("locais-nova-lookup-data.rds")
+```
+
+```{r}
+#| eval: !expr '!file_exists(locais_nova_lookup_file)'
+#| output: false
+
+if (!file_exists(locais_nova_lookup_file)) {
+  locais_nova_lookup_data <-
+    "1ipCw2FM3aUOdRd4w55J5SUEgXDCogxWZF-NZi0A-o_4" |>
+    read_sheet(sheet = "Dataset")
+
+  locais_nova_lookup_data |> write_rds(locais_nova_lookup_file)
+}
+```
+
+#### Importar os Dados
+
+```{r}
+locais_nova_lookup_data <- locais_nova_lookup_file |> read_rds()
+```
+
+```{r}
+locais_nova_lookup_data |> glimpse()
+```
+
+### Baixar, Importar e Processar os Dados Municipais
+
+#### Baixar e Salvar os Dados
+
+#### Importar os Dados
+
+#### Filtrar os Dados
+
+#### Transformar os Dados
 
 
 ## Citação
