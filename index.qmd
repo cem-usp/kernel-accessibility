@@ -192,12 +192,14 @@ Veja a seção da [Disponibilidade dos Dados](#data-availability) para mais info
 
 ```{r}
 #| output: false
+#| echo: true
 
 osf_auth(Sys.getenv("OSF_PAT")) # askpass())
 ```
 
 ```{r}
 #| output: false
+#| echo: true
 
 gs4_auth(
   cache = here(".secrets"),
@@ -207,26 +209,36 @@ gs4_auth(
 ```
 
 ```{r}
+#| echo: true
+
 public_key <- here(".ssh", "id_rsa.pub")
 ```
 
 ```{r}
+#| echo: true
+
 private_key <- here(".ssh", "id_rsa")
 ```
 
 ```{r}
+#| echo: true
+
 password <- Sys.getenv("ACESSOSAN_PASSWORD") # askpass()
 ```
 
 #### Set Data Directories
 
 ```{r}
+#| echo: true
+
 raw_data_dir <- here("data-raw")
 input_data_dir <- here("data-input")
 data_dir <- here("data")
 ```
 
 ```{r}
+#| echo: true
+
 for (i in c(raw_data_dir, input_data_dir, data_dir)) {
   if (!dir_exists(i)) {
     dir_create(i, recurse = TRUE)
@@ -246,6 +258,7 @@ The `municipality_codes` variable identifies the [IBGE](https://www.ibge.gov.br/
 
 ```{r}
 #| include: false
+#| echo: true
 
 if (!exists("params")) {
   params <-
@@ -256,10 +269,14 @@ if (!exists("params")) {
 ```
 
 ```{r}
+#| echo: true
+
 params |> lobstr::tree()
 ```
 
 ```{r}
+#| echo: true
+
 assert_int(params$year, lower = 1980, upper = 2050)
 assert_int(params$month, lower = 1, upper = 12)
 assert_integerish(params$municipality_codes, lower = 1100015, upper = 5300108)
@@ -271,6 +288,7 @@ assert_integerish(params$municipality_codes, lower = 1100015, upper = 5300108)
 
 ```{r}
 #| label: Download and Import Locais-Nova CNAE Lookup Table
+#| echo: true
 
 locais_nova_lookup_file <-
   input_data_dir |>
@@ -280,6 +298,7 @@ locais_nova_lookup_file <-
 ```{r}
 #| eval: !expr '!file_exists(locais_nova_lookup_file)'
 #| output: false
+#| echo: true
 
 if (!file_exists(locais_nova_lookup_file)) {
   locais_nova_lookup_data <-
@@ -293,10 +312,14 @@ if (!file_exists(locais_nova_lookup_file)) {
 #### Importar os Dados
 
 ```{r}
+#| echo: true
+
 locais_nova_lookup_data <- locais_nova_lookup_file |> read_rds()
 ```
 
 ```{r}
+#| echo: true
+
 locais_nova_lookup_data |> glimpse()
 ```
 
