@@ -10,7 +10,7 @@ authors:
     affiliation: University of São Paulo
     orcid: "https://orcid.org/0009-0009-8979-0240"
 abstract: >-
-  This repository provides a reproducible pipeline for mapping kernel density estimates of accessibility to healthy food using the Locais-Nova classification
+  This repository provides a reproducible pipeline for mapping kernel density estimates of accessibility to healthy food using the Locais-Nova classification.
 keywords:
   - Locais-Nova
   - Food Establishments
