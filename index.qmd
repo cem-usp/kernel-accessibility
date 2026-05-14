@@ -31,7 +31,7 @@ here("R", ".setup.R") |> source()
 
 O presente estudo visa prover mapas gerados pela [Função de Densidade de Kernel](https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm) sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio da obtenção, processamento, geocodificação e classificação dos dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s provenientes da Receita Federal Brasileira ([RFB](https://www.gov.br/receitafederal/)), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)), via [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API). 
 
-A classificação sobre a saudabilidade alimentar segue o estudo [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en), usando o Grupo 0 (G0), este não sendo parte da classificação original, entretanto é um subgrupo existente no grupo G1 + G2 do qual é composto por estabelecimentos que vendem alimentos exclusivamente saudáveis que deveriam fazer parte da dieta populacional.
+A classificação sobre a saudabilidade alimentar segue o estudo [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en), usando o Grupo 0 (G0), este não sendo parte da classificação original, mas sim um subgrupo existente no grupo G1 + G2, sendo é composto por estabelecimentos que vendem alimentos exclusivamente saudáveis que deveriam fazer parte da dieta populacional.
 
 Para instruções de como usar o pipeline, veja [README](https://github.com/cem-usp/kernel-accessibility/blob/main/README.md) no repositório. 
 
@@ -41,7 +41,7 @@ O projeto [AcessoSAN](https://doi.org/10.17605/OSF.IO/ZE6WT) almeja desenvolver 
 
 A [RFB](https://www.gov.br/receitafederal/) lista companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece [informações geocodificadas](https://en.wikipedia.org/wiki/Address_geocoding), necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de @vartanian2026b para a georreferenciar os dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s da [RFB](https://www.gov.br/receitafederal/) e de @freitas2026, para obter as métricas de acessibilidade do grupo G0. 
 
-Além disso, para entender melhor os gaps informacionais existentes sobre as informações relacionadas ao acesso aos alimentos saudáveis, será realizado, também, análises referentes aos dados disponíveis na [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) como meio de comparação com os resultados obridos da [RFB](https://www.gov.br/receitafederal/) e da [RAIS](https://www.rais.gov.br/).
+Além disso, para entender melhor os gaps informacionais existentes sobre o acesso aos alimentos saudáveis em favelas e comuinidades urbanas, ralizar-se-á, também, análises referentes aos dados disponíveis na [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) como meio de comparação com os resultados obtidos com a [RFB](https://www.gov.br/receitafederal/).
 
 ## Disponibilidade dos Dados
 
@@ -49,7 +49,7 @@ Além disso, para entender melhor os gaps informacionais existentes sobre as inf
 
 ## Métodos
 
-### Fonte dos Dados
+### Fontes dos Dados
 
 Os dados usados nesse repositório advém das seguintes fontes:
 

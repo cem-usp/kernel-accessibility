@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+title: "Mapping Healthy Food Accessibility in Brazilian Slums and Urban Communities"
+message: >-
+  If you use this software, please cite it using the metadata from this file.
+type: software
+authors:
+  - given-names: Marcio Antonio
+    family-names: Pizzonia Junior
+    email: marcio.pizzonia@usp.br
+    affiliation: University of São Paulo
+    orcid: "https://orcid.org/0009-0009-8979-0240"
+abstract: >-
+  This repository provides a reproducible pipeline for mapping kernel density estimates of accessibility to healthy food using the Locais-Nova classification
+keywords:
+  - Locais-Nova
+  - Food Establishments
+  - CNPJ
+  - Brazilian Federal Revenue Service
+  - Geocoding
+  - Spatial Data
+  - Nutrition
+  - Reproducible Research
+  - Pipelines
+  - Open Data
+  - Open Science
+  - Data Science
+  - Data Visualization
+  - R Programming
+  - rstats
+  - Brazil
+  - Brazilian Ministry of Finance
+preferred-citation:
+  type: software
+  title: "Mapping Healthy Food Accessibility in Brazilian Slums and Urban Communities"
+  authors:
+  - given-names: Marcio Antonio
+    family-names: Pizzonia Junior
+    email: marcio.pizzonia@usp.br
+    affiliation: University of São Paulo
+    orcid: "https://orcid.org/0009-0009-8979-0240"
+  url: https://cem-usp.github.io/kernel-accessibility/
+identifiers:
+  - type: url
+    value: https://cem-usp.github.io/kernel-accessibility/
+    description: GitHub Pages Website
+  - type: url
+    value: https://github.com/cem-usp/kernel-accessibility
+    description: GitHub Code Repository
+repository-code: https://github.com/cem-usp/kernel-accessibility
+license: GPL-3.0-or-later
+version: 1.0.1.9000

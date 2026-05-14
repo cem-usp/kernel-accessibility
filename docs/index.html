@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Marcio Antonio Pizzonia Junior">
-<meta name="dcterms.date" content="2026-05-12">
+<meta name="dcterms.date" content="2026-05-14">
 <title>Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras</title>
 <style>
 /* Default styles provided by pandoc.
@@ -123,10 +123,10 @@ div.csl-indent {
 <meta property="og:image:width" content="2400">
 <meta name="citation_title" content="Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras">
 <meta name="citation_author" content="Marcio Antonio Pizzonia Junior">
-<meta name="citation_publication_date" content="2026-05-12">
-<meta name="citation_cover_date" content="2026-05-12">
+<meta name="citation_publication_date" content="2026-05-14">
+<meta name="citation_cover_date" content="2026-05-14">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-05-12">
+<meta name="citation_online_date" content="2026-05-14">
 <meta name="citation_fulltext_html_url" content="https://cem-usp.github.io/kernel-accessibility/">
 <meta name="citation_language" content="en">
 <meta name="citation_reference" content="citation_title=The AWK programming language;,citation_abstract=Awk was developed in 1977 at Bell Labs, and it’s still a remarkably useful tool for solving a wide variety of problems quickly and efficiently. In this update of the classic Awk book, the creators of the language show you what Awk can do and teach you how to use it effectively.Here’s what programmers today are saying: &amp;amp;amp;quot;I love Awk.&amp;quot; &quot;Awk is amazing.&quot; &quot;It is just so damn good.&quot; &quot;Awk is just right.&quot; &quot;Awk is awesome.&quot; &quot;Awk has always been a language that I loved.&quot;It’s easy: &quot;Simple, fast and lightweight.&quot; &quot;Absolutely efficient to learn because there isn’t much to learn.&quot; &quot;3-4 hours to learn the language from start to finish.&quot; &quot;I can teach it to new engineers in less than 2 hours.&quot;It’s productive: &quot;Whenever I need to do a complex analysis of a semi-structured text file in less than a minute, Awk is my tool.&quot; &quot;Learning Awk was the best bang for buck investment of time in my entire career.&quot; &quot;Designed to chew through lines of text files with ease, with great defaults that minimize the amount of code you actually have to write to do anything.&quot;It’s always available: &quot;AWK runs everywhere.&quot; &quot;A reliable Swiss Army knife that is always there when you need it.&quot; &quot;Many systems lack Perl or Python, but include Awk.&quot;Register your book for convenient access to downloads, updates, and/or corrections as they become available. See inside book for details.;,citation_author=Alfred Aho;,citation_author=Brian Kernighan;,citation_author=Peter Weinberger;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://www.awk.dev;,citation_isbn=978-0-13-826972-2;,citation_language=en-US;">
@@ -189,7 +189,7 @@ div.csl-indent {
   <li>
 <a href="#m%C3%A9todos" id="toc-métodos" class="nav-link" data-scroll-target="#m%C3%A9todos">Métodos</a>
   <ul>
-<li><a href="#fonte-dos-dados" id="toc-fonte-dos-dados" class="nav-link" data-scroll-target="#fonte-dos-dados">Fonte dos Dados</a></li>
+<li><a href="#fontes-dos-dados" id="toc-fontes-dos-dados" class="nav-link" data-scroll-target="#fontes-dos-dados">Fontes dos Dados</a></li>
   <li><a href="#processamento-dos-dados" id="toc-processamento-dos-dados" class="nav-link" data-scroll-target="#processamento-dos-dados">Processamento dos Dados</a></li>
   <li>
 <a href="#estrutura-dos-dados" id="toc-estrutura-dos-dados" class="nav-link" data-scroll-target="#estrutura-dos-dados">Estrutura dos Dados</a>
@@ -234,7 +234,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 12, 2026</p>
+      <p class="date">May 14, 2026</p>
     </div>
   </div>
   
@@ -246,15 +246,15 @@ div.csl-indent {
 </header><!-- badges: start --><p><a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" class="img-fluid" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a> <a href="https://doi.org/10.17605/OSF.IO/P5UFJ"><img src="https://img.shields.io/badge/OSF-10.17605/OSF.IO/P5UFJ-1284C5.svg" class="img-fluid"></a> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/license-GPLv3-bd0000.svg" class="img-fluid" alt="License: GPLv3"></a> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY-NC-SA 4.0"></a> <!-- badges: end --></p>
 <section id="visão-geral" class="level2"><h2 class="anchored" data-anchor-id="visão-geral">Visão Geral</h2>
 <p>O presente estudo visa prover mapas gerados pela <a href="https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm">Função de Densidade de Kernel</a> sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio da obtenção, processamento, geocodificação e classificação dos dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s provenientes da Receita Federal Brasileira (<a href="https://www.gov.br/receitafederal/">RFB</a>), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap (<a href="https://www.openstreetmap.org/#map=4/-15.13/-53.19">OSM</a>), via <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>.</p>
-<p>A classificação sobre a saudabilidade alimentar segue o estudo <a href="https://doi.org/10.1590/S2237-96222025v34.20240361.en">Locais-Nova</a>, usando o Grupo 0 (G0), este não sendo parte da classificação original, entretanto é um subgrupo existente no grupo G1 + G2 do qual é composto por estabelecimentos que vendem alimentos exclusivamente saudáveis que deveriam fazer parte da dieta populacional.</p>
+<p>A classificação sobre a saudabilidade alimentar segue o estudo <a href="https://doi.org/10.1590/S2237-96222025v34.20240361.en">Locais-Nova</a>, usando o Grupo 0 (G0), este não sendo parte da classificação original, mas sim um subgrupo existente no grupo G1 + G2, sendo é composto por estabelecimentos que vendem alimentos exclusivamente saudáveis que deveriam fazer parte da dieta populacional.</p>
 <p>Para instruções de como usar o pipeline, veja <a href="https://github.com/cem-usp/kernel-accessibility/blob/main/README.md">README</a> no repositório.</p>
 </section><section id="problema" class="level2"><h2 class="anchored" data-anchor-id="problema">Problema</h2>
 <p>O projeto <a href="https://doi.org/10.17605/OSF.IO/ZE6WT">AcessoSAN</a> almeja desenvolver novos métodos de medição e de análise da desilguadade existente no acesso aos alimentos saudáveis, particularmente nas favelas e comunidades urbanas brasileiras. Para alcançar tais objetivos, faz-se necessário o uso de bases de dados confiáveis e atualizadas sobre os estabelecimentos que vendem comida saudável.</p>
 <p>A <a href="https://www.gov.br/receitafederal/">RFB</a> lista companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece <a href="https://en.wikipedia.org/wiki/Address_geocoding">informações geocodificadas</a>, necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de <span class="citation" data-cites="vartanian2026b">Daniel Vartanian et al. (<a href="#ref-vartanian2026b" role="doc-biblioref">2026</a>)</span> para a georreferenciar os dados dos <a href="https://en.wikipedia.org/wiki/CNPJ">CNPJ</a>s da <a href="https://www.gov.br/receitafederal/">RFB</a> e de <span class="citation" data-cites="freitas2026">Flávio Soares de Freitas et al. (<a href="#ref-freitas2026" role="doc-biblioref">2026</a>)</span>, para obter as métricas de acessibilidade do grupo G0.</p>
-<p>Além disso, para entender melhor os gaps informacionais existentes sobre as informações relacionadas ao acesso aos alimentos saudáveis, será realizado, também, análises referentes aos dados disponíveis na <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a> como meio de comparação com os resultados obridos da <a href="https://www.gov.br/receitafederal/">RFB</a> e da <a href="https://www.rais.gov.br/">RAIS</a>.</p>
+<p>Além disso, para entender melhor os gaps informacionais existentes sobre o acesso aos alimentos saudáveis em favelas e comuinidades urbanas, ralizar-se-á, também, análises referentes aos dados disponíveis na <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a> como meio de comparação com os resultados obtidos com a <a href="https://www.gov.br/receitafederal/">RFB</a>.</p>
 </section><section id="disponibilidade-dos-dados" class="level2"><h2 class="anchored" data-anchor-id="disponibilidade-dos-dados">Disponibilidade dos Dados</h2>
 </section><section id="métodos" class="level2"><h2 class="anchored" data-anchor-id="métodos">Métodos</h2>
-<section id="fonte-dos-dados" class="level3"><h3 class="anchored" data-anchor-id="fonte-dos-dados">Fonte dos Dados</h3>
+<section id="fontes-dos-dados" class="level3"><h3 class="anchored" data-anchor-id="fontes-dos-dados">Fontes dos Dados</h3>
 <p>Os dados usados nesse repositório advém das seguintes fontes:</p>
 <ul>
 <li>Receita Federal Brasileira (<a href="https://www.gov.br/receitafederal/">RFB</a>):
