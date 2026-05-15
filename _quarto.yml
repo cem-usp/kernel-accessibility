@@ -49,7 +49,7 @@ format:
     toc-location: right
     locale: en
     language: en-us
-    code-fold: true
+    code-fold: false
     code-link: true
     code-tools: false
     df-print: paged

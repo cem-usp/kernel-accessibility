@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Marcio Antonio Pizzonia Junior">
-<meta name="dcterms.date" content="2026-05-14">
+<meta name="dcterms.date" content="2026-05-15">
 <title>Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras</title>
 <style>
 /* Default styles provided by pandoc.
@@ -123,10 +123,10 @@ div.csl-indent {
 <meta property="og:image:width" content="2400">
 <meta name="citation_title" content="Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras">
 <meta name="citation_author" content="Marcio Antonio Pizzonia Junior">
-<meta name="citation_publication_date" content="2026-05-14">
-<meta name="citation_cover_date" content="2026-05-14">
+<meta name="citation_publication_date" content="2026-05-15">
+<meta name="citation_cover_date" content="2026-05-15">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-05-14">
+<meta name="citation_online_date" content="2026-05-15">
 <meta name="citation_fulltext_html_url" content="https://cem-usp.github.io/kernel-accessibility/">
 <meta name="citation_language" content="en">
 <meta name="citation_reference" content="citation_title=The AWK programming language;,citation_abstract=Awk was developed in 1977 at Bell Labs, and it’s still a remarkably useful tool for solving a wide variety of problems quickly and efficiently. In this update of the classic Awk book, the creators of the language show you what Awk can do and teach you how to use it effectively.Here’s what programmers today are saying: &amp;amp;amp;quot;I love Awk.&amp;quot; &quot;Awk is amazing.&quot; &quot;It is just so damn good.&quot; &quot;Awk is just right.&quot; &quot;Awk is awesome.&quot; &quot;Awk has always been a language that I loved.&quot;It’s easy: &quot;Simple, fast and lightweight.&quot; &quot;Absolutely efficient to learn because there isn’t much to learn.&quot; &quot;3-4 hours to learn the language from start to finish.&quot; &quot;I can teach it to new engineers in less than 2 hours.&quot;It’s productive: &quot;Whenever I need to do a complex analysis of a semi-structured text file in less than a minute, Awk is my tool.&quot; &quot;Learning Awk was the best bang for buck investment of time in my entire career.&quot; &quot;Designed to chew through lines of text files with ease, with great defaults that minimize the amount of code you actually have to write to do anything.&quot;It’s always available: &quot;AWK runs everywhere.&quot; &quot;A reliable Swiss Army knife that is always there when you need it.&quot; &quot;Many systems lack Perl or Python, but include Awk.&quot;Register your book for convenient access to downloads, updates, and/or corrections as they become available. See inside book for details.;,citation_author=Alfred Aho;,citation_author=Brian Kernighan;,citation_author=Peter Weinberger;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://www.awk.dev;,citation_isbn=978-0-13-826972-2;,citation_language=en-US;">
@@ -258,7 +258,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 14, 2026</p>
+      <p class="date">May 15, 2026</p>
     </div>
   </div>
   
@@ -420,43 +420,36 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 </div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/osfr/reference/osf_auth.html">osf_auth</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"OSF_PAT"</span><span class="op">)</span><span class="op">)</span> <span class="co"># askpass())</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/osfr/reference/osf_auth.html">osf_auth</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"OSF_PAT"</span><span class="op">)</span><span class="op">)</span> <span class="co"># askpass())</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/gs4_auth.html">gs4_auth</a></span><span class="op">(</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/gs4_auth.html">gs4_auth</a></span><span class="op">(</span></span>
 <span>  cache <span class="op">=</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">".secrets"</span><span class="op">)</span>,</span>
 <span>  email <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  use_oob <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">public_key</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">".ssh"</span>, <span class="st">"id_rsa.pub"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">public_key</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">".ssh"</span>, <span class="st">"id_rsa.pub"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">private_key</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">".ssh"</span>, <span class="st">"id_rsa"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">private_key</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">".ssh"</span>, <span class="st">"id_rsa"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">password</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"ACESSOSAN_PASSWORD"</span><span class="op">)</span> <span class="co"># askpass()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">password</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"ACESSOSAN_PASSWORD"</span><span class="op">)</span> <span class="co"># askpass()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="set-data-directories" class="level4"><h4 class="anchored" data-anchor-id="set-data-directories">Set Data Directories</h4>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">raw_data_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data-raw"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">raw_data_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data-raw"</span><span class="op">)</span></span>
 <span><span class="va">input_data_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data-input"</span><span class="op">)</span></span>
 <span><span class="va">data_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">raw_data_dir</span>, <span class="va">input_data_dir</span>, <span class="va">data_dir</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">raw_data_dir</span>, <span class="va">input_data_dir</span>, <span class="va">data_dir</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">dir_exists</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://fs.r-lib.org/reference/create.html">dir_create</a></span><span class="op">(</span><span class="va">i</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </section><section id="check-parameters" class="level4"><h4 class="anchored" data-anchor-id="check-parameters">Check Parameters</h4>
 <div class="callout callout-style-simple callout-note">
@@ -472,45 +465,40 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 </div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span> <span class="op">|&gt;</span> <span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/tree.html">tree</a></span><span class="op">(</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span> <span class="op">|&gt;</span> <span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/tree.html">tree</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; &lt;list&gt;</span></span>
 <span><span class="co">#&gt; ├─year: 2022</span></span>
 <span><span class="co">#&gt; ├─month: 1</span></span>
 <span><span class="co">#&gt; ├─h3_resolution: 9</span></span>
 <span><span class="co">#&gt; └─municipality_codes&lt;int [5]&gt;: 2507507, 3106200, 3550308, 4314902, 1501402</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://mllg.github.io/checkmate/reference/checkInt.html">assert_int</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">year</span>, lower <span class="op">=</span> <span class="fl">1980</span>, upper <span class="op">=</span> <span class="fl">2050</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://mllg.github.io/checkmate/reference/checkInt.html">assert_int</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">year</span>, lower <span class="op">=</span> <span class="fl">1980</span>, upper <span class="op">=</span> <span class="fl">2050</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://mllg.github.io/checkmate/reference/checkInt.html">assert_int</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">month</span>, lower <span class="op">=</span> <span class="fl">1</span>, upper <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://mllg.github.io/checkmate/reference/checkIntegerish.html">assert_integerish</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">municipality_codes</span>, lower <span class="op">=</span> <span class="fl">1100015</span>, upper <span class="op">=</span> <span class="fl">5300108</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </section></section><section id="baixar-e-importar-os-cnaes-da-tabela-de-correspondência-da-locais-nova" class="level3"><h3 class="anchored" data-anchor-id="baixar-e-importar-os-cnaes-da-tabela-de-correspondência-da-locais-nova">Baixar e Importar os CNAEs da Tabela de Correspondência da Locais-Nova</h3>
 <section id="baixar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="baixar-os-dados">Baixar os Dados</h4>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">locais_nova_lookup_file</span> <span class="op">&lt;-</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">locais_nova_lookup_file</span> <span class="op">&lt;-</span></span>
 <span>  <span class="va">input_data_dir</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">"locais-nova-lookup-data.rds"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">file_exists</a></span><span class="op">(</span><span class="va">locais_nova_lookup_file</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">file_exists</a></span><span class="op">(</span><span class="va">locais_nova_lookup_file</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">locais_nova_lookup_data</span> <span class="op">&lt;-</span></span>
 <span>    <span class="st">"1ipCw2FM3aUOdRd4w55J5SUEgXDCogxWZF-NZi0A-o_4"</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/range_read.html">read_sheet</a></span><span class="op">(</span>sheet <span class="op">=</span> <span class="st">"Dataset"</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">locais_nova_lookup_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">write_rds</a></span><span class="op">(</span><span class="va">locais_nova_lookup_file</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </section><section id="importar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="importar-os-dados">Importar os Dados</h4>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">locais_nova_lookup_data</span> <span class="op">&lt;-</span> <span class="va">locais_nova_lookup_file</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">locais_nova_lookup_data</span> <span class="op">&lt;-</span> <span class="va">locais_nova_lookup_file</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">locais_nova_lookup_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">locais_nova_lookup_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 540</span></span>
 <span><span class="co">#&gt; Columns: 7</span></span>
 <span><span class="co">#&gt; $ cnae         &lt;chr&gt; "4711302", "5611201", "4722902", "4721102", "4721101",…</span></span>
@@ -520,7 +508,6 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <span><span class="co">#&gt; $ g1_g2        &lt;lgl&gt; TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span></span>
 <span><span class="co">#&gt; $ g3           &lt;lgl&gt; FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, F…</span></span>
 <span><span class="co">#&gt; $ g4           &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </section></section><section id="baixar-importar-e-processar-os-dados-municipais" class="level3"><h3 class="anchored" data-anchor-id="baixar-importar-e-processar-os-dados-municipais">Baixar, Importar e Processar os Dados Municipais</h3>
 <section id="baixar-e-salvar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="baixar-e-salvar-os-dados">Baixar e Salvar os Dados</h4>
