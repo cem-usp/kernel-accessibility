@@ -158,11 +158,11 @@ library(zip)
 ## Importar, Processar, Geocodificar e Classificar os CNPJ's da RFB
 
 ::: {.callout-note}
-See the [Source of Data](#source-of-data) section for more information.
+Veja a seção [Disponibilidade dos Dados](#disponibilidade-dos-dados) para mais informações.
 :::
 
 ::: {.callout-important}
-Although *restaurants* are part of the [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.pt) classification, they were excluded from this analysis due to conflicting evidence on how to reliably identify them using company registry data.
+Apesar dos *restaurantes* serem parte da classificação [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.pt), eles foram excluidos dessa análise em razão das evidências conflitantes acerca da identificação confiável desses estabelecimentos por meio de dados cadastrais empresariais.
 :::
 
 ### Preparar o Ambiente
@@ -187,7 +187,7 @@ if (!is_online()) {
 #### Set Keys
 
 ::: {.callout-note}
-Veja a seção da [Disponibilidade dos Dados](#data-availability) para mais informações.
+Veja a seção [Disponibilidade dos Dados](#disponibilidade-dos-dados) para mais informações.
 :::
 
 ```{r}
@@ -249,11 +249,11 @@ for (i in c(raw_data_dir, input_data_dir, data_dir)) {
 #### Check Parameters
 
 ::: {.callout-note}
-The pipeline main parameters are defined in the [YAML](https://en.wikipedia.org/wiki/YAML) header of its [Quarto](https://quarto.org/) document.
+Os parâmetros principais do pipeline são definidos no cabeçalho [YAML](https://en.wikipedia.org/wiki/YAML) do documento [Quarto](https://quarto.org/).
 
-The `year` and `month` variables represent the year and month of the consolidated [RFB](https://www.gov.br/receitafederal/) CNPJ dataset.
+As variáveis `year` e `month` representam, respectivamente, o ano e o mês da base de dados consolidada dos CNPJs da [RFB](https://www.gov.br/receitafederal/).
 
-The `municipality_codes` variable identifies the [IBGE](https://www.ibge.gov.br/) codes of the municipalities included in the analysis. Click [here](https://sidra.ibge.gov.br/territorio) to see a list of all Brazilian municipalities and their codes.
+A variável `municipality_codes` identifica os códigos municipais do [IBGE](https://www.ibge.gov.br/) incluidos na análise. Clique [aqui](https://sidra.ibge.gov.br/territorio) para ter acesso à lista de todos os municípios brasileiros, assim como seus códigos.
 :::
 
 ```{r}
