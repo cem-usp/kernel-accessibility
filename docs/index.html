@@ -210,9 +210,9 @@ div.csl-indent {
 <li>
 <a href="#preparar-o-ambiente" id="toc-preparar-o-ambiente" class="nav-link" data-scroll-target="#preparar-o-ambiente">Preparar o Ambiente</a>
   <ul>
-<li><a href="#set-keys" id="toc-set-keys" class="nav-link" data-scroll-target="#set-keys">Set Keys</a></li>
-  <li><a href="#set-data-directories" id="toc-set-data-directories" class="nav-link" data-scroll-target="#set-data-directories">Set Data Directories</a></li>
-  <li><a href="#check-parameters" id="toc-check-parameters" class="nav-link" data-scroll-target="#check-parameters">Check Parameters</a></li>
+<li><a href="#preparar-as-chaves" id="toc-preparar-as-chaves" class="nav-link" data-scroll-target="#preparar-as-chaves">Preparar as Chaves</a></li>
+  <li><a href="#definir-os-diret%C3%B3rios-dos-dados" id="toc-definir-os-diretórios-dos-dados" class="nav-link" data-scroll-target="#definir-os-diret%C3%B3rios-dos-dados">Definir os Diretórios dos Dados</a></li>
+  <li><a href="#checagem-dos-par%C3%A2metros" id="toc-checagem-dos-parâmetros" class="nav-link" data-scroll-target="#checagem-dos-par%C3%A2metros">Checagem dos Parâmetros</a></li>
   </ul>
 </li>
   <li>
@@ -229,6 +229,23 @@ div.csl-indent {
   <li><a href="#importar-os-dados-1" id="toc-importar-os-dados-1" class="nav-link" data-scroll-target="#importar-os-dados-1">Importar os Dados</a></li>
   <li><a href="#filtrar-os-dados" id="toc-filtrar-os-dados" class="nav-link" data-scroll-target="#filtrar-os-dados">Filtrar os Dados</a></li>
   <li><a href="#transformar-os-dados" id="toc-transformar-os-dados" class="nav-link" data-scroll-target="#transformar-os-dados">Transformar os Dados</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#baixar-importar-e-transformar-os-dados-das-ag%C3%AAncias-e-munic%C3%ADpios-tom" id="toc-baixar-importar-e-transformar-os-dados-das-agências-e-municípios-tom" class="nav-link" data-scroll-target="#baixar-importar-e-transformar-os-dados-das-ag%C3%AAncias-e-munic%C3%ADpios-tom">Baixar, Importar e Transformar os Dados das Agências e Municípios (TOM)</a>
+  <ul>
+<li><a href="#baixar-os-dados-1" id="toc-baixar-os-dados-1" class="nav-link" data-scroll-target="#baixar-os-dados-1">Baixar os Dados</a></li>
+  <li><a href="#importar-os-dados-2" id="toc-importar-os-dados-2" class="nav-link" data-scroll-target="#importar-os-dados-2">Importar os Dados</a></li>
+  <li><a href="#transformar-os-dados-1" id="toc-transformar-os-dados-1" class="nav-link" data-scroll-target="#transformar-os-dados-1">Transformar os Dados</a></li>
+  </ul>
+</li>
+  <li><a href="#correspond%C3%AAncia-entre-c%C3%B3digos-municipais-do-ibge-e-c%C3%B3digos-tom" id="toc-correspondência-entre-códigos-municipais-do-ibge-e-códigos-tom" class="nav-link" data-scroll-target="#correspond%C3%AAncia-entre-c%C3%B3digos-municipais-do-ibge-e-c%C3%B3digos-tom">Correspondência entre códigos municipais do IBGE e códigos TOM</a></li>
+  <li>
+<a href="#baixar-dados-da-rfb" id="toc-baixar-dados-da-rfb" class="nav-link" data-scroll-target="#baixar-dados-da-rfb">Baixar Dados da RFB</a>
+  <ul>
+<li><a href="#lista-de-arquivos" id="toc-lista-de-arquivos" class="nav-link" data-scroll-target="#lista-de-arquivos">Lista de Arquivos</a></li>
+  <li><a href="#baixar-dados" id="toc-baixar-dados" class="nav-link" data-scroll-target="#baixar-dados">Baixar Dados</a></li>
+  <li><a href="#descompactar-os-arquivos" id="toc-descompactar-os-arquivos" class="nav-link" data-scroll-target="#descompactar-os-arquivos">Descompactar os Arquivos</a></li>
   </ul>
 </li>
   </ul>
@@ -387,28 +404,8 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/zip">zip</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section><section id="importar-processar-geocodificar-e-classificar-os-cnpjs-da-rfb" class="level2"><h2 class="anchored" data-anchor-id="importar-processar-geocodificar-e-classificar-os-cnpjs-da-rfb">Importar, Processar, Geocodificar e Classificar os CNPJ’s da RFB</h2>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Veja a seção <a href="#disponibilidade-dos-dados">Disponibilidade dos Dados</a> para mais informações.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Apesar dos <em>restaurantes</em> serem parte da classificação <a href="https://doi.org/10.1590/S2237-96222025v34.20240361.pt">Locais-Nova</a>, eles foram excluidos dessa análise em razão das evidências conflitantes acerca da identificação confiável desses estabelecimentos por meio de dados cadastrais empresariais.</p>
-</div>
-</div>
-</div>
 <section id="preparar-o-ambiente" class="level3"><h3 class="anchored" data-anchor-id="preparar-o-ambiente">Preparar o Ambiente</h3>
-<section id="set-keys" class="level4"><h4 class="anchored" data-anchor-id="set-keys">Set Keys</h4>
+<section id="preparar-as-chaves" class="level4"><h4 class="anchored" data-anchor-id="preparar-as-chaves">Preparar as Chaves</h4>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -438,7 +435,7 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">password</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"ACESSOSAN_PASSWORD"</span><span class="op">)</span> <span class="co"># askpass()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="set-data-directories" class="level4"><h4 class="anchored" data-anchor-id="set-data-directories">Set Data Directories</h4>
+</section><section id="definir-os-diretórios-dos-dados" class="level4"><h4 class="anchored" data-anchor-id="definir-os-diretórios-dos-dados">Definir os Diretórios dos Dados</h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">raw_data_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data-raw"</span><span class="op">)</span></span>
 <span><span class="va">input_data_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data-input"</span><span class="op">)</span></span>
@@ -451,7 +448,7 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="check-parameters" class="level4"><h4 class="anchored" data-anchor-id="check-parameters">Check Parameters</h4>
+</section><section id="checagem-dos-parâmetros" class="level4"><h4 class="anchored" data-anchor-id="checagem-dos-parâmetros">Checagem dos Parâmetros</h4>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -467,7 +464,7 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span> <span class="op">|&gt;</span> <span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/tree.html">tree</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; &lt;list&gt;</span></span>
-<span><span class="co">#&gt; ├─year: 2022</span></span>
+<span><span class="co">#&gt; ├─year: 2026</span></span>
 <span><span class="co">#&gt; ├─month: 1</span></span>
 <span><span class="co">#&gt; ├─h3_resolution: 9</span></span>
 <span><span class="co">#&gt; └─municipality_codes&lt;int [5]&gt;: 2507507, 3106200, 3550308, 4314902, 1501402</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -478,6 +475,26 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <span><span class="fu"><a href="https://mllg.github.io/checkmate/reference/checkIntegerish.html">assert_integerish</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">municipality_codes</span>, lower <span class="op">=</span> <span class="fl">1100015</span>, upper <span class="op">=</span> <span class="fl">5300108</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section><section id="baixar-e-importar-os-cnaes-da-tabela-de-correspondência-da-locais-nova" class="level3"><h3 class="anchored" data-anchor-id="baixar-e-importar-os-cnaes-da-tabela-de-correspondência-da-locais-nova">Baixar e Importar os CNAEs da Tabela de Correspondência da Locais-Nova</h3>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Veja a seção <a href="#fontes-dos-dados">Fontes dos Dados</a> para mais informações.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Apesar dos <em>restaurantes</em> serem parte da classificação <a href="https://doi.org/10.1590/S2237-96222025v34.20240361.pt">Locais-Nova</a>, eles foram excluidos dessa análise em razão das evidências conflitantes acerca da identificação confiável desses estabelecimentos por meio de dados cadastrais empresariais.</p>
+</div>
+</div>
+</div>
 <section id="baixar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="baixar-os-dados">Baixar os Dados</h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">locais_nova_lookup_file</span> <span class="op">&lt;-</span></span>
@@ -510,10 +527,253 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <span><span class="co">#&gt; $ g4           &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section><section id="baixar-importar-e-processar-os-dados-municipais" class="level3"><h3 class="anchored" data-anchor-id="baixar-importar-e-processar-os-dados-municipais">Baixar, Importar e Processar os Dados Municipais</h3>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Veja a seção <a href="#fontes-dos-dados">Fontes dos Dados</a> para mais informações.</p>
+</div>
+</div>
+</div>
 <section id="baixar-e-salvar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="baixar-e-salvar-os-dados">Baixar e Salvar os Dados</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">read_municipality_file</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">input_data_dir</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
+<span>        <span class="st">"read_municipality"</span>,</span>
+<span>        <span class="st">"code"</span>,</span>
+<span>        <span class="st">"all"</span>,</span>
+<span>        <span class="st">"year"</span>,</span>
+<span>        <span class="va">params</span><span class="op">$</span><span class="va">year</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://danielvartan.github.io/orbis/reference/closest_geobr_year.html">closest_geobr_year</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"municipality"</span><span class="op">)</span>,</span>
+<span>        <span class="st">"simplified"</span>,</span>
+<span>        <span class="cn">FALSE</span>,</span>
+<span>        sep <span class="op">=</span> <span class="st">"-"</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="st">".rds"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; ! The closest map year to 2026 is 2024. Using year 2024 instead.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">file_exists</a></span><span class="op">(</span><span class="va">read_municipality_file</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">municipalities_data</span> <span class="op">&lt;-</span></span>
+<span>    <span class="fu"><a href="https://ipeagit.github.io/geobr/reference/read_municipality.html">read_municipality</a></span><span class="op">(</span></span>
+<span>      year <span class="op">=</span> <span class="va">params</span><span class="op">$</span><span class="va">year</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://danielvartan.github.io/orbis/reference/closest_geobr_year.html">closest_geobr_year</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"municipality"</span><span class="op">)</span>,</span>
+<span>      simplified <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>      showProgress <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">municipalities_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">write_rds</a></span><span class="op">(</span><span class="va">read_municipality_file</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section><section id="importar-os-dados-1" class="level4"><h4 class="anchored" data-anchor-id="importar-os-dados-1">Importar os Dados</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_data</span> <span class="op">&lt;-</span> <span class="va">read_municipality_file</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 5,571</span></span>
+<span><span class="co">#&gt; Columns: 8</span></span>
+<span><span class="co">#&gt; $ code_muni    &lt;dbl&gt; 1100015, 1100023, 1100031, 1100049, 1100056, 1100064, …</span></span>
+<span><span class="co">#&gt; $ name_muni    &lt;chr&gt; "Alta Floresta D'oeste", "Ariquemes", "Cabixi", "Cacoa…</span></span>
+<span><span class="co">#&gt; $ code_state   &lt;dbl&gt; 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11…</span></span>
+<span><span class="co">#&gt; $ abbrev_state &lt;chr&gt; "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", …</span></span>
+<span><span class="co">#&gt; $ name_state   &lt;chr&gt; "Rondônia", "Rondônia", "Rondônia", "Rondônia", "Rondô…</span></span>
+<span><span class="co">#&gt; $ code_region  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span></span>
+<span><span class="co">#&gt; $ name_region  &lt;chr&gt; "Norte", "Norte", "Norte", "Norte", "Norte", "Norte", …</span></span>
+<span><span class="co">#&gt; $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-61.9300418..., MULTIPOLY…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section><section id="filtrar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="filtrar-os-dados">Filtrar os Dados</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_data</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">municipalities_data</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">code_muni</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">params</span><span class="op">$</span><span class="va">municipality_codes</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 5</span></span>
+<span><span class="co">#&gt; Columns: 8</span></span>
+<span><span class="co">#&gt; $ code_muni    &lt;dbl&gt; 1501402, 2507507, 3106200, 3550308, 4314902</span></span>
+<span><span class="co">#&gt; $ name_muni    &lt;chr&gt; "Belém", "João Pessoa", "Belo Horizonte", "São Paulo",…</span></span>
+<span><span class="co">#&gt; $ code_state   &lt;dbl&gt; 15, 25, 31, 35, 43</span></span>
+<span><span class="co">#&gt; $ abbrev_state &lt;chr&gt; "PA", "PB", "MG", "SP", "RS"</span></span>
+<span><span class="co">#&gt; $ name_state   &lt;chr&gt; "Pará", "Paraíba", "Minas Gerais", "São Paulo", "Rio G…</span></span>
+<span><span class="co">#&gt; $ code_region  &lt;dbl&gt; 1, 2, 3, 3, 4</span></span>
+<span><span class="co">#&gt; $ name_region  &lt;chr&gt; "Norte", "Nordeste", "Sudeste", "Sudeste", "Sul"</span></span>
+<span><span class="co">#&gt; $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-48.5257946..., MULTIPOLYGON (((-34.88…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section><section id="transformar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="transformar-os-dados">Transformar os Dados</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_data</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">municipalities_data</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="fl">4326</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
+<span>    municipality <span class="op">=</span> <span class="va">name_muni</span>,</span>
+<span>    municipality_code <span class="op">=</span> <span class="va">code_muni</span>,</span>
+<span>    state <span class="op">=</span> <span class="va">name_state</span>,</span>
+<span>    state_code <span class="op">=</span> <span class="va">code_state</span>,</span>
+<span>    federal_unit <span class="op">=</span> <span class="va">abbrev_state</span>,</span>
+<span>    region <span class="op">=</span> <span class="va">name_region</span>,</span>
+<span>    region_code <span class="op">=</span> <span class="va">code_region</span>,</span>
+<span>    geometry <span class="op">=</span> <span class="va">geom</span></span>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 5</span></span>
+<span><span class="co">#&gt; Columns: 8</span></span>
+<span><span class="co">#&gt; $ municipality      &lt;chr&gt; "Belém", "João Pessoa", "Belo Horizonte", "São Pa…</span></span>
+<span><span class="co">#&gt; $ municipality_code &lt;dbl&gt; 1501402, 2507507, 3106200, 3550308, 4314902</span></span>
+<span><span class="co">#&gt; $ state             &lt;chr&gt; "Pará", "Paraíba", "Minas Gerais", "São Paulo", "…</span></span>
+<span><span class="co">#&gt; $ state_code        &lt;dbl&gt; 15, 25, 31, 35, 43</span></span>
+<span><span class="co">#&gt; $ federal_unit      &lt;chr&gt; "PA", "PB", "MG", "SP", "RS"</span></span>
+<span><span class="co">#&gt; $ region            &lt;chr&gt; "Norte", "Nordeste", "Sudeste", "Sudeste", "Sul"</span></span>
+<span><span class="co">#&gt; $ region_code       &lt;dbl&gt; 1, 2, 3, 3, 4</span></span>
+<span><span class="co">#&gt; $ geometry          &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-48.5257946..., MULTIPOLYGON (((-…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section><section id="baixar-importar-e-transformar-os-dados-das-agências-e-municípios-tom" class="level3"><h3 class="anchored" data-anchor-id="baixar-importar-e-transformar-os-dados-das-agências-e-municípios-tom">Baixar, Importar e Transformar os Dados das Agências e Municípios (TOM)</h3>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Veja a seção <a href="#fontes-dos-dados">Fontes dos Dados</a> para mais informações.</p>
+</div>
+</div>
+</div>
+<section id="baixar-os-dados-1" class="level4"><h4 class="anchored" data-anchor-id="baixar-os-dados-1">Baixar os Dados</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_tom_data_file</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">input_data_dir</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">"municipalities_tom_data.csv"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">file_exists</a></span><span class="op">(</span><span class="va">municipalities_tom_data_file</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/request.html">request</a></span><span class="op">(</span><span class="st">"https://www.gov.br"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://httr2.r-lib.org/reference/req_url.html">req_url_path_append</a></span><span class="op">(</span><span class="st">"receitafederal"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://httr2.r-lib.org/reference/req_url.html">req_url_path_append</a></span><span class="op">(</span><span class="st">"dados"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://httr2.r-lib.org/reference/req_url.html">req_url_path_append</a></span><span class="op">(</span><span class="st">"municipios.csv"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://httr2.r-lib.org/reference/req_user_agent.html">req_user_agent</a></span><span class="op">(</span><span class="st">"https://cem-usp.github.io/locais-nova-rfb-geocoding"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://httr2.r-lib.org/reference/req_options.html">req_options</a></span><span class="op">(</span>connecttimeout <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://httr2.r-lib.org/reference/req_retry.html">req_retry</a></span><span class="op">(</span></span>
+<span>      max_tries <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>      retry_on_failure <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>      backoff <span class="op">=</span> \<span class="op">(</span><span class="va">attempt</span><span class="op">)</span> <span class="fl">5</span><span class="op">^</span><span class="va">attempt</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://httr2.r-lib.org/reference/req_progress.html">req_progress</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://httr2.r-lib.org/reference/req_perform.html">req_perform</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">municipalities_tom_data_file</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="importar-os-dados-2" class="level4"><h4 class="anchored" data-anchor-id="importar-os-dados-2">Importar os Dados</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_tom_data</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">municipalities_tom_data_file</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span></span>
+<span>    delim <span class="op">=</span> <span class="st">";"</span>,</span>
+<span>    col_names <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    col_types <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span>.default <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span>,</span>
+<span>    progress <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_tom_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 5,571</span></span>
+<span><span class="co">#&gt; Columns: 5</span></span>
+<span><span class="co">#&gt; $ X1 &lt;chr&gt; "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "…</span></span>
+<span><span class="co">#&gt; $ X2 &lt;chr&gt; "1100106", "1100379", "1100205", "1100452", "1100122", "1100924"…</span></span>
+<span><span class="co">#&gt; $ X3 &lt;chr&gt; "GUAJAR\xc1-MIRIM", "ALTO ALEGRE DOS PARECIS", "PORTO VELHO", "B…</span></span>
+<span><span class="co">#&gt; $ X4 &lt;chr&gt; "Guajar\xe1-Mirim", "Alto Alegre dos Parecis", "Porto Velho", "B…</span></span>
+<span><span class="co">#&gt; $ X5 &lt;chr&gt; "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO"…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="transformar-os-dados-1" class="level4"><h4 class="anchored" data-anchor-id="transformar-os-dados-1">Transformar os Dados</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_tom_data</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">municipalities_tom_data</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span></span>
+<span>      .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      .fns <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span><span class="op">(</span><span class="va">x</span>, from <span class="op">=</span> <span class="st">"Windows-1252"</span>, to <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span> <span class="co"># iconvlist()</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://magrittr.tidyverse.org/reference/aliases.html">set_names</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"municipality_code_tom"</span>,</span>
+<span>      <span class="st">"municipality_code_ibge"</span>,</span>
+<span>      <span class="st">"municipality_tom"</span>,</span>
+<span>      <span class="st">"municipality_ibge"</span>,</span>
+<span>      <span class="st">"federal_unit"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span></span>
+<span>      .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"municipality_code"</span><span class="op">)</span>,</span>
+<span>      .fns <span class="op">=</span> <span class="va">as.integer</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span></span>
+<span>    <span class="va">municipality_tom</span>,</span>
+<span>    <span class="va">municipality_code_tom</span>,</span>
+<span>    <span class="va">municipality_ibge</span>,</span>
+<span>    <span class="va">municipality_code_ibge</span>,</span>
+<span>    <span class="va">federal_unit</span></span>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipalities_tom_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 5,571</span></span>
+<span><span class="co">#&gt; Columns: 5</span></span>
+<span><span class="co">#&gt; $ municipality_tom       &lt;chr&gt; "GUAJARÁ-MIRIM", "ALTO ALEGRE DOS PARECIS", …</span></span>
+<span><span class="co">#&gt; $ municipality_code_tom  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1…</span></span>
+<span><span class="co">#&gt; $ municipality_ibge      &lt;chr&gt; "Guajará-Mirim", "Alto Alegre dos Parecis", …</span></span>
+<span><span class="co">#&gt; $ municipality_code_ibge &lt;int&gt; 1100106, 1100379, 1100205, 1100452, 1100122,…</span></span>
+<span><span class="co">#&gt; $ federal_unit           &lt;chr&gt; "RO", "RO", "RO", "RO", "RO", "RO", "RO", "R…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section><section id="correspondência-entre-códigos-municipais-do-ibge-e-códigos-tom" class="level3"><h3 class="anchored" data-anchor-id="correspondência-entre-códigos-municipais-do-ibge-e-códigos-tom">Correspondência entre códigos municipais do IBGE e códigos TOM</h3>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A Receita Federal Brasileira (<a href="https://www.gov.br/receitafederal/">RFB</a>) tem seu sistema de identificação dos municípios diferente dos códigos do IBGE (<em>Tabela de Órgãos e Municípios</em>, <a href="https://dados.gov.br/dados/conjuntos-dados/tabela-de-rgos-e-municpios">TOM</a>). Realizar a correspondência entre os códigos do IBGE para a TOM é, portanto, necessária.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span><span class="op">$</span><span class="va">municipality_codes</span></span>
+<span><span class="co">#&gt; [1] 2507507 3106200 3550308 4314902 1501402</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipality_tom_codes</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">municipalities_tom_data</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">municipality_code_ibge</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">params</span><span class="op">$</span><span class="va">municipality_codes</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">municipality_code_tom</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_pad.html">str_pad</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">4</span>, pad <span class="op">=</span> <span class="st">"0"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipality_tom_codes</span></span>
+<span><span class="co">#&gt; [1] "0427" "2051" "4123" "7107" "8801"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="baixar-dados-da-rfb" class="level3"><h3 class="anchored" data-anchor-id="baixar-dados-da-rfb">Baixar Dados da RFB</h3>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Veja a seção <a href="#fontes-dos-dados">Fontes dos Dados</a> para mais informações.</p>
+</div>
+</div>
+</div>
+<section id="lista-de-arquivos" class="level4"><h4 class="anchored" data-anchor-id="lista-de-arquivos">Lista de Arquivos</h4>
+</section><section id="baixar-dados" class="level4"><h4 class="anchored" data-anchor-id="baixar-dados">Baixar Dados</h4>
+</section><section id="descompactar-os-arquivos" class="level4"><h4 class="anchored" data-anchor-id="descompactar-os-arquivos">Descompactar os Arquivos</h4>
 </section></section></section><section id="citação" class="level2"><h2 class="anchored" data-anchor-id="citação">Citação</h2>
 </section><section id="license" class="level2"><h2 class="anchored" data-anchor-id="license">License</h2>
 <div style="text-align: left;">

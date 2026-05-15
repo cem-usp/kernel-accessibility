@@ -1,6 +1,6 @@
 ---
 params:
-  year: 2022
+  year: 2026
   month: 1
   h3_resolution: 9
   municipality_codes: [
@@ -157,14 +157,6 @@ library(zip)
 
 ## Importar, Processar, Geocodificar e Classificar os CNPJ's da RFB
 
-::: {.callout-note}
-Veja a seção [Disponibilidade dos Dados](#disponibilidade-dos-dados) para mais informações.
-:::
-
-::: {.callout-important}
-Apesar dos *restaurantes* serem parte da classificação [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.pt), eles foram excluidos dessa análise em razão das evidências conflitantes acerca da identificação confiável desses estabelecimentos por meio de dados cadastrais empresariais.
-:::
-
 ### Preparar o Ambiente
 
 ```{r}
@@ -184,7 +176,7 @@ if (!is_online()) {
 }
 ```
 
-#### Set Keys
+#### Preparar as Chaves
 
 ::: {.callout-note}
 Veja a seção [Disponibilidade dos Dados](#disponibilidade-dos-dados) para mais informações.
@@ -226,7 +218,7 @@ private_key <- here(".ssh", "id_rsa")
 password <- Sys.getenv("ACESSOSAN_PASSWORD") # askpass()
 ```
 
-#### Set Data Directories
+#### Definir os Diretórios dos Dados
 
 ```{r}
 #| echo: true
@@ -246,7 +238,7 @@ for (i in c(raw_data_dir, input_data_dir, data_dir)) {
 }
 ```
 
-#### Check Parameters
+#### Checagem dos Parâmetros
 
 ::: {.callout-note}
 Os parâmetros principais do pipeline são definidos no cabeçalho [YAML](https://en.wikipedia.org/wiki/YAML) do documento [Quarto](https://quarto.org/).
@@ -283,6 +275,14 @@ assert_integerish(params$municipality_codes, lower = 1100015, upper = 5300108)
 ```
 
 ### Baixar e Importar os CNAEs da Tabela de Correspondência da Locais-Nova
+
+::: {.callout-note}
+Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
+:::
+
+::: {.callout-important}
+Apesar dos *restaurantes* serem parte da classificação [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.pt), eles foram excluidos dessa análise em razão das evidências conflitantes acerca da identificação confiável desses estabelecimentos por meio de dados cadastrais empresariais.
+:::
 
 #### Baixar os Dados
 
@@ -325,13 +325,265 @@ locais_nova_lookup_data |> glimpse()
 
 ### Baixar, Importar e Processar os Dados Municipais
 
+::: {.callout-note}
+Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
+:::
+
 #### Baixar e Salvar os Dados
+
+```{r}
+#| label: Download, Import, and Process Municipality Data
+#| echo: true
+
+read_municipality_file <-
+  input_data_dir |>
+  file.path(
+    paste0(
+      paste(
+        "read_municipality",
+        "code",
+        "all",
+        "year",
+        params$year |> closest_geobr_year(type = "municipality"),
+        "simplified",
+        FALSE,
+        sep = "-"
+      ),
+      ".rds"
+    )
+  )
+```
+
+```{r}
+#| eval: !expr '!file_exists(read_municipality_file)'
+#| output: false
+#| echo: true
+
+if (!file_exists(read_municipality_file)) {
+  municipalities_data <-
+    read_municipality(
+      year = params$year |> closest_geobr_year(type = "municipality"),
+      simplified = FALSE,
+      showProgress = FALSE
+    )
+
+  municipalities_data |> write_rds(read_municipality_file)
+}
+```
 
 #### Importar os Dados
 
+```{r}
+#| echo: true
+
+municipalities_data <- read_municipality_file |> read_rds()
+```
+
+```{r}
+#| include: false
+
+if (is.null(municipalities_data)) {
+  file_delete(read_municipality_file)
+
+  cli_abort(
+    paste0(
+      "Failed to download {.strong {col_red('municipalities data')}}. ",
+      "This can be caused by a temporary issue with the {.code geobr} ",
+      "package. Check your internet connection and try again."
+    )
+  )
+}
+```
+
+```{r}
+#| echo: true
+
+municipalities_data |> glimpse()
+```
+
 #### Filtrar os Dados
 
+```{r}
+#| echo: true
+
+municipalities_data <-
+  municipalities_data |>
+  filter(code_muni %in% params$municipality_codes)
+```
+
+```{r}
+#| echo: true
+
+municipalities_data |> glimpse()
+```
+
 #### Transformar os Dados
+
+```{r}
+#| echo: true
+
+municipalities_data <-
+  municipalities_data |>
+  st_transform(st_crs(4326)) |>
+  select(
+    municipality = name_muni,
+    municipality_code = code_muni,
+    state = name_state,
+    state_code = code_state,
+    federal_unit = abbrev_state,
+    region = name_region,
+    region_code = code_region,
+    geometry = geom
+  )
+```
+
+```{r}
+#| echo: true
+
+municipalities_data |> glimpse()
+```
+
+### Baixar, Importar e Transformar os Dados das Agências e Municípios (TOM)
+
+::: {.callout-note}
+Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
+:::
+
+#### Baixar os Dados
+
+```{r}
+#| echo: true
+
+municipalities_tom_data_file <-
+  input_data_dir |>
+  file.path("municipalities_tom_data.csv")
+```
+
+```{r}
+#| echo: true
+
+if (!file_exists(municipalities_tom_data_file)) {
+  request("https://www.gov.br") |>
+    req_url_path_append("receitafederal") |>
+    req_url_path_append("dados") |>
+    req_url_path_append("municipios.csv") |>
+    req_user_agent("https://cem-usp.github.io/locais-nova-rfb-geocoding") |>
+    req_options(connecttimeout = 10) |>
+    req_retry(
+      max_tries = 3,
+      retry_on_failure = TRUE,
+      backoff = \(attempt) 5^attempt
+    ) |>
+    req_progress() |>
+    req_perform(path = municipalities_tom_data_file)
+}
+```
+
+#### Importar os Dados
+
+```{r}
+#| echo: true
+
+municipalities_tom_data <-
+  municipalities_tom_data_file |>
+  read_delim(
+    delim = ";",
+    col_names = FALSE,
+    col_types = cols(.default = "c"),
+    progress = FALSE
+  ) |>
+  slice(-1)
+```
+
+```{r}
+#| echo: true
+
+municipalities_tom_data |> glimpse()
+```
+
+#### Transformar os Dados
+
+```{r}
+#| echo: true
+
+municipalities_tom_data <-
+  municipalities_tom_data |>
+  mutate(
+    across(
+      .cols = everything(),
+      .fns = \(x) iconv(x, from = "Windows-1252", to = "UTF-8") # iconvlist()
+    )
+  ) |>
+  set_names(
+    c(
+      "municipality_code_tom",
+      "municipality_code_ibge",
+      "municipality_tom",
+      "municipality_ibge",
+      "federal_unit"
+    )
+  ) |>
+  mutate(
+    across(
+      .cols = starts_with("municipality_code"),
+      .fns = as.integer
+    )
+  ) |>
+  relocate(
+    municipality_tom,
+    municipality_code_tom,
+    municipality_ibge,
+    municipality_code_ibge,
+    federal_unit
+  )
+```
+
+```{r}
+#| echo: true
+
+municipalities_tom_data |> glimpse()
+```
+
+### Correspondência entre códigos municipais do IBGE e códigos TOM
+
+::: {.callout-note}
+A Receita Federal Brasileira ([RFB](https://www.gov.br/receitafederal/)) tem seu sistema de identificação dos municípios diferente dos códigos do IBGE (_Tabela de Órgãos e Municípios_, [TOM](https://dados.gov.br/dados/conjuntos-dados/tabela-de-rgos-e-municpios)). Realizar a correspondência entre os códigos do IBGE para a TOM é, portanto, necessária.
+:::
+
+```{r}
+#| label: Map IBGE Municipality Codes to TOM Codes
+#| echo: true
+
+params$municipality_codes
+```
+
+```{r}
+#| echo: true
+
+municipality_tom_codes <-
+  municipalities_tom_data |>
+  filter(municipality_code_ibge %in% params$municipality_codes) |>
+  pull(municipality_code_tom) |>
+  str_pad(width = 4, pad = "0")
+```
+
+```{r}
+#| echo: true
+
+municipality_tom_codes
+```
+
+### Baixar Dados da RFB
+
+::: {.callout-note}
+Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
+:::
+
+#### Lista de Arquivos
+
+#### Baixar Dados
+
+#### Descompactar os Arquivos
 
 
 ## Citação
