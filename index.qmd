@@ -581,9 +581,283 @@ Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
 
 #### Lista de Arquivos
 
+```{r}
+#| label: Download RFB Data
+
+public_token <- "YggdBLfdninEJX9"
+```
+
+```{r}
+request <-
+  request("https://arquivos.receitafederal.gov.br") |>
+  req_auth_basic(public_token, "")
+```
+
+```{r}
+response <-
+  request |>
+  req_url_path_append("public.php") |>
+  req_url_path_append("webdav") |>
+  req_method("PROPFIND") |>
+  req_url_path_append(
+    paste0(params$year, "-", str_pad(params$month, 2, pad = 0))
+  ) |>
+  req_headers("Depth" = "1") |>
+  req_body_raw(
+    '<?xml version="1.0"?>
+      <d:propfind xmlns:d="DAV:">
+        <d:prop>
+          <d:displayname/>
+          <d:getcontentlength/>
+          <d:getcontenttype/>
+          <d:getlastmodified/>
+        </d:prop>
+      </d:propfind>',
+    type = "application/xml"
+  ) |>
+  req_user_agent("https://cem-usp.github.io/locais-nova-rfb-geocoding") |>
+  req_options(connecttimeout = 10) |>
+  req_retry(
+    max_tries = 3,
+    retry_on_failure = TRUE,
+    backoff = \(attempt) 5^attempt
+  ) |>
+  req_perform() |>
+  resp_body_xml() %>%
+  xml_find_all(
+    .,
+    ".//d:response",
+    xml_ns(.)
+  )
+```
+
+```{r}
+list_files <- function(node, response) {
+  xpaths <- list(
+    name = ".//d:displayname",
+    url = ".//d:href",
+    size = ".//d:getcontentlength",
+    type = ".//d:getcontenttype",
+    modified = ".//d:getlastmodified"
+  )
+
+  xpaths |>
+    map(
+      function(xpath) {
+        node |>
+          xml_find_first(xpath, xml_ns(response)) |>
+          xml_text()
+      }
+    ) |>
+    as_tibble()
+}
+```
+
+```{r}
+files <-
+  response |>
+  map(list_files, response = response) |>
+  list_rbind() |>
+  filter(type == "application/zip") |>
+  mutate(size = size |> as_fs_bytes())
+```
+
+```{r}
+files |> glimpse()
+```
+
 #### Baixar Dados
 
+```{r}
+rfb_file_pattern <-
+  paste0(
+    "D",
+    params$year |> str_sub(-1),
+    params$month |> str_pad(width = 2, pad = "0")
+  )
+```
+
+```{r}
+#| eval: !expr '!all(str_detect(dir_ls(raw_data_dir), rfb_file_pattern))'
+
+if (
+  raw_data_dir |>
+    dir_ls() |>
+    str_detect(rfb_file_pattern) |>
+    all() |>
+    not()
+) {
+  cli_progress_bar(
+    "Downloading RFB files",
+    total = nrow(files),
+    clear = FALSE
+  )
+
+  for (i in seq_len(nrow(files))) {
+    request |>
+      req_url_path_append(files$url[i]) |>
+      req_perform(
+        path = here(raw_data_dir, files$name[i])
+      )
+
+    cli_progress_update()
+  }
+
+  cli_progress_done()
+}
+```
+
 #### Descompactar os Arquivos
+
+```{r}
+zip_files <-
+  raw_data_dir |>
+  dir_ls(type = "file", regexp = "\\.zip$")
+```
+
+```{r}
+#| eval: !expr '!all(str_detect(dir_ls(raw_data_dir), rfb_file_pattern))'
+#| output: false
+
+if (length(zip_files) > 0) {
+  zip_files |>
+    map(
+      \(x) unzip(x, exdir = raw_data_dir),
+      .progress = TRUE
+    )
+}
+```
+
+```{r}
+#| eval: !expr '!all(str_detect(dir_ls(raw_data_dir), rfb_file_pattern))'
+
+if (length(zip_files) > 0) {
+  zip_files |> file_delete()
+}
+```
+
+### Importar e Filtrar Dados
+
+#### Importar e Filtrar Dados por Municípios
+
+::: {.callout-note}
+A linguagem de programação [AWK](https://www.gnu.org/software/gawk/) e o pacote R [vroom](https://vroom.r-lib.org/) R são usados para ler e filtrar dados de maneira eficiente, sem carregar os dadados inteiramente na memória.
+
+Apenas estabelecimentos com status de registro *Ativo* (`$6 == "02"`) e sem status especiais (`$29 == ""`) estão incluídos e, portanto, os registros são posteriormente filtrados por município (`$21 == municipality_tom_codes`).
+
+Clique [aqui](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj) para acessar o dicionário dos dados.
+:::
+
+```{r}
+#| label: Import and Filter Data
+
+data <-
+  raw_data_dir |>
+  dir_ls(
+    type = "file",
+    regexp = "\\.ESTABELE$"
+  ) |>
+  map(
+    function(x) {
+      vroom(
+        file = pipe(
+          paste0(
+            "awk ",
+            "-F ",
+            "';' ",
+            "'{ ",
+            "if (",
+            '($6 == "',
+            '\\"02\\"',
+            '")',
+            " && (",
+            paste0(
+              '$21 == "\\"',
+              municipality_tom_codes,
+              '\\""',
+              collapse = " || "
+            ),
+            ") && ",
+            '($29 == "',
+            '\\"\\"',
+            '")',
+            ") ",
+            "print",
+            " }' ",
+            str_escape(x)
+          )
+        ),
+        delim = ";",
+        col_names = c(
+          "cnpj_basic",
+          "cnpj_order",
+          "cnpj_dv",
+          "branch_identifier",
+          "trade_name",
+          "registration_status",
+          "registration_status_date",
+          "registration_status_reason",
+          "foreign_city_name",
+          "country",
+          "opening_date",
+          "primary_cnae",
+          "secondary_cnae",
+          "street_type",
+          "street_name",
+          "number",
+          "complement",
+          "neighborhood",
+          "postal_code",
+          "federal_unit",
+          "municipality_code_tom",
+          "phone_area_code_1",
+          "phone_number_1",
+          "phone_area_code_2",
+          "phone_number_2",
+          "fax_area_code",
+          "fax_number",
+          "email",
+          "special_status",
+          "special_status_date"
+        ),
+        col_types = cols(.default = "c"),
+        col_select = c(
+          "cnpj_basic",
+          "cnpj_order",
+          "cnpj_dv",
+          "trade_name",
+          "opening_date",
+          "primary_cnae",
+          "secondary_cnae",
+          "street_type",
+          "street_name",
+          "number",
+          "complement",
+          "neighborhood",
+          "postal_code",
+          "municipality_code_tom",
+          "federal_unit",
+          "registration_status_date"
+        ),
+        guess_max = 100,
+        num_threads = detectCores() |>
+          multiply_by(0.75) |>
+          ceiling(),
+        progress = TRUE,
+        show_col_types = FALSE
+      )
+    },
+    .progress = TRUE
+  ) |>
+  list_rbind()
+```
+
+```{r}
+data |> glimpse()
+```
+
+#### Filtrar Estabelecimentos para o Grupo G0
+
 
 
 ## Citação

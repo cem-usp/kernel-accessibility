@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Marcio Antonio Pizzonia Junior">
-<meta name="dcterms.date" content="2026-05-15">
+<meta name="dcterms.date" content="2026-05-16">
 <title>Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras</title>
 <style>
 /* Default styles provided by pandoc.
@@ -123,10 +123,10 @@ div.csl-indent {
 <meta property="og:image:width" content="2400">
 <meta name="citation_title" content="Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras">
 <meta name="citation_author" content="Marcio Antonio Pizzonia Junior">
-<meta name="citation_publication_date" content="2026-05-15">
-<meta name="citation_cover_date" content="2026-05-15">
+<meta name="citation_publication_date" content="2026-05-16">
+<meta name="citation_cover_date" content="2026-05-16">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-05-15">
+<meta name="citation_online_date" content="2026-05-16">
 <meta name="citation_fulltext_html_url" content="https://cem-usp.github.io/kernel-accessibility/">
 <meta name="citation_language" content="en">
 <meta name="citation_reference" content="citation_title=The AWK programming language;,citation_abstract=Awk was developed in 1977 at Bell Labs, and it’s still a remarkably useful tool for solving a wide variety of problems quickly and efficiently. In this update of the classic Awk book, the creators of the language show you what Awk can do and teach you how to use it effectively.Here’s what programmers today are saying: &amp;amp;amp;quot;I love Awk.&amp;quot; &quot;Awk is amazing.&quot; &quot;It is just so damn good.&quot; &quot;Awk is just right.&quot; &quot;Awk is awesome.&quot; &quot;Awk has always been a language that I loved.&quot;It’s easy: &quot;Simple, fast and lightweight.&quot; &quot;Absolutely efficient to learn because there isn’t much to learn.&quot; &quot;3-4 hours to learn the language from start to finish.&quot; &quot;I can teach it to new engineers in less than 2 hours.&quot;It’s productive: &quot;Whenever I need to do a complex analysis of a semi-structured text file in less than a minute, Awk is my tool.&quot; &quot;Learning Awk was the best bang for buck investment of time in my entire career.&quot; &quot;Designed to chew through lines of text files with ease, with great defaults that minimize the amount of code you actually have to write to do anything.&quot;It’s always available: &quot;AWK runs everywhere.&quot; &quot;A reliable Swiss Army knife that is always there when you need it.&quot; &quot;Many systems lack Perl or Python, but include Awk.&quot;Register your book for convenient access to downloads, updates, and/or corrections as they become available. See inside book for details.;,citation_author=Alfred Aho;,citation_author=Brian Kernighan;,citation_author=Peter Weinberger;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://www.awk.dev;,citation_isbn=978-0-13-826972-2;,citation_language=en-US;">
@@ -248,6 +248,13 @@ div.csl-indent {
   <li><a href="#descompactar-os-arquivos" id="toc-descompactar-os-arquivos" class="nav-link" data-scroll-target="#descompactar-os-arquivos">Descompactar os Arquivos</a></li>
   </ul>
 </li>
+  <li>
+<a href="#importar-e-filtrar-dados" id="toc-importar-e-filtrar-dados" class="nav-link" data-scroll-target="#importar-e-filtrar-dados">Importar e Filtrar Dados</a>
+  <ul>
+<li><a href="#importar-e-filtrar-dados-por-munic%C3%ADpios" id="toc-importar-e-filtrar-dados-por-municípios" class="nav-link" data-scroll-target="#importar-e-filtrar-dados-por-munic%C3%ADpios">Importar e Filtrar Dados por Municípios</a></li>
+  <li><a href="#filtrar-estabelecimentos-para-o-grupo-g0" id="toc-filtrar-estabelecimentos-para-o-grupo-g0" class="nav-link" data-scroll-target="#filtrar-estabelecimentos-para-o-grupo-g0">Filtrar Estabelecimentos para o Grupo G0</a></li>
+  </ul>
+</li>
   </ul>
 </li>
   <li><a href="#cita%C3%A7%C3%A3o" id="toc-citação" class="nav-link" data-scroll-target="#cita%C3%A7%C3%A3o">Citação</a></li>
@@ -275,7 +282,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 15, 2026</p>
+      <p class="date">May 16, 2026</p>
     </div>
   </div>
   
@@ -772,8 +779,267 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 </div>
 </div>
 <section id="lista-de-arquivos" class="level4"><h4 class="anchored" data-anchor-id="lista-de-arquivos">Lista de Arquivos</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">public_token</span> <span class="op">&lt;-</span> <span class="st">"YggdBLfdninEJX9"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">request</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/request.html">request</a></span><span class="op">(</span><span class="st">"https://arquivos.receitafederal.gov.br"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_auth_basic.html">req_auth_basic</a></span><span class="op">(</span><span class="va">public_token</span>, <span class="st">""</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">response</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">request</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_url.html">req_url_path_append</a></span><span class="op">(</span><span class="st">"public.php"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_url.html">req_url_path_append</a></span><span class="op">(</span><span class="st">"webdav"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_method.html">req_method</a></span><span class="op">(</span><span class="st">"PROPFIND"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_url.html">req_url_path_append</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">year</span>, <span class="st">"-"</span>, <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">month</span>, <span class="fl">2</span>, pad <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_headers.html">req_headers</a></span><span class="op">(</span><span class="st">"Depth"</span> <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_body.html">req_body_raw</a></span><span class="op">(</span></span>
+<span>    <span class="st">'&lt;?xml version="1.0"?&gt;</span></span>
+<span><span class="st">      &lt;d:propfind xmlns:d="DAV:"&gt;</span></span>
+<span><span class="st">        &lt;d:prop&gt;</span></span>
+<span><span class="st">          &lt;d:displayname/&gt;</span></span>
+<span><span class="st">          &lt;d:getcontentlength/&gt;</span></span>
+<span><span class="st">          &lt;d:getcontenttype/&gt;</span></span>
+<span><span class="st">          &lt;d:getlastmodified/&gt;</span></span>
+<span><span class="st">        &lt;/d:prop&gt;</span></span>
+<span><span class="st">      &lt;/d:propfind&gt;'</span>,</span>
+<span>    type <span class="op">=</span> <span class="st">"application/xml"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_user_agent.html">req_user_agent</a></span><span class="op">(</span><span class="st">"https://cem-usp.github.io/locais-nova-rfb-geocoding"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_options.html">req_options</a></span><span class="op">(</span>connecttimeout <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_retry.html">req_retry</a></span><span class="op">(</span></span>
+<span>    max_tries <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    retry_on_failure <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    backoff <span class="op">=</span> \<span class="op">(</span><span class="va">attempt</span><span class="op">)</span> <span class="fl">5</span><span class="op">^</span><span class="va">attempt</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_perform.html">req_perform</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/resp_body_raw.html">resp_body_xml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_find_all.html">xml_find_all</a></span><span class="op">(</span></span>
+<span>    <span class="va">.</span>,</span>
+<span>    <span class="st">".//d:response"</span>,</span>
+<span>    <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_ns.html">xml_ns</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">list_files</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">node</span>, <span class="va">response</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">xpaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    name <span class="op">=</span> <span class="st">".//d:displayname"</span>,</span>
+<span>    url <span class="op">=</span> <span class="st">".//d:href"</span>,</span>
+<span>    size <span class="op">=</span> <span class="st">".//d:getcontentlength"</span>,</span>
+<span>    type <span class="op">=</span> <span class="st">".//d:getcontenttype"</span>,</span>
+<span>    modified <span class="op">=</span> <span class="st">".//d:getlastmodified"</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">xpaths</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span></span>
+<span>      <span class="kw">function</span><span class="op">(</span><span class="va">xpath</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">node</span> <span class="op">|&gt;</span></span>
+<span>          <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_find_all.html">xml_find_first</a></span><span class="op">(</span><span class="va">xpath</span>, <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_ns.html">xml_ns</a></span><span class="op">(</span><span class="va">response</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>          <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_text.html">xml_text</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>      <span class="op">}</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">files</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">response</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">list_files</span>, response <span class="op">=</span> <span class="va">response</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"application/zip"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">size</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://fs.r-lib.org/reference/fs_bytes.html">as_fs_bytes</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">files</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 37</span></span>
+<span><span class="co">#&gt; Columns: 5</span></span>
+<span><span class="co">#&gt; $ name     &lt;chr&gt; "Cnaes.zip", "Empresas0.zip", "Empresas1.zip", "Empresas2.…</span></span>
+<span><span class="co">#&gt; $ url      &lt;chr&gt; "/public.php/webdav/2026-01/Cnaes.zip", "/public.php/webda…</span></span>
+<span><span class="co">#&gt; $ size     &lt;fs::bytes&gt; 21.56K, 465.72M, 74.25M, 75.43M, 81.18M, 86.12M, 92.…</span></span>
+<span><span class="co">#&gt; $ type     &lt;chr&gt; "application/zip", "application/zip", "application/zip", "…</span></span>
+<span><span class="co">#&gt; $ modified &lt;chr&gt; "Sun, 11 Jan 2026 17:51:31 GMT", "Sun, 11 Jan 2026 17:52:0…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section><section id="baixar-dados" class="level4"><h4 class="anchored" data-anchor-id="baixar-dados">Baixar Dados</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rfb_file_pattern</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>    <span class="st">"D"</span>,</span>
+<span>    <span class="va">params</span><span class="op">$</span><span class="va">year</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,</span>
+<span>    <span class="va">params</span><span class="op">$</span><span class="va">month</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_pad.html">str_pad</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">2</span>, pad <span class="op">=</span> <span class="st">"0"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span></span>
+<span>  <span class="va">raw_data_dir</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">rfb_file_pattern</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://magrittr.tidyverse.org/reference/aliases.html">not</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://cli.r-lib.org/reference/cli_progress_bar.html">cli_progress_bar</a></span><span class="op">(</span></span>
+<span>    <span class="st">"Downloading RFB files"</span>,</span>
+<span>    total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">files</span><span class="op">)</span>,</span>
+<span>    clear <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">files</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">request</span> <span class="op">|&gt;</span></span>
+<span>      <span class="fu"><a href="https://httr2.r-lib.org/reference/req_url.html">req_url_path_append</a></span><span class="op">(</span><span class="va">files</span><span class="op">$</span><span class="va">url</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>      <span class="fu"><a href="https://httr2.r-lib.org/reference/req_perform.html">req_perform</a></span><span class="op">(</span></span>
+<span>        path <span class="op">=</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="va">raw_data_dir</span>, <span class="va">files</span><span class="op">$</span><span class="va">name</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span></span>
+<span>    <span class="fu"><a href="https://cli.r-lib.org/reference/cli_progress_bar.html">cli_progress_update</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://cli.r-lib.org/reference/cli_progress_bar.html">cli_progress_done</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section><section id="descompactar-os-arquivos" class="level4"><h4 class="anchored" data-anchor-id="descompactar-os-arquivos">Descompactar os Arquivos</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">zip_files</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">raw_data_dir</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"file"</span>, regexp <span class="op">=</span> <span class="st">"\\.zip$"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">zip_files</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">zip_files</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span></span>
+<span>      \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://r-lib.github.io/zip/reference/unzip.html">unzip</a></span><span class="op">(</span><span class="va">x</span>, exdir <span class="op">=</span> <span class="va">raw_data_dir</span><span class="op">)</span>,</span>
+<span>      .progress <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">zip_files</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">zip_files</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://fs.r-lib.org/reference/delete.html">file_delete</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section><section id="importar-e-filtrar-dados" class="level3"><h3 class="anchored" data-anchor-id="importar-e-filtrar-dados">Importar e Filtrar Dados</h3>
+<section id="importar-e-filtrar-dados-por-municípios" class="level4"><h4 class="anchored" data-anchor-id="importar-e-filtrar-dados-por-municípios">Importar e Filtrar Dados por Municípios</h4>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A linguagem de programação <a href="https://www.gnu.org/software/gawk/">AWK</a> e o pacote R <a href="https://vroom.r-lib.org/">vroom</a> R são usados para ler e filtrar dados de maneira eficiente, sem carregar os dadados inteiramente na memória.</p>
+<p>Apenas estabelecimentos com status de registro <em>Ativo</em> (<code>$6 == "02"</code>) e sem status especiais (<code>$29 == ""</code>) estão incluídos e, portanto, os registros são posteriormente filtrados por município (<code>$21 == municipality_tom_codes</code>).</p>
+<p>Clique <a href="https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj">aqui</a> para acessar o dicionário dos dados.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">raw_data_dir</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span></span>
+<span>    type <span class="op">=</span> <span class="st">"file"</span>,</span>
+<span>    regexp <span class="op">=</span> <span class="st">"\\.ESTABELE$"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span></span>
+<span>    <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="fu"><a href="https://vroom.tidyverse.org/reference/vroom.html">vroom</a></span><span class="op">(</span></span>
+<span>        file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/connections.html">pipe</a></span><span class="op">(</span></span>
+<span>          <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>            <span class="st">"awk "</span>,</span>
+<span>            <span class="st">"-F "</span>,</span>
+<span>            <span class="st">"';' "</span>,</span>
+<span>            <span class="st">"'{ "</span>,</span>
+<span>            <span class="st">"if ("</span>,</span>
+<span>            <span class="st">'($6 == "'</span>,</span>
+<span>            <span class="st">'\\"02\\"'</span>,</span>
+<span>            <span class="st">'")'</span>,</span>
+<span>            <span class="st">" &amp;&amp; ("</span>,</span>
+<span>            <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>              <span class="st">'$21 == "\\"'</span>,</span>
+<span>              <span class="va">municipality_tom_codes</span>,</span>
+<span>              <span class="st">'\\""'</span>,</span>
+<span>              collapse <span class="op">=</span> <span class="st">" || "</span></span>
+<span>            <span class="op">)</span>,</span>
+<span>            <span class="st">") &amp;&amp; "</span>,</span>
+<span>            <span class="st">'($29 == "'</span>,</span>
+<span>            <span class="st">'\\"\\"'</span>,</span>
+<span>            <span class="st">'")'</span>,</span>
+<span>            <span class="st">") "</span>,</span>
+<span>            <span class="st">"print"</span>,</span>
+<span>            <span class="st">" }' "</span>,</span>
+<span>            <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_escape.html">str_escape</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        delim <span class="op">=</span> <span class="st">";"</span>,</span>
+<span>        col_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>          <span class="st">"cnpj_basic"</span>,</span>
+<span>          <span class="st">"cnpj_order"</span>,</span>
+<span>          <span class="st">"cnpj_dv"</span>,</span>
+<span>          <span class="st">"branch_identifier"</span>,</span>
+<span>          <span class="st">"trade_name"</span>,</span>
+<span>          <span class="st">"registration_status"</span>,</span>
+<span>          <span class="st">"registration_status_date"</span>,</span>
+<span>          <span class="st">"registration_status_reason"</span>,</span>
+<span>          <span class="st">"foreign_city_name"</span>,</span>
+<span>          <span class="st">"country"</span>,</span>
+<span>          <span class="st">"opening_date"</span>,</span>
+<span>          <span class="st">"primary_cnae"</span>,</span>
+<span>          <span class="st">"secondary_cnae"</span>,</span>
+<span>          <span class="st">"street_type"</span>,</span>
+<span>          <span class="st">"street_name"</span>,</span>
+<span>          <span class="st">"number"</span>,</span>
+<span>          <span class="st">"complement"</span>,</span>
+<span>          <span class="st">"neighborhood"</span>,</span>
+<span>          <span class="st">"postal_code"</span>,</span>
+<span>          <span class="st">"federal_unit"</span>,</span>
+<span>          <span class="st">"municipality_code_tom"</span>,</span>
+<span>          <span class="st">"phone_area_code_1"</span>,</span>
+<span>          <span class="st">"phone_number_1"</span>,</span>
+<span>          <span class="st">"phone_area_code_2"</span>,</span>
+<span>          <span class="st">"phone_number_2"</span>,</span>
+<span>          <span class="st">"fax_area_code"</span>,</span>
+<span>          <span class="st">"fax_number"</span>,</span>
+<span>          <span class="st">"email"</span>,</span>
+<span>          <span class="st">"special_status"</span>,</span>
+<span>          <span class="st">"special_status_date"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        col_types <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span>.default <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span>,</span>
+<span>        col_select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>          <span class="st">"cnpj_basic"</span>,</span>
+<span>          <span class="st">"cnpj_order"</span>,</span>
+<span>          <span class="st">"cnpj_dv"</span>,</span>
+<span>          <span class="st">"trade_name"</span>,</span>
+<span>          <span class="st">"opening_date"</span>,</span>
+<span>          <span class="st">"primary_cnae"</span>,</span>
+<span>          <span class="st">"secondary_cnae"</span>,</span>
+<span>          <span class="st">"street_type"</span>,</span>
+<span>          <span class="st">"street_name"</span>,</span>
+<span>          <span class="st">"number"</span>,</span>
+<span>          <span class="st">"complement"</span>,</span>
+<span>          <span class="st">"neighborhood"</span>,</span>
+<span>          <span class="st">"postal_code"</span>,</span>
+<span>          <span class="st">"municipality_code_tom"</span>,</span>
+<span>          <span class="st">"federal_unit"</span>,</span>
+<span>          <span class="st">"registration_status_date"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        guess_max <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>        num_threads <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html">detectCores</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>          <span class="fu"><a href="https://magrittr.tidyverse.org/reference/aliases.html">multiply_by</a></span><span class="op">(</span><span class="fl">0.75</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>          <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        progress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>        show_col_types <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">}</span>,</span>
+<span>    .progress <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 0</span></span>
+<span><span class="co">#&gt; Columns: 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="filtrar-estabelecimentos-para-o-grupo-g0" class="level4"><h4 class="anchored" data-anchor-id="filtrar-estabelecimentos-para-o-grupo-g0">Filtrar Estabelecimentos para o Grupo G0</h4>
 </section></section></section><section id="citação" class="level2"><h2 class="anchored" data-anchor-id="citação">Citação</h2>
 </section><section id="license" class="level2"><h2 class="anchored" data-anchor-id="license">License</h2>
 <div style="text-align: left;">
