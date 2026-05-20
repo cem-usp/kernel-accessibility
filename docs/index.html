@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Marcio Antonio Pizzonia Junior">
-<meta name="dcterms.date" content="2026-05-16">
+<meta name="dcterms.date" content="2026-05-20">
 <title>Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras</title>
 <style>
 /* Default styles provided by pandoc.
@@ -123,10 +123,10 @@ div.csl-indent {
 <meta property="og:image:width" content="2400">
 <meta name="citation_title" content="Mapeamento da Acessibilidade aos Alimentos Saudáveis em Favelas e Comunidades Urbanas Brasileiras">
 <meta name="citation_author" content="Marcio Antonio Pizzonia Junior">
-<meta name="citation_publication_date" content="2026-05-16">
-<meta name="citation_cover_date" content="2026-05-16">
+<meta name="citation_publication_date" content="2026-05-20">
+<meta name="citation_cover_date" content="2026-05-20">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-05-16">
+<meta name="citation_online_date" content="2026-05-20">
 <meta name="citation_fulltext_html_url" content="https://cem-usp.github.io/kernel-accessibility/">
 <meta name="citation_language" content="en">
 <meta name="citation_reference" content="citation_title=The AWK programming language;,citation_abstract=Awk was developed in 1977 at Bell Labs, and it’s still a remarkably useful tool for solving a wide variety of problems quickly and efficiently. In this update of the classic Awk book, the creators of the language show you what Awk can do and teach you how to use it effectively.Here’s what programmers today are saying: &amp;amp;amp;quot;I love Awk.&amp;quot; &quot;Awk is amazing.&quot; &quot;It is just so damn good.&quot; &quot;Awk is just right.&quot; &quot;Awk is awesome.&quot; &quot;Awk has always been a language that I loved.&quot;It’s easy: &quot;Simple, fast and lightweight.&quot; &quot;Absolutely efficient to learn because there isn’t much to learn.&quot; &quot;3-4 hours to learn the language from start to finish.&quot; &quot;I can teach it to new engineers in less than 2 hours.&quot;It’s productive: &quot;Whenever I need to do a complex analysis of a semi-structured text file in less than a minute, Awk is my tool.&quot; &quot;Learning Awk was the best bang for buck investment of time in my entire career.&quot; &quot;Designed to chew through lines of text files with ease, with great defaults that minimize the amount of code you actually have to write to do anything.&quot;It’s always available: &quot;AWK runs everywhere.&quot; &quot;A reliable Swiss Army knife that is always there when you need it.&quot; &quot;Many systems lack Perl or Python, but include Awk.&quot;Register your book for convenient access to downloads, updates, and/or corrections as they become available. See inside book for details.;,citation_author=Alfred Aho;,citation_author=Brian Kernighan;,citation_author=Peter Weinberger;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://www.awk.dev;,citation_isbn=978-0-13-826972-2;,citation_language=en-US;">
@@ -251,8 +251,40 @@ div.csl-indent {
   <li>
 <a href="#importar-e-filtrar-dados" id="toc-importar-e-filtrar-dados" class="nav-link" data-scroll-target="#importar-e-filtrar-dados">Importar e Filtrar Dados</a>
   <ul>
-<li><a href="#importar-e-filtrar-dados-por-munic%C3%ADpios" id="toc-importar-e-filtrar-dados-por-municípios" class="nav-link" data-scroll-target="#importar-e-filtrar-dados-por-munic%C3%ADpios">Importar e Filtrar Dados por Municípios</a></li>
+<li><a href="#importar-e-filtrar-estabelecimentos-ativos-e-regulares-por-munic%C3%ADpios" id="toc-importar-e-filtrar-estabelecimentos-ativos-e-regulares-por-municípios" class="nav-link" data-scroll-target="#importar-e-filtrar-estabelecimentos-ativos-e-regulares-por-munic%C3%ADpios">Importar e Filtrar Estabelecimentos Ativos e Regulares por Municípios</a></li>
   <li><a href="#filtrar-estabelecimentos-para-o-grupo-g0" id="toc-filtrar-estabelecimentos-para-o-grupo-g0" class="nav-link" data-scroll-target="#filtrar-estabelecimentos-para-o-grupo-g0">Filtrar Estabelecimentos para o Grupo G0</a></li>
+  <li><a href="#importar-e-filtrar-dados-extras-das-companhias-por-estabelecimento" id="toc-importar-e-filtrar-dados-extras-das-companhias-por-estabelecimento" class="nav-link" data-scroll-target="#importar-e-filtrar-dados-extras-das-companhias-por-estabelecimento">Importar e Filtrar Dados Extras das Companhias por Estabelecimento</a></li>
+  <li><a href="#importar-e-filtrar-dados-dp-simples-nacional-por-estabelecimento" id="toc-importar-e-filtrar-dados-dp-simples-nacional-por-estabelecimento" class="nav-link" data-scroll-target="#importar-e-filtrar-dados-dp-simples-nacional-por-estabelecimento">Importar e Filtrar Dados dp Simples Nacional por Estabelecimento</a></li>
+  <li><a href="#visualizar-dados-do-status-de-registro" id="toc-visualizar-dados-do-status-de-registro" class="nav-link" data-scroll-target="#visualizar-dados-do-status-de-registro">Visualizar Dados do Status de Registro</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy Data</a>
+  <ul>
+<li><a href="#remover-colunas-extras" id="toc-remover-colunas-extras" class="nav-link" data-scroll-target="#remover-colunas-extras">Remover Colunas Extras</a></li>
+  <li><a href="#padroniza%C3%A7%C3%A3o-da-codifica%C3%A7%C3%A3o-de-caracteres" id="toc-padronização-da-codificação-de-caracteres" class="nav-link" data-scroll-target="#padroniza%C3%A7%C3%A3o-da-codifica%C3%A7%C3%A3o-de-caracteres">Padronização da Codificação de Caracteres</a></li>
+  <li><a href="#pad-cnpjs-e-cnaes" id="toc-pad-cnpjs-e-cnaes" class="nav-link" data-scroll-target="#pad-cnpjs-e-cnaes">Pad CNPJs e CNAEs</a></li>
+  <li><a href="#remover-cnpjs-duplicados" id="toc-remover-cnpjs-duplicados" class="nav-link" data-scroll-target="#remover-cnpjs-duplicados">Remover CNPJs Duplicados</a></li>
+  <li><a href="#remover-cnpjs-e-cnaes-inv%C3%A1lidos" id="toc-remover-cnpjs-e-cnaes-inválidos" class="nav-link" data-scroll-target="#remover-cnpjs-e-cnaes-inv%C3%A1lidos">Remover CNPJs e CNAEs Inválidos</a></li>
+  <li><a href="#adicionar-dados-municipais" id="toc-adicionar-dados-municipais" class="nav-link" data-scroll-target="#adicionar-dados-municipais">Adicionar Dados Municipais</a></li>
+  <li><a href="#padronizar-os-dados" id="toc-padronizar-os-dados" class="nav-link" data-scroll-target="#padronizar-os-dados">Padronizar os Dados</a></li>
+  <li><a href="#realocar-as-colunas" id="toc-realocar-as-colunas" class="nav-link" data-scroll-target="#realocar-as-colunas">Realocar as Colunas</a></li>
+  <li><a href="#organizar-os-dados" id="toc-organizar-os-dados" class="nav-link" data-scroll-target="#organizar-os-dados">Organizar os Dados</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#geocodificar-os-dados" id="toc-geocodificar-os-dados" class="nav-link" data-scroll-target="#geocodificar-os-dados">Geocodificar os Dados</a>
+  <ul>
+<li><a href="#preparar-os-dados" id="toc-preparar-os-dados" class="nav-link" data-scroll-target="#preparar-os-dados">Preparar os Dados</a></li>
+  <li><a href="#geocodificar-os-dados-1" id="toc-geocodificar-os-dados-1" class="nav-link" data-scroll-target="#geocodificar-os-dados-1">Geocodificar os Dados</a></li>
+  <li><a href="#tidy-data-1" id="toc-tidy-data-1" class="nav-link" data-scroll-target="#tidy-data-1">Tidy Data</a></li>
+  <li>
+<a href="#visualizar-precis%C3%A3o-da-geocodifica%C3%A7%C3%A3o" id="toc-visualizar-precisão-da-geocodificação" class="nav-link" data-scroll-target="#visualizar-precis%C3%A3o-da-geocodifica%C3%A7%C3%A3o">Visualizar Precisão da Geocodificação</a>
+  <ul class="collapse">
+<li><a href="#precis%C3%A3o-global" id="toc-precisão-global" class="nav-link" data-scroll-target="#precis%C3%A3o-global">Precisão Global</a></li>
+  <li><a href="#precis%C3%A3o-local" id="toc-precisão-local" class="nav-link" data-scroll-target="#precis%C3%A3o-local">Precisão Local</a></li>
+  </ul>
+</li>
   </ul>
 </li>
   </ul>
@@ -282,7 +314,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 16, 2026</p>
+      <p class="date">May 20, 2026</p>
     </div>
   </div>
   
@@ -473,8 +505,8 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <span><span class="co">#&gt; &lt;list&gt;</span></span>
 <span><span class="co">#&gt; ├─year: 2026</span></span>
 <span><span class="co">#&gt; ├─month: 1</span></span>
-<span><span class="co">#&gt; ├─h3_resolution: 9</span></span>
-<span><span class="co">#&gt; └─municipality_codes&lt;int [5]&gt;: 2507507, 3106200, 3550308, 4314902, 1501402</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="co">#&gt; ├─municipality_codes&lt;int [5]&gt;: 2507507, 3106200, 3550308, 4314902, 1501402</span></span>
+<span><span class="co">#&gt; └─h3_resolution: 9</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://mllg.github.io/checkmate/reference/checkInt.html">assert_int</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">year</span>, lower <span class="op">=</span> <span class="fl">1980</span>, upper <span class="op">=</span> <span class="fl">2050</span><span class="op">)</span></span>
@@ -920,7 +952,7 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section><section id="importar-e-filtrar-dados" class="level3"><h3 class="anchored" data-anchor-id="importar-e-filtrar-dados">Importar e Filtrar Dados</h3>
-<section id="importar-e-filtrar-dados-por-municípios" class="level4"><h4 class="anchored" data-anchor-id="importar-e-filtrar-dados-por-municípios">Importar e Filtrar Dados por Municípios</h4>
+<section id="importar-e-filtrar-estabelecimentos-ativos-e-regulares-por-municípios" class="level4"><h4 class="anchored" data-anchor-id="importar-e-filtrar-estabelecimentos-ativos-e-regulares-por-municípios">Importar e Filtrar Estabelecimentos Ativos e Regulares por Municípios</h4>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1040,7 +1072,27 @@ Figure&nbsp;1: Data science workflow created by Wickham, Çetinkaya-Runde, and G
 <span><span class="co">#&gt; Columns: 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="filtrar-estabelecimentos-para-o-grupo-g0" class="level4"><h4 class="anchored" data-anchor-id="filtrar-estabelecimentos-para-o-grupo-g0">Filtrar Estabelecimentos para o Grupo G0</h4>
-</section></section></section><section id="citação" class="level2"><h2 class="anchored" data-anchor-id="citação">Citação</h2>
+</section><section id="importar-e-filtrar-dados-extras-das-companhias-por-estabelecimento" class="level4"><h4 class="anchored" data-anchor-id="importar-e-filtrar-dados-extras-das-companhias-por-estabelecimento">Importar e Filtrar Dados Extras das Companhias por Estabelecimento</h4>
+</section><section id="importar-e-filtrar-dados-dp-simples-nacional-por-estabelecimento" class="level4"><h4 class="anchored" data-anchor-id="importar-e-filtrar-dados-dp-simples-nacional-por-estabelecimento">Importar e Filtrar Dados dp Simples Nacional por Estabelecimento</h4>
+</section><section id="visualizar-dados-do-status-de-registro" class="level4"><h4 class="anchored" data-anchor-id="visualizar-dados-do-status-de-registro">Visualizar Dados do Status de Registro</h4>
+</section></section><section id="tidy-data" class="level3"><h3 class="anchored" data-anchor-id="tidy-data">Tidy Data</h3>
+<section id="remover-colunas-extras" class="level4"><h4 class="anchored" data-anchor-id="remover-colunas-extras">Remover Colunas Extras</h4>
+</section><section id="padronização-da-codificação-de-caracteres" class="level4"><h4 class="anchored" data-anchor-id="padronização-da-codificação-de-caracteres">Padronização da Codificação de Caracteres</h4>
+</section><section id="pad-cnpjs-e-cnaes" class="level4"><h4 class="anchored" data-anchor-id="pad-cnpjs-e-cnaes">Pad CNPJs e CNAEs</h4>
+</section><section id="remover-cnpjs-duplicados" class="level4"><h4 class="anchored" data-anchor-id="remover-cnpjs-duplicados">Remover CNPJs Duplicados</h4>
+</section><section id="remover-cnpjs-e-cnaes-inválidos" class="level4"><h4 class="anchored" data-anchor-id="remover-cnpjs-e-cnaes-inválidos">Remover CNPJs e CNAEs Inválidos</h4>
+</section><section id="adicionar-dados-municipais" class="level4"><h4 class="anchored" data-anchor-id="adicionar-dados-municipais">Adicionar Dados Municipais</h4>
+</section><section id="padronizar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="padronizar-os-dados">Padronizar os Dados</h4>
+</section><section id="realocar-as-colunas" class="level4"><h4 class="anchored" data-anchor-id="realocar-as-colunas">Realocar as Colunas</h4>
+</section><section id="organizar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="organizar-os-dados">Organizar os Dados</h4>
+</section></section><section id="geocodificar-os-dados" class="level3"><h3 class="anchored" data-anchor-id="geocodificar-os-dados">Geocodificar os Dados</h3>
+<section id="preparar-os-dados" class="level4"><h4 class="anchored" data-anchor-id="preparar-os-dados">Preparar os Dados</h4>
+</section><section id="geocodificar-os-dados-1" class="level4"><h4 class="anchored" data-anchor-id="geocodificar-os-dados-1">Geocodificar os Dados</h4>
+</section><section id="tidy-data-1" class="level4"><h4 class="anchored" data-anchor-id="tidy-data-1">Tidy Data</h4>
+</section><section id="visualizar-precisão-da-geocodificação" class="level4"><h4 class="anchored" data-anchor-id="visualizar-precisão-da-geocodificação">Visualizar Precisão da Geocodificação</h4>
+<section id="precisão-global" class="level5"><h5 class="anchored" data-anchor-id="precisão-global">Precisão Global</h5>
+</section><section id="precisão-local" class="level5"><h5 class="anchored" data-anchor-id="precisão-local">Precisão Local</h5>
+</section></section></section></section><section id="citação" class="level2"><h2 class="anchored" data-anchor-id="citação">Citação</h2>
 </section><section id="license" class="level2"><h2 class="anchored" data-anchor-id="license">License</h2>
 <div style="text-align: left;">
 <p><a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/license-GPLv3-bd0000.svg" class="img-fluid" alt="License: GPLv3"></a> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY-NC-SA 4.0"></a></p>

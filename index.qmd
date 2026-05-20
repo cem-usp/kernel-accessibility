@@ -2,7 +2,6 @@
 params:
   year: 2026
   month: 1
-  h3_resolution: 9
   municipality_codes: [
     2507507, # João Pessoa (PB)
     3106200, # Belo Horizonte (MG)
@@ -10,6 +9,7 @@ params:
     4314902, # Porto Alegre (RS)
     1501402 # Belém (PA)
   ]
+  h3_resolution: 9
 ---
 
 ```{r}
@@ -738,7 +738,7 @@ if (length(zip_files) > 0) {
 
 ### Importar e Filtrar Dados
 
-#### Importar e Filtrar Dados por Municípios
+#### Importar e Filtrar Estabelecimentos Ativos e Regulares por Municípios
 
 ::: {.callout-note}
 A linguagem de programação [AWK](https://www.gnu.org/software/gawk/) e o pacote R [vroom](https://vroom.r-lib.org/) R são usados para ler e filtrar dados de maneira eficiente, sem carregar os dadados inteiramente na memória.
@@ -858,7 +858,45 @@ data |> glimpse()
 
 #### Filtrar Estabelecimentos para o Grupo G0
 
+#### Importar e Filtrar Dados Extras das Companhias por Estabelecimento
 
+#### Importar e Filtrar Dados dp Simples Nacional por Estabelecimento
+
+#### Visualizar Dados do Status de Registro
+
+### Tidy Data
+
+#### Remover Colunas Extras
+
+#### Padronização da Codificação de Caracteres
+
+#### Pad CNPJs e CNAEs
+
+#### Remover CNPJs Duplicados
+
+#### Remover CNPJs e CNAEs Inválidos
+
+#### Adicionar Dados Municipais
+
+#### Padronizar os Dados
+
+#### Realocar as Colunas
+
+#### Organizar os Dados
+
+### Geocodificar os Dados
+
+#### Preparar os Dados
+
+#### Geocodificar os Dados 
+
+#### Tidy Data
+
+#### Visualizar Precisão da Geocodificação
+
+##### Precisão Global 
+
+##### Precisão Local
 
 ## Citação
 
