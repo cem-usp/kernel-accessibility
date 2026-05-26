@@ -12,9 +12,9 @@
 
 ## Overview
 
-This study aims to provide maps generated through the [Kernel Density Function](https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm) regarding access to healthy foods in favelas and urban communities, through the acquisition, processing, geocoding, and classification of [CNPJ](https://en.wikipedia.org/wiki/CNPJ) data obtained from the Brazilian Federal Revenue Service ([RFB](https://www.gov.br/receitafederal/)), as well as data on establishments classified as healthy food retailers from OpenStreetMap ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)), from the [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API).
+The present study aims to provide maps generated through the [Kernel Density Function](https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm) regarding access to healthy food in Brazilian favelas and urban communities by obtaining, processing, geocoding, and classifying [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s data from the Brazilian Federal Revenue Service ([RFB](https://www.gov.br/receitafederal/)), as well as acquiring, processing, geocoding, and classifying ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)) establishment data via the [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API). 
 
-The classification of food healthiness follows the [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en) study, using Group 0 (G0). Although G0 is not part of the original classification, it is an existing subgroup within G1 + G2, composed of establishments that exclusively sell healthy foods which should constitute part of the population’s diet.
+AThe classification of food healthfulness follows [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en)study, using Group 0 (G0), which is not part of the original classification but rather a subgroup within G1 + G2. This subgroup is composed of establishments that exclusively sell healthy foods that should constitute part of the population’s diet.
 
 The report is available [here](https://cem-usp.github.io/kernel-accessibility/).
 
@@ -33,7 +33,7 @@ After installing the three dependencies mentioned above and setting all the keys
 
 To cite this work, please use the following format:
 
-Pizzonia, M. A. Jr. (2026). *Mapping Healthy Food Accessibility in Brazilian Slums and Urban Communities* \[Computer software\]. Center for Metropolitan Studies, University of São Paulo. <https://cem-usp.github.io/kernel-accessibility/>
+Pizzonia, M. A. Jr. (2026). *Mapping Accessibility to Health Food in Brazilian Favelas and Urban Comunities* \[Computer software\]. Center for Metropolitan Studies, University of São Paulo. <https://cem-usp.github.io/kernel-accessibility/>
 
 A BibTeX entry for LaTeX users is
 

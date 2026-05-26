@@ -28,29 +28,29 @@ here("R", ".setup.R") |> source()
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 <!-- badges: end -->
 
-## Visão Geral
+## Overview
 
-O presente estudo visa prover mapas gerados pela [Função de Densidade de Kernel](https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm) sobre o acesso aos alimentos saudáveis em favelas e comunidades urbanas, por meio da obtenção, processamento, geocodificação e classificação dos dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s provenientes da Receita Federal Brasileira ([RFB](https://www.gov.br/receitafederal/)), como também os dados sobre os estabelecimentos classificados como de venda de alimentos saudáveis do OpenStreetMap ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)), via [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API). 
+The present study aims to provide maps generated through the [Kernel Density Function](https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm) regarding access to healthy food in Brazilian favelas and urban communities by obtaining, processing, geocoding, and classifying [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s data from the Brazilian Federal Revenue Service ([RFB](https://www.gov.br/receitafederal/)), as well as acquiring, processing, geocoding, and classifying ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)) establishment data via the [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API). 
 
-A classificação sobre a saudabilidade alimentar segue o estudo [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en), usando o Grupo 0 (G0), este não sendo parte da classificação original, mas sim um subgrupo existente no grupo G1 + G2, sendo é composto por estabelecimentos que vendem alimentos exclusivamente saudáveis que deveriam fazer parte da dieta populacional.
+AThe classification of food healthfulness follows [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en)study, using Group 0 (G0), which is not part of the original classification but rather a subgroup within G1 + G2. This subgroup is composed of establishments that exclusively sell healthy foods that should constitute part of the population’s diet.
 
-Para instruções de como usar o pipeline, veja [README](https://github.com/cem-usp/kernel-accessibility/blob/main/README.md) no repositório. 
+For instructions on how to run this work, see the repository [README](https://github.com/cem-usp/kernel-accessibility/blob/main/README.md). 
 
-## Problema
+## Problem
 
-O projeto [AcessoSAN](https://doi.org/10.17605/OSF.IO/ZE6WT) almeja desenvolver novos métodos de medição e de análise da desilguadade existente no acesso aos alimentos saudáveis, particularmente nas favelas e comunidades urbanas brasileiras. Para alcançar tais objetivos, faz-se necessário o uso de bases de dados confiáveis e atualizadas sobre os estabelecimentos que vendem comida saudável.
+The [AcessoSAN](https://doi.org/10.17605/OSF.IO/ZE6WT) project aims to develop new methods for measuring and analyzing inequalities in access to healthy food, particularly in Brazilian favelas and urban communities. To achieve these objectives, it is necessary to use reliable and up-to-date datasets regarding establishments that sell healthy food.
 
-A [RFB](https://www.gov.br/receitafederal/) lista companhias que operam no Brasil, incluindo varejos alimentares. Entretano, não fornece [informações geocodificadas](https://en.wikipedia.org/wiki/Address_geocoding), necessárias para a análise espacial. Esse pipeline segue os trabalhos realizados pelos estudos de @vartanian2026b para a georreferenciar os dados dos [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s da [RFB](https://www.gov.br/receitafederal/) e de @freitas2026, para obter as métricas de acessibilidade do grupo G0. 
+The Brazilian Federal Revenue Service [RFB](https://www.gov.br/receitafederal/) rovides records of companies operating in Brazil, including food retailers. However, it does not provide [geocoded information](https://en.wikipedia.org/wiki/Address_geocoding), which is necessary for spatial analysis. This study follows the piepelnes developed by @vartanian2026b pto georeference [RFB](https://www.gov.br/receitafederal/) [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s data and by @freitas2026o obtain accessibility metrics for Group G0.
 
-Além disso, para entender melhor os gaps informacionais existentes sobre o acesso aos alimentos saudáveis em favelas e comuinidades urbanas, ralizar-se-á, também, análises referentes aos dados disponíveis na [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) como meio de comparação com os resultados obtidos com a [RFB](https://www.gov.br/receitafederal/).
+Furthermore, in order to better understand the existing informational gaps regarding access to healthy food in favelas and urban communities, analyses will also be conducted using data available through the [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) as a means of comparison with the results obtained from the RFB. [RFB](https://www.gov.br/receitafederal/).
 
-## Disponibilidade dos Dados
+## Data Availability
 
 
 
-## Métodos
+## Methods
 
-### Fontes dos Dados
+### Source of Data
 
 Os dados usados nesse repositório advém das seguintes fontes:
 
@@ -75,14 +75,12 @@ Os dados usados nesse repositório advém das seguintes fontes:
   - Dados dos municípios brasileiros no formato [PMTiles](https://docs.protomaps.com/pmtiles/) [@vartanian2026c], utilizados para a representação de informações geográficas em mapas interativos com  [MapLibre](https://maplibre.org/) [@maplibre], via [`mapgl`](https://walker-data.com/mapgl/), pacote R [@walker2026a].
 - [Tecnologia da Uber](https://www.uber.com/):
   - Dados de malhas hexagonais estruturados a partir do sistema hierárquico de indexação geoespacial hexagonal ([H3](https://h3geo.org/)) [@uber], processados com os pacotes [`h3r`](https://symbolixau.github.io/h3r) [@cooley2024] e [`h3jsr`](https://obrl-soil.github.io/h3jsr/) [@obrien2023], pacotes R empregados na criação de grades hexagonais para análise e visualização espacial.
-  
 
+## Data Munging
 
-### Processamento dos Dados
+The data munging follows the data science workflow outlined by @wickham2023e, as illustrated in [@fig-wickham-at-al-2023-figure-1]. All processes were made using the [Quarto](https://quarto.org/) publishing system, along with the [AWK](https://en.wikipedia.org/wiki/AWK) [@aho2023] and [R](https://www.r-project.org/) [@rcoreteam] programming languages, supported by several R packages.
 
-O processamento dos dados segue o workflow de ciência de dados criado por @wickham2023e como ilustrado in [@fig-wickham-at-al-2023-figure-1]. Todos os processos foram feitos usando o sistema de publicação [Quarto](https://quarto.org/) em conjunto com as linguagens de programação [AWK](https://en.wikipedia.org/wiki/AWK) [@aho2023] e [R](https://www.r-project.org/) [@rcoreteam], apoiadas por diverso pacotes do R.
-
-Para o workflow e o processamento dos dados foi dado priodridade aos pacotes do [tidyverse](https://www.tidyverse.org/), [rOpenSci](https://ropensci.org/) e [r-spatial](https://r-spatial.org/) frameworks, assim como outros pacotes que aderem ao manifesto tidy tools [@wickham2023c].
+For data manipulation and workflow, priority was given to packages from the [tidyverse](https://www.tidyverse.org/), [rOpenSci](https://ropensci.org/) and [r-spatial](https://r-spatial.org/) frameworks, as well as other packages adhering to the tidy tools manifesto [@wickham2023c].
 
 ::: {#fig-wickham-at-al-2023-figure-1}
 ![](images/wickham-at-al-2023-figure-1.png){width=75%}
@@ -92,28 +90,29 @@ Para o workflow e o processamento dos dados foi dado priodridade aos pacotes do 
 Data science workflow created by Wickham, Çetinkaya-Runde, and Grolemund.
 :::
 
-### Estrutura dos Dados
+### Data Structure
 
-#### RFB
-
-
-#### OSM
+#### Brazilian Federal Revenue Service (RFB)
 
 
+#### Open Street Map (OSM)
 
-### Matriz de Deslocamento
 
-A matriz de deslocamento é computada por meio do pacote [`r5r`](https://ipeagit.github.io/r5r/) do R [@pereira2021], que realiza interface com o mecanismo de roteamento [R5](https://github.com/conveyal/r5). Esta ferramenta possibilita a estimação detalhada de tempos de viagem a partir de redes de transporte multimodais, incorporando tipos de vias, condições de tráfego e variações altimétricas. Os tempos de deslocamento são obtidos do OpenStreetMap ([OSM](https://www.openstreetmap.org/)) a partir de dados de vias e caminhos de pedestres [@openstreetmap] e de dados altimétricos do conjunto Mapzen Terrain Tile [@mapzen].
 
-### Estilo do Código
+### Travel Matrix
 
-O Tidyverse [manifesto tidy tools](https://tidyverse.tidyverse.org/articles/manifesto.html) [@wickham2023c], [guia do estilo de código](https://style.tidyverse.org/) [@wickhama] e [design principles](https://design.tidyverse.org/) [@wickhamc] foram seguidos para garantir consistência e melhorar a legibilidade.
+The travel matrix is computed using the [`r5r`](https://ipeagit.github.io/r5r/) R package [@pereira2021], which interfaces with the [R5](https://github.com/conveyal/r5) routing engine. This tool enables detailed travel time calculations based on multimodal transportation networks, accounting for road types, traffic conditions, and elevation changes. Travel times are derived from OpenStreetMap ([OSM](https://www.openstreetmap.org/)) road and footpath data [@openstreetmap] and elevation data from the Mapzen Terrain Tile dataset [@mapzen].
 
-### Reprodutibilidade
+### Code Style
 
-O pipeline é integralmente reprodutível e pode ser reexecutado a qualquer momento. Para assegurar consistência nos resultados, utilizou-se o pacote [renv](https://rstudio.github.io/renv/) package [@ushey2025] para gerenciar e restaurar o ambiente R. Consulte o arquivo [README](https://github.com/cem-usp/kernel-accessibility/blob/main/README.md) no repositório para instruções de execução.
+The Tidyverse [tidy tools manifesto](https://tidyverse.tidyverse.org/articles/manifesto.html) [@wickham2023c], [code style guide](https://style.tidyverse.org/) [@wickhama] and [design principles](https://design.tidyverse.org/) [@wickhamc] were followed to ensure consistency and enhance readability.
 
-### Carregar os Pacotes
+### Reproducibility
+
+The pipeline is fully reproducible and can be run again at any time. To ensure consistent results, the [`renv`](https://rstudio.github.io/renv/) package [@ushey2025] was used to manage and restore the R environment. See the [README](https://github.com/cem-usp/locais-nova-rfb-geocoding/blob/main/README.md) file in the code repository to learn how to run it.
+
+
+### Load Packages
 
 ```{r}
 #| code-fold: false
@@ -155,9 +154,9 @@ library(xml2)
 library(zip)
 ```
 
-## Importar, Processar, Geocodificar e Classificar os CNPJ's da RFB
+## Import, Process, Geocoded and Classify CNPJs from Bazilian Federal Revenue (RFB)
 
-### Preparar o Ambiente
+### Set the Environment
 
 ```{r}
 #| label: Set Environment
@@ -176,7 +175,7 @@ if (!is_online()) {
 }
 ```
 
-#### Preparar as Chaves
+#### Set Keys
 
 ::: {.callout-note}
 Veja a seção [Disponibilidade dos Dados](#disponibilidade-dos-dados) para mais informações.
@@ -218,7 +217,7 @@ private_key <- here(".ssh", "id_rsa")
 password <- Sys.getenv("ACESSOSAN_PASSWORD") # askpass()
 ```
 
-#### Definir os Diretórios dos Dados
+#### Set Data Directories
 
 ```{r}
 #| echo: true
@@ -238,14 +237,14 @@ for (i in c(raw_data_dir, input_data_dir, data_dir)) {
 }
 ```
 
-#### Checagem dos Parâmetros
+#### Check Parameters
 
 ::: {.callout-note}
-Os parâmetros principais do pipeline são definidos no cabeçalho [YAML](https://en.wikipedia.org/wiki/YAML) do documento [Quarto](https://quarto.org/).
+The pipeline main parameters are defined in the [YAML](https://en.wikipedia.org/wiki/YAML) header of its [Quarto](https://quarto.org/) document.
 
-As variáveis `year` e `month` representam, respectivamente, o ano e o mês da base de dados consolidada dos CNPJs da [RFB](https://www.gov.br/receitafederal/).
+The `year` and `month` variables represent the year and month of the consolidated [RFB](https://www.gov.br/receitafederal/) CNPJ dataset.
 
-A variável `municipality_codes` identifica os códigos municipais do [IBGE](https://www.ibge.gov.br/) incluidos na análise. Clique [aqui](https://sidra.ibge.gov.br/territorio) para ter acesso à lista de todos os municípios brasileiros, assim como seus códigos.
+The `municipality_codes` variable identifies the [IBGE](https://www.ibge.gov.br/) codes of the municipalities included in the analysis. Click [here](https://sidra.ibge.gov.br/territorio) to see a list of all Brazilian municipalities and their codes.
 :::
 
 ```{r}
@@ -274,17 +273,17 @@ assert_int(params$month, lower = 1, upper = 12)
 assert_integerish(params$municipality_codes, lower = 1100015, upper = 5300108)
 ```
 
-### Baixar e Importar os CNAEs da Tabela de Correspondência da Locais-Nova
+### Download and Import Locais-Nova CNAEs Lookup Table
 
 ::: {.callout-note}
-Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
+See the [Source of Data](#source-of-data) section for more information.
 :::
 
 ::: {.callout-important}
-Apesar dos *restaurantes* serem parte da classificação [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.pt), eles foram excluidos dessa análise em razão das evidências conflitantes acerca da identificação confiável desses estabelecimentos por meio de dados cadastrais empresariais.
+Although *restaurants* are part of the [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.pt) classification, they were excluded from this analysis due to conflicting evidence on how to reliably identify them using company registry data.
 :::
 
-#### Baixar os Dados
+#### Download Data
 
 ```{r}
 #| label: Download and Import Locais-Nova CNAE Lookup Table
@@ -309,7 +308,7 @@ if (!file_exists(locais_nova_lookup_file)) {
 }
 ```
 
-#### Importar os Dados
+#### Import Data
 
 ```{r}
 #| echo: true
@@ -323,13 +322,13 @@ locais_nova_lookup_data <- locais_nova_lookup_file |> read_rds()
 locais_nova_lookup_data |> glimpse()
 ```
 
-### Baixar, Importar e Processar os Dados Municipais
+### Download, Import, and Process Municipality Data
 
 ::: {.callout-note}
-Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
+See the [Source of Data](#source-of-data) section for more information.
 :::
 
-#### Baixar e Salvar os Dados
+#### Download and Save Data
 
 ```{r}
 #| label: Download, Import, and Process Municipality Data
@@ -371,7 +370,7 @@ if (!file_exists(read_municipality_file)) {
 }
 ```
 
-#### Importar os Dados
+#### Import Data
 
 ```{r}
 #| echo: true
@@ -401,7 +400,7 @@ if (is.null(municipalities_data)) {
 municipalities_data |> glimpse()
 ```
 
-#### Filtrar os Dados
+#### Filter Data
 
 ```{r}
 #| echo: true
@@ -417,7 +416,7 @@ municipalities_data <-
 municipalities_data |> glimpse()
 ```
 
-#### Transformar os Dados
+#### Transform Data
 
 ```{r}
 #| echo: true
@@ -443,13 +442,13 @@ municipalities_data <-
 municipalities_data |> glimpse()
 ```
 
-### Baixar, Importar e Transformar os Dados das Agências e Municípios (TOM)
+### Download, Import, and Transform Agencies and Municipalities (TOM) Data
 
 ::: {.callout-note}
-Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
+See the [Source of Data](#source-of-data) section for more information.
 :::
 
-#### Baixar os Dados
+#### Download Data
 
 ```{r}
 #| echo: true
@@ -467,7 +466,7 @@ if (!file_exists(municipalities_tom_data_file)) {
     req_url_path_append("receitafederal") |>
     req_url_path_append("dados") |>
     req_url_path_append("municipios.csv") |>
-    req_user_agent("https://cem-usp.github.io/locais-nova-rfb-geocoding") |>
+    req_user_agent("https://cem-usp.github.io/kernel-accessibility") |>
     req_options(connecttimeout = 10) |>
     req_retry(
       max_tries = 3,
@@ -479,7 +478,7 @@ if (!file_exists(municipalities_tom_data_file)) {
 }
 ```
 
-#### Importar os Dados
+#### Importa Data
 
 ```{r}
 #| echo: true
@@ -501,7 +500,7 @@ municipalities_tom_data <-
 municipalities_tom_data |> glimpse()
 ```
 
-#### Transformar os Dados
+#### Transform Data
 
 ```{r}
 #| echo: true
@@ -544,10 +543,10 @@ municipalities_tom_data <-
 municipalities_tom_data |> glimpse()
 ```
 
-### Correspondência entre códigos municipais do IBGE e códigos TOM
+### Map IBGE Municipality Codes to TOM Codes
 
 ::: {.callout-note}
-A Receita Federal Brasileira ([RFB](https://www.gov.br/receitafederal/)) tem seu sistema de identificação dos municípios diferente dos códigos do IBGE (_Tabela de Órgãos e Municípios_, [TOM](https://dados.gov.br/dados/conjuntos-dados/tabela-de-rgos-e-municpios)). Realizar a correspondência entre os códigos do IBGE para a TOM é, portanto, necessária.
+The Brazilian Federal Revenue Service ([RFB](https://www.gov.br/receitafederal/)) identifies municipalities using a different coding scheme than IBGE codes (_Tabela de Órgãos e Municípios_, [TOM](https://dados.gov.br/dados/conjuntos-dados/tabela-de-rgos-e-municpios)). Mapping IBGE codes to the corresponding TOM codes is therefore required.
 :::
 
 ```{r}
@@ -573,13 +572,13 @@ municipality_tom_codes <-
 municipality_tom_codes
 ```
 
-### Baixar Dados da RFB
+### Download RFB Data
 
 ::: {.callout-note}
-Veja a seção [Fontes dos Dados](#fontes-dos-dados) para mais informações.
+See the [Source of Data](#source-of-data) section for more information.
 :::
 
-#### Lista de Arquivos
+#### List Files
 
 ```{r}
 #| label: Download RFB Data
@@ -615,7 +614,7 @@ response <-
       </d:propfind>',
     type = "application/xml"
   ) |>
-  req_user_agent("https://cem-usp.github.io/locais-nova-rfb-geocoding") |>
+  req_user_agent("https://cem-usp.github.io/kernel-accessibility") |>
   req_options(connecttimeout = 10) |>
   req_retry(
     max_tries = 3,
@@ -666,7 +665,7 @@ files <-
 files |> glimpse()
 ```
 
-#### Baixar Dados
+#### Download Data
 
 ```{r}
 rfb_file_pattern <-
@@ -707,7 +706,7 @@ if (
 }
 ```
 
-#### Descompactar os Arquivos
+#### Unzip Files
 
 ```{r}
 zip_files <-
@@ -736,16 +735,16 @@ if (length(zip_files) > 0) {
 }
 ```
 
-### Importar e Filtrar Dados
+### Import and Filter Data
 
-#### Importar e Filtrar Estabelecimentos Ativos e Regulares por Municípios
+#### Import and Filter Active and Regular Establishments by Municipalities
 
 ::: {.callout-note}
-A linguagem de programação [AWK](https://www.gnu.org/software/gawk/) e o pacote R [vroom](https://vroom.r-lib.org/) R são usados para ler e filtrar dados de maneira eficiente, sem carregar os dadados inteiramente na memória.
+The [AWK](https://www.gnu.org/software/gawk/) programming language and the [vroom](https://vroom.r-lib.org/) R package are used to read and filter the data efficiently, without loading it entirely into memory.
 
-Apenas estabelecimentos com status de registro *Ativo* (`$6 == "02"`) e sem status especiais (`$29 == ""`) estão incluídos e, portanto, os registros são posteriormente filtrados por município (`$21 == municipality_tom_codes`).
+Only establishments with an *Active* registration status (`$6 == "02"`) and no special status (`$29 == ""`) are included, and the resulting records are further filtered by municipality (`$21 == municipality_tom_codes`).
 
-Clique [aqui](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj) para acessar o dicionário dos dados.
+Click [here](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj) to access the data dictionary.
 :::
 
 ```{r}
@@ -856,50 +855,103 @@ data <-
 data |> glimpse()
 ```
 
-#### Filtrar Estabelecimentos para o Grupo G0
+#### Filter Establishments by Locais-Nova G0 Group
 
-#### Importar e Filtrar Dados Extras das Companhias por Estabelecimento
+#### Import and Filter Additional Company Data by Establishment
 
-#### Importar e Filtrar Dados dp Simples Nacional por Estabelecimento
+#### Import and Filter Simples Nacional Data by Establishment
 
-#### Visualizar Dados do Status de Registro
+#### Visualize Registration Status Dates
+
+::: {.callout-note}
+These dates indicate when establishments were registered as *Active*.
+:::
 
 ### Tidy Data
 
-#### Remover Colunas Extras
+::: {.callout-note}
+Some tidying operations are performed to ensure the data is in a suitable format for analysis. The data is not yet reshaped to a [tidy format](https://r4ds.hadley.nz/data-tidy.html) to avoid duplicated cases during geocoding.
 
-#### Padronização da Codificação de Caracteres
+Addresses were normalized using the [`enderecobr`](https://ipeagit.github.io/enderecobr/) R package [@herszenhut], which standardizes common street types and abbreviations in Brazilian addresses.
+:::
 
-#### Pad CNPJs e CNAEs
+#### Remove Extra Columns
 
-#### Remover CNPJs Duplicados
+#### Standardize Character Encoding
 
-#### Remover CNPJs e CNAEs Inválidos
+#### Pad CNPJs and CNAEs
 
-#### Adicionar Dados Municipais
+#### Remove CNPJ Duplicates
 
-#### Padronizar os Dados
+#### Remove Invalid CNPJs and CNAEs
 
-#### Realocar as Colunas
+#### Add Municipality Data
 
-#### Organizar os Dados
+#### Standardize Data
 
-### Geocodificar os Dados
+#### Relocate Columns
 
-#### Preparar os Dados
+#### Arrange Data
 
-#### Geocodificar os Dados 
+### Geocode Data
+
+#### Prepare Data
+
+#### Geocode Data
 
 #### Tidy Data
 
-#### Visualizar Precisão da Geocodificação
+#### Visualize Geocoding Precision
 
-##### Precisão Global 
+##### Global Precision
 
-##### Precisão Local
+##### Local Precision
 
-## Citação
+### Tidy Data
 
+#### Remove Extra Columns
+
+####  Pivot Data
+
+#### Arrange Data
+
+### Create Data Dictionary
+
+#### Prepare Metadata
+
+#### Visualize Final Data
+
+### Save Data
+
+::: {.callout-note}
+The processed data are available in [`csv`](https://en.wikipedia.org/wiki/Comma-separated_values), [`rds`](https://rdrr.io/r/base/readRDS.html) and [`parquet`](https://en.wikipedia.org/wiki/Apache_Parquet) formats through a dedicated repository on the Open Science Framework ([OSF](https://osf.io/)). See the [Data Availability](#data-availability) section for more information.
+:::
+
+#### Clean Old Data Files
+
+#### Write Data 
+
+#### Write Lookup Tables
+
+#### Lock Data
+
+#### Write Meetadata
+
+### Visualize Geocoding
+
+::: {.callout-note}
+The processed data can be visualized at [RFB and OSM Georeferenced Data](#rfb-and-osm-georeferenced-data).
+:::
+
+## Open Street Map (OSM) Establishment Data Acquisition, Processing, Geocoding, and Classification
+
+
+
+## Citation
+
+::: {.callout-note}
+When using this data, you must also cite the original data sources.
+:::
 
 ## License
 
@@ -909,10 +961,11 @@ data |> glimpse()
 :::
 
 ::: {.callout-note}
-As fontes de dados originais podem estar sujeitas aos seus próprios termos e condições de licenciamento.
+The original data sources may be subject to their own licensing terms and conditions.
 :::
 
-O código deste repositório está licenciado sob a [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0), enquanto o relatório está disponível sob a licença [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+The code in this repository is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0), while the report is available under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+
 
 ```
 Copyright (C) 2026 Center for Metropolitan Studies
