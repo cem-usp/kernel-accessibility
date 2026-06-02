@@ -14,9 +14,9 @@
 
 The present study aims to provide maps generated through the [Kernel Density Function](https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm) regarding access to healthy food in Brazilian favelas and urban communities by obtaining, processing, geocoding, and classifying [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s data from the Brazilian Federal Revenue Service ([RFB](https://www.gov.br/receitafederal/)), as well as acquiring, processing, geocoding, and classifying ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)) establishment data via the [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API). 
 
-AThe classification of food healthfulness follows [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en)study, using Group 0 (G0), which is not part of the original classification but rather a subgroup within G1 + G2. This subgroup is composed of establishments that exclusively sell healthy foods that should constitute part of the population’s diet.
+The classification of food healthfulness follows [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en) study, using Group 0 (G0), which is not part of the original classification but rather a subgroup within G1 + G2. This subgroup is composed of establishments that exclusively sell healthy foods that should constitute part of the population’s diet.
 
-The report is available [here](https://cem-usp.github.io/kernel-accessibility/).
+For instructions on how to run this work, see the repository [README](https://github.com/cem-usp/kernel-accessibility/blob/main/README.md). 
 
 ## Usage
 

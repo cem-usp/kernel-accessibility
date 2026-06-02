@@ -32,7 +32,7 @@ here("R", ".setup.R") |> source()
 
 The present study aims to provide maps generated through the [Kernel Density Function](https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm) regarding access to healthy food in Brazilian favelas and urban communities by obtaining, processing, geocoding, and classifying [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s data from the Brazilian Federal Revenue Service ([RFB](https://www.gov.br/receitafederal/)), as well as acquiring, processing, geocoding, and classifying ([OSM](https://www.openstreetmap.org/#map=4/-15.13/-53.19)) establishment data via the [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API). 
 
-AThe classification of food healthfulness follows [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en)study, using Group 0 (G0), which is not part of the original classification but rather a subgroup within G1 + G2. This subgroup is composed of establishments that exclusively sell healthy foods that should constitute part of the population’s diet.
+The classification of food healthfulness follows [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en) study, using Group 0 (G0), which is not part of the original classification but rather a subgroup within G1 + G2. This subgroup is composed of establishments that exclusively sell healthy foods that should constitute part of the population’s diet.
 
 For instructions on how to run this work, see the repository [README](https://github.com/cem-usp/kernel-accessibility/blob/main/README.md). 
 
@@ -40,7 +40,7 @@ For instructions on how to run this work, see the repository [README](https://gi
 
 The [AcessoSAN](https://doi.org/10.17605/OSF.IO/ZE6WT) project aims to develop new methods for measuring and analyzing inequalities in access to healthy food, particularly in Brazilian favelas and urban communities. To achieve these objectives, it is necessary to use reliable and up-to-date datasets regarding establishments that sell healthy food.
 
-The Brazilian Federal Revenue Service [RFB](https://www.gov.br/receitafederal/) rovides records of companies operating in Brazil, including food retailers. However, it does not provide [geocoded information](https://en.wikipedia.org/wiki/Address_geocoding), which is necessary for spatial analysis. This study follows the piepelnes developed by @vartanian2026b pto georeference [RFB](https://www.gov.br/receitafederal/) [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s data and by @freitas2026o obtain accessibility metrics for Group G0.
+The Brazilian Federal Revenue Service [RFB](https://www.gov.br/receitafederal/) provides records of companies operating in Brazil, including food retailers. However, it does not provide [geocoded information](https://en.wikipedia.org/wiki/Address_geocoding), which is necessary for spatial analysis. This study follows the piepelnes developed by @vartanian2026b to georeference [RFB](https://www.gov.br/receitafederal/) [CNPJ](https://en.wikipedia.org/wiki/CNPJ)s data and by @freitas2026 obtain accessibility metrics for Group G0.
 
 Furthermore, in order to better understand the existing informational gaps regarding access to healthy food in favelas and urban communities, analyses will also be conducted using data available through the [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) as a means of comparison with the results obtained from the RFB. [RFB](https://www.gov.br/receitafederal/).
 
@@ -52,29 +52,28 @@ Furthermore, in order to better understand the existing informational gaps regar
 
 ### Source of Data
 
-Os dados usados nesse repositório advém das seguintes fontes:
+The data used for this this work comes from:
 
-
-- Receita Federal Brasileira ([RFB](https://www.gov.br/receitafederal/)):
-  - Dados de pessoas jurídicas do Cadastro Nacional da Pessoa Jurídica ([CNPJ](https://en.wikipedia.org/wiki/CNPJ)) [base de dados](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj) usados para identificar empresas [@brasil].
-  - Códigos de agências e municípios brasileiros (_Tabela de Órgãos e Municípios_, [TOM]((https://dados.gov.br/dados/conjuntos-dados/tabela-de-rgos-e-municpios))) [@brasila], usados para identificar os municípios na base de dados dos CNPJs.
-- Instituto Brasileiro de Geografia e Estatística ([IBGE](https://www.ibge.gov.br/)):
-  - Códigos e descrições da Classificação Nacional de Atividade Econômicas ([CNAE](https://concla.ibge.gov.br/concla.html)) [@ibgej], usado para correspondência com os grupos Locais-Nova.
-  - Dados dos municípios brasileiros via [`geobr`](https://ipeagit.github.io/geobr/), pacote R [@pereirab] usado para validação cruzada.
-  - Base de dados espaciais aberta dos muninípios brasileiros disponível no Cadastro Nacional de Endereços para Fins Estatísticos ([CNEFE](https://www.ibge.gov.br/estatisticas/sociais/populacao/38734-cadastro-nacional-de-enderecos-para-fins-estatisticos.html)) via [`geocodebr`](https://ipeagit.github.io/geocodebr/), pacote R [@pereira] usado para geocodificação dos endereços.
-  - Dados dos limites dos setores censitários provenientes do [Censo 2022](https://www.ibge.gov.br/en/statistics/social/labor/22836-2022-census-3.html) e daddos dos limites municipais por meio do [`geobr`](https://ipeagit.github.io/geobr/), pacote R [@pereirab] usado para análise espacial e cálculo da densidade populacional.
-  - Dados populacionais do [Censo 2022](https://www.ibge.gov.br/en/statistics/social/labor/22836-2022-census-3.html) via [`censobr`](https://ipeagit.github.io/censobr/), pacote R [@pereirab], usado para calcular a densidade populacional.
-- Centro de Estudos da Metrópole ([CEM](https://centrodametropole.fflch.usp.br/)):
-  - [Tabela de Correspondência](https://docs.google.com/spreadsheets/d/1ipCw2FM3aUOdRd4w55J5SUEgXDCogxWZF-NZi0A-o_4/edit?usp=sharing) contendo a classificação que relaciona os códigos [CNAEs](https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/cnpj/classificacao-nacional-de-atividades-economicas-2013-cnae) dos estabelecimentos aos grupos [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en) (Fernandes & Giannotti, 2026).
-  - [Tabela de Correspondência](https://docs.google.com/spreadsheets/d/1JdDbKr5DYnQrp8DpI8Nep7v9UOpkruFkrKmo8LId8tQ/edit?usp=sharing) fornecendo padronização de endereços para fins de geocodificação (Vartanian et al., 2026).
+- Brazilian Federal Revenue Service ([RFB](https://www.gov.br/receitafederal/)):
+  - Legal entities data from the National Register of Legal Entities ([CNPJ](https://en.wikipedia.org/wiki/CNPJ)) [database](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj), used for company identification [@brasil].
+  - Codes of Brazilian agencies and municipalities (_Tabela de Órgãos e Municípios_, [TOM]((https://dados.gov.br/dados/conjuntos-dados/tabela-de-rgos-e-municpios))) [@brasila], used to identify municipalities in the CNPJ database.
+- Brazilian Institute of Geography and Statistics ([IBGE](https://www.ibge.gov.br/)):
+  - Brazilian municipalities data via the [`geobr`](https://ipeagit.github.io/geobr/) R package [@pereirab], used for cross-referencing.
+  - Codes and descriptions from the National Classification of Economic Activities ([CNAE](https://concla.ibge.gov.br/concla.html)) [@ibgej], used to match establishments to the Locais-Nova groups.
+  - Open spatial datasets of Brazilian addresses from the National Address Register for Statistical Purposes ([CNEFE](https://www.ibge.gov.br/estatisticas/sociais/populacao/38734-cadastro-nacional-de-enderecos-para-fins-estatisticos.html)) via the [`geocodebr`](https://ipeagit.github.io/geocodebr/) R package [@pereira], used for geocoding the establishments.
+  - Tract boundary data from the [Brazilian 2022 Census](https://www.ibge.gov.br/en/statistics/social/labor/22836-2022-census-3.html) and municipal boundary data via the [`geobr`](https://ipeagit.github.io/geobr/) R package [@pereirab], used for spatial analysis and population density calculations.
+  - Tract population data from the [Brazilian 2022 Census](https://www.ibge.gov.br/en/statistics/social/labor/22836-2022-census-3.html) via the [`censobr`](https://ipeagit.github.io/censobr/) R package [@pereirab], used to calculate population density.
+- Center for Metropolitan Studies ([CEM](https://centrodametropole.fflch.usp.br/)):
+  - [Lookup table](https://docs.google.com/spreadsheets/d/1ipCw2FM3aUOdRd4w55J5SUEgXDCogxWZF-NZi0A-o_4/edit?usp=sharing) providing the classification linking the establishments [CNAEs](https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/cnpj/classificacao-nacional-de-atividades-economicas-2013-cnae) codes to the [Locais-Nova](https://doi.org/10.1590/S2237-96222025v34.20240361.en) groups [@fernandes2026], used to classify establishments into the Locais-Nova groups.
 - [Mapzen Terrain Tile](https://registry.opendata.aws/terrain-tiles/)
-  - Dados altiimétrocos [@mapzen] via [`elevatr`](https://doi.org/10.32614/CRAN.package.elevatr), pacote R [@hollister2025] usado para cálculo do tempo de viagem e métricas de acessibilidade.
+  - Terrain data [@mapzen] via the [`elevatr`](https://doi.org/10.32614/CRAN.package.elevatr) R package [@hollister2025], used to calculate travel times and accessibility metrics.
 - OpenStreetMap ([OSM](https://www.openstreetmap.org/)):
-  - Dados espaciais de [vias e caminhos para pedestres]((https://wiki.openstreetmap.org/wiki/Map_features#Highway)) [@openstreetmap], obtidos por meio do projeto [Geofabrik](https://www.geofabrik.de/) [@geofabrik], utilizados para o cálculo dos tempos de deslocamento.
-- [PMTilesBR](https://pmtiles.com.br): Dados Geoespaciais em Mosaico para o Brasil
-  - Dados dos municípios brasileiros no formato [PMTiles](https://docs.protomaps.com/pmtiles/) [@vartanian2026c], utilizados para a representação de informações geográficas em mapas interativos com  [MapLibre](https://maplibre.org/) [@maplibre], via [`mapgl`](https://walker-data.com/mapgl/), pacote R [@walker2026a].
-- [Tecnologia da Uber](https://www.uber.com/):
-  - Dados de malhas hexagonais estruturados a partir do sistema hierárquico de indexação geoespacial hexagonal ([H3](https://h3geo.org/)) [@uber], processados com os pacotes [`h3r`](https://symbolixau.github.io/h3r) [@cooley2024] e [`h3jsr`](https://obrl-soil.github.io/h3jsr/) [@obrien2023], pacotes R empregados na criação de grades hexagonais para análise e visualização espacial.
+  - [Road and footpaths](https://wiki.openstreetmap.org/wiki/Map_features#Highway) spatial data [@openstreetmap] via the [Geofabrik](https://www.geofabrik.de/) project [@geofabrik], used to calculate travel times and accessibility metrics.
+- [PMTilesBR](https://pmtiles.com.br): Tiled Geospatial Data for Brazil
+  - Brazil municipality data in [PMTiles](https://docs.protomaps.com/pmtiles/) format [@vartanian2026c], used for plotting geographical information in interactive maps using [MapLibre](https://maplibre.org/) [@maplibre] with the [`mapgl`](https://walker-data.com/mapgl/) R package [@walker2026a].
+- [Uber Technologies](https://www.uber.com/):
+  - Hexagonal grid data structured using the hexagonal hierarchical geospatial indexing system ([H3](https://h3geo.org/)) [@uber], processed with the [`h3jsr`](https://obrl-soil.github.io/h3jsr/) [@obrien2023] R package, used to create hexagonal grids for spatial analysis and visualization.
+
 
 ## Data Munging
 
@@ -155,6 +154,10 @@ library(zip)
 ```
 
 ## Import, Process, Geocoded and Classify CNPJs from Bazilian Federal Revenue (RFB)
+
+::: {.callout-note}
+This pipeline was adapted from the pipeline made by @vartanian2026b to geocode only the G0 groups.
+:::
 
 ### Set the Environment
 
@@ -478,7 +481,7 @@ if (!file_exists(municipalities_tom_data_file)) {
 }
 ```
 
-#### Importa Data
+#### Import Data
 
 ```{r}
 #| echo: true
@@ -582,17 +585,22 @@ See the [Source of Data](#source-of-data) section for more information.
 
 ```{r}
 #| label: Download RFB Data
+#| echo: true
 
 public_token <- "YggdBLfdninEJX9"
 ```
 
 ```{r}
+#| echo: true
+
 request <-
   request("https://arquivos.receitafederal.gov.br") |>
   req_auth_basic(public_token, "")
 ```
 
 ```{r}
+#| echo: true
+
 response <-
   request |>
   req_url_path_append("public.php") |>
@@ -631,6 +639,8 @@ response <-
 ```
 
 ```{r}
+#| echo: true
+
 list_files <- function(node, response) {
   xpaths <- list(
     name = ".//d:displayname",
@@ -653,6 +663,8 @@ list_files <- function(node, response) {
 ```
 
 ```{r}
+#| echo: true
+
 files <-
   response |>
   map(list_files, response = response) |>
@@ -662,12 +674,16 @@ files <-
 ```
 
 ```{r}
+#| echo: true
+
 files |> glimpse()
 ```
 
 #### Download Data
 
 ```{r}
+#| echo: true
+
 rfb_file_pattern <-
   paste0(
     "D",
@@ -678,6 +694,7 @@ rfb_file_pattern <-
 
 ```{r}
 #| eval: !expr '!all(str_detect(dir_ls(raw_data_dir), rfb_file_pattern))'
+#| echo: true
 
 if (
   raw_data_dir |>
@@ -709,6 +726,8 @@ if (
 #### Unzip Files
 
 ```{r}
+#| echo: true
+
 zip_files <-
   raw_data_dir |>
   dir_ls(type = "file", regexp = "\\.zip$")
@@ -717,6 +736,7 @@ zip_files <-
 ```{r}
 #| eval: !expr '!all(str_detect(dir_ls(raw_data_dir), rfb_file_pattern))'
 #| output: false
+#| echo: true
 
 if (length(zip_files) > 0) {
   zip_files |>
@@ -729,6 +749,7 @@ if (length(zip_files) > 0) {
 
 ```{r}
 #| eval: !expr '!all(str_detect(dir_ls(raw_data_dir), rfb_file_pattern))'
+#| echo: true
 
 if (length(zip_files) > 0) {
   zip_files |> file_delete()
@@ -749,6 +770,7 @@ Click [here](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pes
 
 ```{r}
 #| label: Import and Filter Data
+#| echo: true
 
 data <-
   raw_data_dir |>
@@ -852,10 +874,32 @@ data <-
 ```
 
 ```{r}
+#| echo: true
+
 data |> glimpse()
 ```
 
 #### Filter Establishments by Locais-Nova G0 Group
+
+```{r}
+data <-
+  data |>
+  mutate(primary_cnae = primary_cnae |> str_pad(7, pad = "0")) |>
+  inner_join(
+    y = locais_nova_lookup_data,
+    by = join_by(primary_cnae == cnae, federal_unit)
+  ) |>
+  rename(
+    locais_nova_g0 = g0,
+    locais_nova_g1_g2 = g1_g2,
+    locais_nova_g3 = g3,
+    locais_nova_g4 = g4
+  ) 
+```
+
+```{r}
+data |> glimpse()
+```
 
 #### Import and Filter Additional Company Data by Establishment
 
@@ -945,6 +989,47 @@ The processed data can be visualized at [RFB and OSM Georeferenced Data](#rfb-an
 
 ## Open Street Map (OSM) Establishment Data Acquisition, Processing, Geocoding, and Classification
 
+::: {.callout-note}
+This pipeline was developed to establish a methodology for assessing informational gaps in data availability within Brazilian favelas and urban communities.
+:::
+
+## RFB and OSM Georeferenced Data
+
+::: {.callout-note}
+Visualize the RFB and OSM georeferenced data.
+:::
+
+## Calculating Accessibility to Food Establishments in Brazilian Favelas and Urban Comunities
+
+::: {.callout-note}
+This pipeline was adapted from the pipeline made by @freitas2026 to calculate the accessibility to food establishments classified as group G0 in favelas and urban comunities.
+
+Furthermore, this pipeline uses the RFB and OSM data to obtain the metrics.
+:::
+
+## Mapping Acessibility to Food Establishments in Brazilian Favelas and Urban Comunities
+
+::: {.callout-note}
+This pipeline was adapted from the pipeline made by @vartanian2026a to map the accessibility to food establishments classified as group G0 in favelas and urban comunities.
+
+Furthermore, this pipeline uses the accessibility metrics obtained from the [Calculating Accessibility to Food Establishments in Brazilian Favelas and Urban Comunities](#calculating-accessibility-to-food-establishments-in-brazilian-favelas-and-urban-comunities).
+:::
+
+## Mapping the Accessibility Denisty in Brazilian Favelas and Urban Comunities
+
+::: {.callout-note}
+This pipeline offers the accesibility density trough the [Kernel Density Function](https://doc.arcgis.com/en/arcgis-online/analyze/kernel-density-global-function.htm).
+
+As the [Mapping Acessibility to Food Establishments in Brazilian Favelas and Urban Comunities](#mapping-acessibility-to-food-establishments-in-brazilian-favelas-and-urban-comunities), this pipeline also uses the metrics obtained from the [Calculating Accessibility to Food Establishments in Brazilian Favelas and Urban Comunities](#calculating-accessibility-to-food-establishments-in-brazilian-favelas-and-urban-comunities).
+:::
+
+## Outcomes
+
+
+## Analisys of the Outcomes
+
+
+## Conclusion
 
 
 ## Citation
@@ -952,6 +1037,24 @@ The processed data can be visualized at [RFB and OSM Georeferenced Data](#rfb-an
 ::: {.callout-note}
 When using this data, you must also cite the original data sources.
 :::
+
+To cite this work, please use the following format:
+
+Pizzonia, M. A. Jr. (2026). *Mapping Accessibility to Health Food in Brazilian Favelas and Urban Comunities* \[Computer software\]. Center for Metropolitan Studies, University of São Paulo. <https://cem-usp.github.io/kernel-accessibility/>
+
+A BibTeX entry for LaTeX users is
+
+```latex
+@software{pizzonia2026,
+  title = {Mapping Healthy Food Accessibility in Brazilian Slums and Urban Communities},
+  author = {{Marcio Antonio Pizzonia Junior}},
+  year = {2026},
+  address = {São Paulo},
+  institution = {Center for Metropolitan Studies, University of São Paulo},
+  langid = {en},
+  url = {https://cem-usp.github.io/kernel-accessibility/}
+}
+```
 
 ## License
 
