@@ -141,7 +141,7 @@ library(orbis) # github.com/danielvartan/orbis
 library(osfr)
 library(parallel)
 library(purrr)
-#library(pmtiles)
+library(pmtiles) # github.com/walkerke/pmtiles
 library(quarto)
 library(readr)
 library(scales)
@@ -805,7 +805,7 @@ data <-
             ") ",
             "print",
             " }' ",
-            str_escape(x)
+          normalizePath(x, winslash = "/")
           )
         ),
         delim = ";",
